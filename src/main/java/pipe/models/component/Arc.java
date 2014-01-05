@@ -1,12 +1,11 @@
 package pipe.models.component;
 
-import pipe.models.PetriNet;
-import pipe.models.strategy.arc.ArcStrategy;
-import pipe.models.visitor.PetriNetComponentVisitor;
-
 import java.awt.geom.Point2D;
 import java.util.HashMap;
 import java.util.Map;
+
+import pipe.models.strategy.arc.ArcStrategy;
+import pipe.models.visitor.PetriNetComponentVisitor;
 
 public class Arc<S extends Connectable<S>, T extends Connectable<T>> extends AbstractPetriNetComponent {
 

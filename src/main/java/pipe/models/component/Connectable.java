@@ -97,11 +97,11 @@ public abstract class Connectable<T extends Connectable<T>> extends AbstractPetr
 //        }
 //    }
 
-    public void removeOutboundArc(Arc arc) {
+    public void removeOutboundArc(Arc<T, ?> arc) {
         outboundArcs.remove(arc);
     }
 
-    public void removeInboundArc(Arc arc) {
+    public void removeInboundArc(Arc<?, T> arc) {
         inboundArcs.remove(arc);
     }
 

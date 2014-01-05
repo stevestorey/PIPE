@@ -1,18 +1,10 @@
 package pipe.models.component;
 
-import parser.ExprEvaluator;
-import pipe.exceptions.TokenLockedException;
-import pipe.gui.ApplicationSettings;
-import pipe.models.visitor.PetriNetComponentVisitor;
-import pipe.utilities.math.Matrix;
-import pipe.views.*;
-
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Color;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+
+import pipe.exceptions.TokenLockedException;
+import pipe.models.visitor.PetriNetComponentVisitor;
 
 public class Token extends AbstractPetriNetComponent {
 
@@ -118,7 +110,7 @@ public class Token extends AbstractPetriNetComponent {
     }
 
 
-    void createForwardIncidenceMatrix(Collection<Arc> arcs, Collection<Transition> transitions, Collection<Place> places) {
+    void createForwardIncidenceMatrix(Collection<Arc<?, ?>> arcs, Collection<Transition> transitions, Collection<Place> places) {
         throw new RuntimeException("Using old forwards incidence matrix method");
 //        int placeSize = places.size();
 //        int transitionSize = transitions.size();
@@ -161,7 +153,7 @@ public class Token extends AbstractPetriNetComponent {
      * @param transitions
      * @param places
      */
-    void createBackwardsIncidenceMatrix(Collection<Arc> arcs, Collection<Transition> transitions, Collection<Place> places) {// Matthew
+    void createBackwardsIncidenceMatrix(Collection<Arc<?, ?>> arcs, Collection<Transition> transitions, Collection<Place> places) {// Matthew
         throw new RuntimeException("Using old backwards incidence matrix method");
 //        backwardsIncidenceMatrix.clear();
 //

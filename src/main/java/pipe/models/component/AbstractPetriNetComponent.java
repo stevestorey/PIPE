@@ -1,6 +1,5 @@
 package pipe.models.component;
 
-import parser.ExprEvaluator;
 import pipe.models.Observable;
 import pipe.models.interfaces.IObserver;
 
