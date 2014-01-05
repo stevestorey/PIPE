@@ -19,7 +19,7 @@ public class MarkingController
         if(_views == null)
             _views = new ArrayList<MarkingView>();
         _models.add(model);
-        _views.add(new MarkingView(this, model));
+        _views.add(new MarkingView(model));
     }
 
     public void addModel(Marking model)

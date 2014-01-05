@@ -10,7 +10,6 @@ import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 
 import parser.ExprEvaluator;
-import pipe.controllers.MarkingController;
 import pipe.models.Marking;
 import pipe.models.PipeObservable;
 
@@ -20,11 +19,9 @@ import pipe.models.PipeObservable;
 public class MarkingView extends JComponent implements Serializable, Observer {
     private TokenView _tokenView;
     private final Marking _model;
-    private MarkingController _controller;
     private PipeObservable _pipeObservable;
 
-    public MarkingView(MarkingController controller, Marking model) {
-        _controller = controller;
+    public MarkingView(Marking model) {
         _model = model;
         _tokenView = new TokenView(_model.getToken());
         _tokenView.addObserver(this);
