@@ -48,7 +48,7 @@ public class PipeTest {
 	private PipeApplicationView applicationView;
 	private JToolBar toolbar;
 	private Collection<PlaceView> placeViews;
-	private Collection<ArcView> arcViews;
+	private Collection<ArcView<?, ?>> arcViews;
 	private LinkedList<TokenView> tokenViews;
 	private int numTokens;
 	private JMenu menu;

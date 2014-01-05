@@ -23,11 +23,11 @@ import pipe.views.MarkingView;
 
 public class Copier 
 {
-    public static Object deepCopy(Object obj)
+    public static <T> T deepCopy(T obj)
     {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         ObjectOutputStream objectOutputStream;
-        Object deepCopy = null;
+        T deepCopy = null;
         try
         {
             objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
@@ -37,7 +37,7 @@ public class Copier
                     byteArrayOutputStream.toByteArray());
             ObjectInputStream objectInputStream = new ObjectInputStream(
                     byteArrayInputStream);
-            deepCopy = objectInputStream.readObject();
+            deepCopy = (T) objectInputStream.readObject();
 
         }
         catch(IOException e)

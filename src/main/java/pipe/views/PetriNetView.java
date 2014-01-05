@@ -29,6 +29,7 @@ import pipe.models.PetriNet;
 import pipe.models.component.Annotation;
 import pipe.models.component.Arc;
 import pipe.models.component.ArcType;
+import pipe.models.component.Connectable;
 import pipe.models.component.PetriNetComponent;
 import pipe.models.component.Place;
 import pipe.models.component.Token;
@@ -67,8 +68,8 @@ import pipe.views.viewComponents.RateParameter;
 public class PetriNetView extends Observable implements Cloneable, IObserver, Serializable, Observer {
     protected Map<Place, PlaceView> _placeViews = new HashMap<Place, PlaceView>();
     private Map<Transition, TransitionView> _transitionViews = new HashMap<Transition, TransitionView>();
-    private Map<Arc<?, ?>, ArcView> _arcViews = new HashMap<Arc<?, ?>, ArcView>();
-    private Map<Arc, InhibitorArcView<?, ?>> _inhibitorViews = new HashMap<Arc, InhibitorArcView<?, ?>>();
+    private Map<Arc<?, ?>, ArcView<?, ?>> _arcViews = new HashMap<Arc<?, ?>, ArcView<?, ?>>();
+    private Map<Arc<?, ?>, InhibitorArcView<?, ?>> _inhibitorViews = new HashMap<Arc<?, ?>, InhibitorArcView<?, ?>>();
     private Map<Annotation, AnnotationNote> _labels = new HashMap<Annotation, AnnotationNote>();
     private Set<RateParameter> _rateParameters = new HashSet<RateParameter>();
 
@@ -82,10 +83,10 @@ public class PetriNetView extends Observable implements Cloneable, IObserver, Se
     private boolean[] _timedMatrix;
     private List<MarkingView>[] _markingVectorAnimationStorage;
     private static boolean _currentMarkingVectorChanged = true;
-    private Hashtable _arcsMap = new Hashtable();
-    private Hashtable _inhibitorsMap = new Hashtable();
+    private Hashtable<ConnectableView<?>, List<NormalArcView<?, ?>>> _arcsMap = new Hashtable<ConnectableView<?>, List<NormalArcView<?, ?>>>();
+    private Hashtable<ConnectableView<?>, List<InhibitorArcView<?, ?>>> _inhibitorsMap = new Hashtable<ConnectableView<?>, List<InhibitorArcView<?, ?>>>();
     private ArrayList<StateGroup> _stateGroups = new ArrayList<StateGroup>();
-    private final HashSet _rateParameterHashSet = new HashSet();
+    private final HashSet<String> _rateParameterHashSet = new HashSet<String>();
     private PetriNet _model;
     private TokenSetController _tokenSetController = new TokenSetController();
 
@@ -256,14 +257,14 @@ public class PetriNetView extends Observable implements Cloneable, IObserver, Se
     }
 
     private void addAnnotation(AnnotationNote labelInput) {
-        boolean unique = true;
+//        boolean unique = true;
 //        _labels.add(labelInput);
         setChanged();
         notifyObservers(labelInput);
     }
 
     private void addAnnotation(RateParameter rateParameterInput) {
-        boolean unique = true;
+//        boolean unique = true;
 //        _rateParameters.add(rateParameterInput);
         setChanged();
         notifyObservers(rateParameterInput);
@@ -312,12 +313,12 @@ public class PetriNetView extends Observable implements Cloneable, IObserver, Se
         }
     }
 
-    public void addArc(NormalArcView arcViewInput) {
+    public <S extends Connectable<S>, T extends Connectable<T>> void addArc(NormalArcView<S, T> arcViewInput) {
         boolean unique = true;
 
         if (arcViewInput != null) {
             if (arcViewInput.getId() != null && arcViewInput.getId().length() > 0) {
-                for (ArcView _arcView : _arcViews.values()) {
+                for (ArcView<?, ?> _arcView : _arcViews.values()) {
                     if (arcViewInput.getId().equals(_arcView.getId())) {
                         unique = false;
                     }
@@ -327,7 +328,7 @@ public class PetriNetView extends Observable implements Cloneable, IObserver, Se
                 if (_arcViews != null && _arcViews.size() > 0) {
                     int no = _arcViews.size();
                     do {
-                        for (ArcView _arcView : _arcViews.values()) {
+                        for (ArcView<?, ?> _arcView : _arcViews.values()) {
                             id = "A" + no;
                             if (_arcView != null) {
                                 if (id.equals(_arcView.getId())) {
@@ -356,12 +357,12 @@ public class PetriNetView extends Observable implements Cloneable, IObserver, Se
         }
     }
 
-    public void addArc(InhibitorArcView inhibitorArcViewInput) {
+    public void addArc(InhibitorArcView<?, ?> inhibitorArcViewInput) {
         boolean unique = true;
 
         if (inhibitorArcViewInput != null) {
             if (inhibitorArcViewInput.getId() != null && inhibitorArcViewInput.getId().length() > 0) {
-                for (InhibitorArcView _inhibitorView : _inhibitorViews.values()) {
+                for (InhibitorArcView<?, ?> _inhibitorView : _inhibitorViews.values()) {
                     if (inhibitorArcViewInput.getId().equals(_inhibitorView.getId())) {
                         unique = false;
                     }
@@ -371,7 +372,7 @@ public class PetriNetView extends Observable implements Cloneable, IObserver, Se
                 if (_inhibitorViews != null && _inhibitorViews.size() > 0) {
                     int no = _inhibitorViews.size();
                     do {
-                        for (InhibitorArcView _inhibitorView : _inhibitorViews.values()) {
+                        for (InhibitorArcView<?, ?> _inhibitorView : _inhibitorViews.values()) {
                             id = "I" + no;
                             if (_inhibitorView != null) {
                                 if (id.equals(_inhibitorView.getId())) {
@@ -401,16 +402,16 @@ public class PetriNetView extends Observable implements Cloneable, IObserver, Se
         }
     }
 
-    private void addArcToArcsMap(NormalArcView arcViewInput) {
-        ConnectableView source = arcViewInput.getSource();
-        ConnectableView target = arcViewInput.getTarget();
-        ArrayList newList;
+    private <S extends Connectable<S>, T extends Connectable<T>> void addArcToArcsMap(NormalArcView<S, T> arcViewInput) {
+        ConnectableView<S> source = arcViewInput.getSource();
+        ConnectableView<T> target = arcViewInput.getTarget();
+        ArrayList<NormalArcView<?, ?>> newList;
 
         if (source != null) {
             if (_arcsMap.get(source) != null) {
-                ((ArrayList) _arcsMap.get(source)).add(arcViewInput);
+                _arcsMap.get(source).add(arcViewInput);
             } else {
-                newList = new ArrayList();
+                newList = new ArrayList<NormalArcView<?, ?>>();
                 newList.add(arcViewInput);
 
                 _arcsMap.put(source, newList);
@@ -419,25 +420,25 @@ public class PetriNetView extends Observable implements Cloneable, IObserver, Se
 
         if (target != null) {
             if (_arcsMap.get(target) != null) {
-                ((ArrayList) _arcsMap.get(target)).add(arcViewInput);
+                _arcsMap.get(target).add(arcViewInput);
             } else {
-                newList = new ArrayList();
+                newList = new ArrayList<NormalArcView<?, ?>>();
                 newList.add(arcViewInput);
                 _arcsMap.put(target, newList);
             }
         }
     }
 
-    private void addInhibitorArcToInhibitorsMap(InhibitorArcView inhibitorArcViewInput) {
-        ConnectableView source = inhibitorArcViewInput.getSource();
-        ConnectableView target = inhibitorArcViewInput.getTarget();
-        ArrayList newList;
+    private <S extends Connectable<S>, T extends Connectable<T>> void addInhibitorArcToInhibitorsMap(InhibitorArcView<S, T> inhibitorArcViewInput) {
+        ConnectableView<S> source = inhibitorArcViewInput.getSource();
+        ConnectableView<T> target = inhibitorArcViewInput.getTarget();
+        ArrayList<InhibitorArcView<?, ?>> newList;
 
         if (source != null) {
             if (_inhibitorsMap.get(source) != null) {
-                ((ArrayList) _inhibitorsMap.get(source)).add(inhibitorArcViewInput);
+                _inhibitorsMap.get(source).add(inhibitorArcViewInput);
             } else {
-                newList = new ArrayList();
+                newList = new ArrayList<InhibitorArcView<?, ?>>();
                 newList.add(inhibitorArcViewInput);
                 _inhibitorsMap.put(source, newList);
             }
@@ -445,9 +446,9 @@ public class PetriNetView extends Observable implements Cloneable, IObserver, Se
 
         if (target != null) {
             if (_inhibitorsMap.get(target) != null) {
-                ((ArrayList) _inhibitorsMap.get(target)).add(inhibitorArcViewInput);
+                _inhibitorsMap.get(target).add(inhibitorArcViewInput);
             } else {
-                newList = new ArrayList();
+                newList = new ArrayList<InhibitorArcView<?, ?>>();
                 newList.add(inhibitorArcViewInput);
                 _inhibitorsMap.put(target, newList);
             }
@@ -536,13 +537,13 @@ public class PetriNetView extends Observable implements Cloneable, IObserver, Se
         }
     }
 
-    public void addPetriNetObject(PetriNetViewComponent pn) {
+    public void addPetriNetObject(PetriNetViewComponent<?> pn) {
         if (pn instanceof NormalArcView) {
-            addArcToArcsMap((NormalArcView) pn);
-            addArc((NormalArcView) pn);
+            addArcToArcsMap((NormalArcView<?, ?>) pn);
+            addArc((NormalArcView<?, ?>) pn);
         } else if (pn instanceof InhibitorArcView) {
-            addInhibitorArcToInhibitorsMap((InhibitorArcView) pn);
-            addArc((InhibitorArcView) pn);
+            addInhibitorArcToInhibitorsMap((InhibitorArcView<?, ?>) pn);
+            addArc((InhibitorArcView<?, ?>) pn);
         } else if (pn instanceof PlaceView) {
             addPlace((PlaceView) pn);
         } else if (pn instanceof TransitionView) {
@@ -571,12 +572,12 @@ public class PetriNetView extends Observable implements Cloneable, IObserver, Se
         return false;
     }
 
-    public Iterator returnTransitions() {
+    public Iterator<TransitionView> returnTransitions() {
         return _transitionViews.values().iterator();
     }
 
-    public Iterator getPetriNetObjects() {
-        ArrayList all = new ArrayList(_placeViews.values());
+    public Iterator<Object> getPetriNetObjects() {
+        ArrayList<Object> all = new ArrayList<Object>(_placeViews.values());
         all.addAll(_transitionViews.values());
         all.addAll(_arcViews.values());
         all.addAll(_labels.values());
@@ -688,24 +689,6 @@ public class PetriNetView extends Observable implements Cloneable, IObserver, Se
     }
 
 
-
-    /**
-     * Empty all attributes, turn into empty Petri-Net
-     */
-    private void emptyPNML() {
-        _model.resetPNML();
-        _placeViews = null;
-        _transitionViews = null;
-        _arcViews = null;
-        _labels = null;
-        _rateParameters = null;
-        _initialMarkingVector = null;
-        _arcsMap = null;
-        _tokenSetController = null;
-//        initializeMatrices();
-    }
-
-
     /* (non-Javadoc)
       * @see pipe.models.interfaces.IPetriNet#places()
       */
@@ -746,7 +729,7 @@ public class PetriNetView extends Observable implements Cloneable, IObserver, Se
 
         for (int i = 0; i < _placeViews.size(); i++) {
             result[i] =
-                    (LinkedList<MarkingView>) Copier.deepCopy(((PlaceView) _placeViews.get(i)).getCurrentMarkingView());
+                    (LinkedList<MarkingView>) Copier.deepCopy((_placeViews.get(i)).getCurrentMarkingView());
         }
         return result;
     }
@@ -806,8 +789,8 @@ public class PetriNetView extends Observable implements Cloneable, IObserver, Se
     /* (non-Javadoc)
       * @see pipe.models.interfaces.IPetriNet#arcs()
       */
-    public ArcView[] arcs() {
-        ArcView[] returnArray = new ArcView[_arcViews.size()];
+    public ArcView<?, ?>[] arcs() {
+        ArcView<?, ?>[] returnArray = new ArcView[_arcViews.size()];
 
         for (int i = 0; i < _arcViews.size(); i++) {
             returnArray[i] = _arcViews.get(i);
@@ -818,15 +801,15 @@ public class PetriNetView extends Observable implements Cloneable, IObserver, Se
     /* (non-Javadoc)
       * @see pipe.models.interfaces.IPetriNet#getArcsArrayList()
       */
-    public Collection<ArcView> getArcsArrayList() {
+    public Collection<ArcView<?, ?>> getArcsArrayList() {
         return _arcViews.values();
     }
 
     /* (non-Javadoc)
       * @see pipe.models.interfaces.IPetriNet#inhibitors()
       */
-    public InhibitorArcView[] inhibitors() {
-        InhibitorArcView[] returnArray = new InhibitorArcView[_inhibitorViews.size()];
+    public InhibitorArcView<?, ?>[] inhibitors() {
+        InhibitorArcView<?, ?>[] returnArray = new InhibitorArcView[_inhibitorViews.size()];
 
         for (int i = 0; i < _inhibitorViews.size(); i++) {
             returnArray[i] = _inhibitorViews.get(i);
@@ -921,9 +904,9 @@ public class PetriNetView extends Observable implements Cloneable, IObserver, Se
 
 
         _model = new PetriNet();
-        ArcStrategy inhibitorStrategy = new InhibitorStrategy();
-        ArcStrategy normalForwardStrategy = new ForwardsNormalStrategy(_model);
-        ArcStrategy normalBackwardStrategy = new BackwardsNormalStrategy(_model);
+        ArcStrategy<Place, Transition> inhibitorStrategy = new InhibitorStrategy();
+        ArcStrategy<Transition, Place> normalForwardStrategy = new ForwardsNormalStrategy(_model);
+        ArcStrategy<Place, Transition> normalBackwardStrategy = new BackwardsNormalStrategy(_model);
         CreatorStruct struct = new CreatorStruct(new PlaceCreator(), new TransitionCreator(), new ArcCreator(inhibitorStrategy, normalForwardStrategy, normalBackwardStrategy),
                 new AnnotationCreator(), new RateParameterCreator(), new TokenCreator(), new StateGroupCreator());
         PetriNetReader reader = new PetriNetReader(struct);
@@ -953,7 +936,7 @@ public class PetriNetView extends Observable implements Cloneable, IObserver, Se
 
     private void displayArcs(Collection<Arc<?, ?>> arcs) {
         for (Arc<?, ?> arc : arcs) {
-            ArcView view;
+            ArcView<?, ?> view;
             if (_arcViews.containsKey(arc)) {
                 view = _arcViews.get(arc);
                 view.update();
@@ -997,13 +980,13 @@ public class PetriNetView extends Observable implements Cloneable, IObserver, Se
      * Removes a component view if it is no longer in components.
      * That is if it has been deleted from the model.
      */
-    private <M extends PetriNetComponent, V extends PetriNetViewComponent>
+    private <M extends PetriNetComponent, V extends PetriNetViewComponent<?>>
     void removeNoLongerThereComponents(Map<M, V> componentsToViews, Collection<M> components) {
         final Iterator<Map.Entry<M, V>> itr = componentsToViews.entrySet().iterator();
         while (itr.hasNext()) {
             Map.Entry<M, V> entry = itr.next();
             if (!components.contains(entry.getKey())) {
-                PetriNetViewComponent component = entry.getValue();
+                PetriNetViewComponent<?> component = entry.getValue();
 
                 component.delete();
                 setChanged();
@@ -1110,22 +1093,6 @@ public class PetriNetView extends Observable implements Cloneable, IObserver, Se
         return false;
     }
 
-      private void checkForInverseArc(NormalArcView newArcView) {
-        Iterator iterator = newArcView.getSource().getConnectToIterator();
-
-        ArcView anArcView;
-        while (iterator.hasNext()) {
-            anArcView = (ArcView) iterator.next();
-            if (anArcView.getTarget() == newArcView.getSource() && anArcView.getSource() == newArcView.getTarget()) {
-                if (anArcView.getClass() == NormalArcView.class) {
-                    if (!newArcView.hasInverse()) {
-                        ((NormalArcView) anArcView).setInverse(newArcView, Constants.JOIN_ARCS);
-                    }
-                }
-            }
-        }
-    }
-
     /* (non-Javadoc)
       * @see pipe.models.interfaces.IPetriNet#getTransitionName(int)
       */
@@ -1141,13 +1108,12 @@ public class PetriNetView extends Observable implements Cloneable, IObserver, Se
       * @see pipe.models.interfaces.IPetriNet#validTagStructure()
       */
     public boolean validTagStructure() {
-        ArrayList inputArcsArray = new ArrayList();
-        ArrayList outputArcsArray = new ArrayList();
+        ArrayList<ArcView<?, ?>> inputArcsArray = new ArrayList<ArcView<?, ?>>();
+        ArrayList<ArcView<?, ?>> outputArcsArray = new ArrayList<ArcView<?, ?>>();
 
         TransitionView currentTrans;
-        NormalArcView currentArcView;
+        NormalArcView<?, ?> currentArcView;
 
-        boolean taggedNet = false;
         boolean taggedTransition;
         boolean taggedInput;
         boolean taggedOutput;
@@ -1179,12 +1145,11 @@ public class PetriNetView extends Observable implements Cloneable, IObserver, Se
                 // one output arc
 
                 if (_arcViews != null && _arcViews.size() > 0) {
-                    for (ArcView _arcView : _arcViews.values()) {
-                        currentArcView = (NormalArcView) _arcView;
+                    for (ArcView<?, ?> _arcView : _arcViews.values()) {
+                        currentArcView = (NormalArcView<?, ?>) _arcView;
                         if (currentArcView.getSource() == currentTrans) {
                             outputArcsArray.add(currentArcView);
                             if (currentArcView.isTagged()) {
-                                taggedNet = true;
                                 taggedTransition = true;
                                 taggedOutput = true;
                                 noTaggedOutArcs++;
@@ -1197,7 +1162,6 @@ public class PetriNetView extends Observable implements Cloneable, IObserver, Se
                         } else if (currentArcView.getTarget() == currentTrans) {
                             inputArcsArray.add(currentArcView);
                             if (currentArcView.isTagged()) {
-                                taggedNet = true;
                                 taggedTransition = true;
                                 taggedInput = true;
                                 noTaggedInArcs++;
@@ -1296,7 +1260,7 @@ public class PetriNetView extends Observable implements Cloneable, IObserver, Se
 
         boolean tagged = false;
 
-        for (ArcView _arcView : _arcViews.values()) {
+        for (ArcView<?, ?> _arcView : _arcViews.values()) {
             if (_arcView.isTagged()) {
                 tagged = true;
             }
@@ -1442,7 +1406,7 @@ public class PetriNetView extends Observable implements Cloneable, IObserver, Se
         return returnPlaceView;
     }
 
-    public ConnectableView getPlaceTransitionObject(String ptoId) {
+    public ConnectableView<?> getPlaceTransitionObject(String ptoId) {
         if (ptoId != null) {
             if (getPlaceById(ptoId) != null) {
                 return getPlaceById(ptoId);
@@ -1471,7 +1435,7 @@ public class PetriNetView extends Observable implements Cloneable, IObserver, Se
         for (PlaceView place : _placeViews.values()) {
             place.restoreMarking();
         }
-        for (ArcView arc : _arcViews.values()) {
+        for (ArcView<?, ?> arc : _arcViews.values()) {
             //arc.updateArcWeight();
             arc.repaint();
         }
@@ -1493,7 +1457,7 @@ public class PetriNetView extends Observable implements Cloneable, IObserver, Se
             functionRelatedPlaces.add(temp);
         }
         //first we check all arc weights
-        for (ArcView arc : _arcViews.values()) {
+        for (ArcView<?, ?> arc : _arcViews.values()) {
             List<MarkingView> weights = arc.getWeightSimple();
             for (MarkingView weight : weights) {
                 String temp = weight.getCurrentFunctionalMarking();
@@ -1536,7 +1500,7 @@ public class PetriNetView extends Observable implements Cloneable, IObserver, Se
     }
 
     public boolean hasFunctionalRatesOrWeights() {
-        for (ArcView arc : _arcViews.values()) {
+        for (ArcView<?, ?> arc : _arcViews.values()) {
             List<MarkingView> weights = arc.getWeightSimple();
             for (MarkingView weight : weights) {
                 try {

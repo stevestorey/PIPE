@@ -446,9 +446,9 @@ public class PlaceEditorPanel extends javax.swing.JPanel {
     }
 
     private void updateArcAndTran() {
-        Collection<ArcView> arcs = ApplicationSettings.getApplicationView()
+        Collection<ArcView<?, ?>> arcs = ApplicationSettings.getApplicationView()
                 .getCurrentPetriNetView().getArcsArrayList();
-        for (ArcView arc : arcs) {
+        for (ArcView<?, ?> arc : arcs) {
             arc.repaint();
         }
         Collection<TransitionView> trans =
