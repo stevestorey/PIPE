@@ -116,15 +116,15 @@ public class Expander
             //TODO: WORK OUT HOW TO GET CONTROLLER
             TransitionView newTransitionView = new TransitionView(transIdInput, transIdInput, 0, 0, timedTransition, infServer, angleInput, new Transition(transIdInput, transIdInput,functionalRate, priority), transitionView.getPetriNetController());
             _newTransitionViews.add(newTransitionView);
-            analyseArcs(transitionView, newTransitionView, transitionView.outboundArcs());
-            analyseArcs(transitionView, newTransitionView, transitionView.inboundArcs());
+            //analyseArcs(transitionView, newTransitionView, transitionView.outboundArcs());
+            //analyseArcs(transitionView, newTransitionView, transitionView.inboundArcs());
         }
 
     }
 
     //TODO: REIMPLEMENT
     // Steve Doubleday:  added PlaceViews and ArcViews as observers for new MarkingViews
-    public void analyseArcs(TransitionView transitionView, TransitionView newTransitionView, LinkedList<ArcView> arcViews)
+    public void analyseArcs(TransitionView transitionView, TransitionView newTransitionView, LinkedList<ArcView<?, ?>> arcViews)
     {
 //        for(ArcView arcView : arcViews)
 //        {

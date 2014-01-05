@@ -1,11 +1,9 @@
 package pipe.views;
 
-import java.awt.BasicStroke;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Paint;
 import java.awt.RenderingHints;
-import java.awt.Shape;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Point2D;
@@ -14,6 +12,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 
@@ -33,7 +32,7 @@ import pipe.models.component.Transition;
 public class GroupTransitionView extends ConnectableView<Transition> implements Serializable {
     private static final long serialVersionUID = 1L;
     private GeneralPath transition;
-    private Shape proximityTransition;
+    //private Shape proximityTransition;
     private static final int TRANSITION_HEIGHT = Constants.PLACE_TRANSITION_HEIGHT;
     private static final int TRANSITION_WIDTH = TRANSITION_HEIGHT / 3;
     private int angle;
@@ -42,8 +41,8 @@ public class GroupTransitionView extends ConnectableView<Transition> implements 
     public boolean highlighted = false;
     private double delay;
     private boolean delayValid;
-    private static final double rootThreeOverTwo = 0.5 * Math.sqrt(3);
-    private final ArrayList arcAngleList = new ArrayList();
+    //private static final double rootThreeOverTwo = 0.5 * Math.sqrt(3);
+    private final List<ArcAngleCompare> arcAngleList = new ArrayList<ArcAngleCompare>();
     private final ArrayList<TransitionView> _groupedTransitionViews = new ArrayList<TransitionView>();
     private TransitionView _foldedInto;
 
@@ -176,9 +175,9 @@ public class GroupTransitionView extends ConnectableView<Transition> implements 
                 AffineTransform.getRotateInstance(Math.toRadians(angleInc), model.getHeight() / 2, model.getHeight() / 2));
         outlineTransition();
 
-        Iterator<?> arcIterator = arcAngleList.iterator();
+        Iterator<ArcAngleCompare> arcIterator = arcAngleList.iterator();
         while (arcIterator.hasNext()) {
-            ((ArcAngleCompare) arcIterator.next()).calcAngle();
+            arcIterator.next().calcAngle();
         }
         Collections.sort(arcAngleList);
 
@@ -189,8 +188,8 @@ public class GroupTransitionView extends ConnectableView<Transition> implements 
     }
 
     private void outlineTransition() {
-        proximityTransition =
-                (new BasicStroke(Constants.PLACE_TRANSITION_PROXIMITY_RADIUS)).createStrokedShape(transition);
+        /*proximityTransition =
+                (new BasicStroke(Constants.PLACE_TRANSITION_PROXIMITY_RADIUS)).createStrokedShape(transition);*/
     }
 
     /**
@@ -334,7 +333,7 @@ public class GroupTransitionView extends ConnectableView<Transition> implements 
 
 
         //TODO: FIGURE OUT WHAT THIS DOES
-        ArcView someArcView =  null; //ApplicationSettings.getApplicationView().getCurrentTab()._createArcView;
+        /*ArcView someArcView =  null; //ApplicationSettings.getApplicationView().getCurrentTab()._createArcView;
         if (someArcView != null) { // Must be drawing a new Arc if non-NULL.
             if ((proximityTransition.contains((int) unZoomedX, (int) unZoomedY) ||
                     transition.contains((int) unZoomedX, (int) unZoomedY)) && areNotSameType(someArcView.getSource())) {
@@ -352,12 +351,12 @@ public class GroupTransitionView extends ConnectableView<Transition> implements 
                 }
                 return false;
             }
-        } else {
+        } else {*/
             return transition.contains((int) unZoomedX, (int) unZoomedY);
-        }
+        //}
     }
 
-    void removeArcCompareObject(ArcView a) {
+    void removeArcCompareObject(ArcView<?, ?> a) {
         Iterator<?> arcIterator = arcAngleList.iterator();
         while (arcIterator.hasNext()) {
             if (((ArcAngleCompare) arcIterator.next())._arcView == a) {
@@ -372,7 +371,7 @@ public class GroupTransitionView extends ConnectableView<Transition> implements 
       * @see
       * pipe.models.component.Connectable#updateEndPoint(pipe.models.component.Arc)
       */
-    public void updateEndPoint(ArcView arcView) {
+    public void updateEndPoint(ArcView<?, ?> arcView) {
         boolean match = false;
 
         Iterator<?> arcIterator = arcAngleList.iterator();
@@ -455,22 +454,22 @@ public class GroupTransitionView extends ConnectableView<Transition> implements 
                 "first ungroup the Group Transition");
     }
 
-    class ArcAngleCompare implements Comparable {
+    class ArcAngleCompare implements Comparable<ArcAngleCompare> {
 
         private final static boolean SOURCE = false;
         private final static boolean TARGET = true;
-        private final ArcView _arcView;
+        private final ArcView<?, ?> _arcView;
         private final GroupTransitionView _transitionView;
         private double angle;
 
-        public ArcAngleCompare(ArcView _arcView, GroupTransitionView _transitionView) {
+        public ArcAngleCompare(ArcView<?, ?> _arcView, GroupTransitionView _transitionView) {
             this._arcView = _arcView;
             this._transitionView = _transitionView;
             calcAngle();
         }
 
-        public int compareTo(Object arg0) {
-            double angle2 = ((ArcAngleCompare) arg0).angle;
+        public int compareTo(ArcAngleCompare arg0) {
+            double angle2 = arg0.angle;
 
             return (angle < angle2 ? -1 : (angle == angle2 ? 0 : 1));
         }
@@ -525,31 +524,31 @@ public class GroupTransitionView extends ConnectableView<Transition> implements 
     }
 
     public void deleteAssociatedArcs() {
-        for (ArcView tempArcView : inboundArcs()) {
+        for (ArcView<?, Transition> tempArcView : inboundArcs()) {
             tempArcView.removeFromView();
         }
 
-        for (ArcView tempArcView : outboundArcs()) {
+        for (ArcView<Transition, ?> tempArcView : outboundArcs()) {
             tempArcView.removeFromView();
         }
     }
 
     public void hideAssociatedArcs() {
-        for (ArcView tempArcView : inboundArcs()) {
+        for (ArcView<?, Transition> tempArcView : inboundArcs()) {
             tempArcView.setVisible(false);
         }
 
-        for (ArcView tempArcView : outboundArcs()) {
+        for (ArcView<Transition, ?> tempArcView : outboundArcs()) {
             tempArcView.setVisible(false);
         }
     }
 
     public void showAssociatedArcs() {
-        for (ArcView tempArcView : this.inboundArcs()) {
+        for (ArcView<?, Transition> tempArcView : this.inboundArcs()) {
             tempArcView.setVisible(true);
         }
 
-        for (ArcView tempArcView : this.outboundArcs()) {
+        for (ArcView<Transition, ?> tempArcView : this.outboundArcs()) {
             tempArcView.setVisible(true);
         }
     }

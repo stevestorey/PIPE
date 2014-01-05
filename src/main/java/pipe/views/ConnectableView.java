@@ -12,6 +12,7 @@ import pipe.gui.ApplicationSettings;
 import pipe.gui.Constants;
 import pipe.gui.PetriNetTab;
 import pipe.gui.ZoomController;
+import pipe.models.component.Arc;
 import pipe.models.component.Connectable;
 import pipe.models.interfaces.IObserver;
 import pipe.views.viewComponents.NameLabel;
@@ -90,23 +91,23 @@ public abstract class ConnectableView<T extends Connectable<T>> extends PetriNet
         setBounds(bounds);
     }
 
-    public void addInbound(ArcView newArcView) {
+    public void addInbound(ArcView<?, T> newArcView) {
 //        model.addInbound(newArcView);
     }
 
-    public void addOutbound(ArcView newArcView) {
+    public void addOutbound(ArcView<T, ?> newArcView) {
 //        model.addOutbound(newArcView);
     }
 
-    public void addInboundOrOutbound(ArcView newArcView) {
+    public void addInboundOrOutbound(ArcView<?, ?> newArcView) {
 //        model.addInboundOrOutbound(newArcView);
     }
 
-    public void removeFromArc(ArcView oldArcView) {
+    public void removeFromArc(ArcView<?, ?> oldArcView) {
 //        model.removeFromArcs(oldArcView);
     }
 
-    public void removeToArc(ArcView oldArcView) {
+    public void removeToArc(ArcView<?, ?> oldArcView) {
 //        model.removeToArc(oldArcView);
     }
 
@@ -115,12 +116,12 @@ public abstract class ConnectableView<T extends Connectable<T>> extends PetriNet
 //        updateArcs(model.inboundArcs());
     }
 
-    public LinkedList<ArcView> outboundArcs() {
+    public LinkedList<ArcView<T, ?>> outboundArcs() {
 //        return model.outboundArcs();
         return null;
     }
 
-    public LinkedList<ArcView> inboundArcs() {
+    public LinkedList<ArcView<?, T>> inboundArcs() {
 //        return model.inboundArcs();
         return null;
     }
@@ -167,15 +168,15 @@ public abstract class ConnectableView<T extends Connectable<T>> extends PetriNet
         update();
     }
 
-    boolean areNotSameType(ConnectableView o) {
+    boolean areNotSameType(ConnectableView<?> o) {
         return (this.getClass() != o.getClass());
     }
 
-    public Iterator getConnectFromIterator() {
+    public Iterator<Arc<T, ?>> getConnectFromIterator() {
         return model.outboundArcs().iterator();
     }
 
-    public Iterator getConnectToIterator() {
+    public Iterator<Arc<?, T>> getConnectToIterator() {
         return model.inboundArcs().iterator();
     }
 
@@ -188,13 +189,13 @@ public abstract class ConnectableView<T extends Connectable<T>> extends PetriNet
         }
     }
 
-    void newCopy(ConnectableView ptObject) {
+    void newCopy(ConnectableView<T> ptObject) {
         if (_original != null) {
             _original._lastCopy = ptObject;
         }
     }
 
-    public ConnectableView getLastCopy() {
+    public ConnectableView<T> getLastCopy() {
         return _lastCopy;
     }
 
@@ -202,11 +203,11 @@ public abstract class ConnectableView<T extends Connectable<T>> extends PetriNet
         _lastCopy = null;
     }
 
-    void setOriginal(ConnectableView ptObject) {
+    void setOriginal(ConnectableView<T> ptObject) {
         _original = ptObject;
     }
 
-    public ConnectableView getOriginal() {
+    public ConnectableView<T> getOriginal() {
         return _original;
     }
 

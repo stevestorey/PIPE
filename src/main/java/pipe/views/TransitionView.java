@@ -622,23 +622,23 @@ public class TransitionView extends ConnectableView<Transition> implements Seria
             return null;
         }
         PetriNetTab view = ApplicationSettings.getApplicationView().getCurrentTab();
-        ArrayList<PetriNetViewComponent> pns = view.getPNObjects();
+        ArrayList<PetriNetViewComponent<?>> pns = view.getPNObjects();
         ArrayList<TransitionView> transitionsToHide = new ArrayList<TransitionView>();
 
         ArrayList<PlaceView> thisOutputPlaceViews = new ArrayList<PlaceView>();
-        for (ArcView tempArcView : outboundArcs()) {
+        for (ArcView<Transition, ?> tempArcView : outboundArcs()) {
             thisOutputPlaceViews.add((PlaceView) (tempArcView.getTarget()));
         }
 
         ArrayList<PlaceView> thisInputPlaceViews = new ArrayList<PlaceView>();
-        for (ArcView tempArcView : inboundArcs()) {
+        for (ArcView<?, Transition> tempArcView : inboundArcs()) {
             thisInputPlaceViews.add((PlaceView) (tempArcView.getSource()));
         }
 
         ArrayList<PlaceView> currentOutputPlaceViews;
         ArrayList<PlaceView> currentInputPlaceViews;
 
-        for (PetriNetViewComponent pn : pns) {
+        for (PetriNetViewComponent<?> pn : pns) {
             if (pn.isSelected()) {
                 //TODO: HOW TO DESELECT?
 //                pn.deselect();
@@ -646,8 +646,8 @@ public class TransitionView extends ConnectableView<Transition> implements Seria
                     if (this != pn) {
                         currentOutputPlaceViews = new ArrayList<PlaceView>();
 
-                        LinkedList<ArcView> outboundArcViews = ((TransitionView) pn).outboundArcs();
-                        for (ArcView tempArcView : outboundArcViews) {
+                        LinkedList<ArcView<Transition, ?>> outboundArcViews = ((TransitionView) pn).outboundArcs();
+                        for (ArcView<Transition, ?> tempArcView : outboundArcViews) {
                             currentOutputPlaceViews.add((PlaceView) (tempArcView.getTarget()));
                         }
 
@@ -659,8 +659,8 @@ public class TransitionView extends ConnectableView<Transition> implements Seria
 
                         currentInputPlaceViews = new ArrayList<PlaceView>();
 
-                        LinkedList<ArcView> inboundArcViews = ((TransitionView) pn).inboundArcs();
-                        for (ArcView tempArcView : inboundArcViews) {
+                        LinkedList<ArcView<?, Transition>> inboundArcViews = ((TransitionView) pn).inboundArcs();
+                        for (ArcView<?, Transition> tempArcView : inboundArcViews) {
                             currentInputPlaceViews.add((PlaceView) (tempArcView.getSource()));
                         }
 
