@@ -38,7 +38,7 @@ public class InhibitorSourceVisitor implements ArcSourceVisitor {
      * @return the result of the last item visited
      */
     @Override
-    public boolean canCreate(Connectable connectable) {
+    public boolean canCreate(Connectable<?> connectable) {
         connectable.accept(this);
         return canCreate;
     }

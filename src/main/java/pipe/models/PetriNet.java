@@ -1,6 +1,5 @@
 package pipe.models;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -26,7 +25,6 @@ import pipe.views.viewComponents.RateParameter;
 public class PetriNet extends Observable implements IObserver {
     public String _pnmlName = "";
     private boolean _validated = false;
-    private ArrayList _changeArrayList;
 
     private Set<Transition> transitions = new HashSet<Transition>();
     private Set<Place> places = new HashSet<Place>();
@@ -72,7 +70,7 @@ public class PetriNet extends Observable implements IObserver {
         notifyObservers();
     }
 
-    public void addArc(Arc arc) {
+    public void addArc(Arc<?, ?> arc) {
         arcs.add(arc);
         arc.registerObserver(this);
         notifyObservers();
@@ -203,9 +201,9 @@ public class PetriNet extends Observable implements IObserver {
     public IncidenceMatrix getBackwardsIncidenceMatrix(Token token) {
         ExprEvaluator paser = new ExprEvaluator(this);
         IncidenceMatrix backwardsIncidenceMatrix = new IncidenceMatrix();
-        for (Arc arc : arcs) {
-            Connectable target = arc.getTarget();
-            Connectable source = arc.getSource();
+        for (Arc<?, ?> arc : arcs) {
+            Connectable<?> target = arc.getTarget();
+            Connectable<?> source = arc.getSource();
             if (target instanceof Transition) {
                 Transition transition = (Transition) target;
                 if (source instanceof Place) {
@@ -233,9 +231,9 @@ public class PetriNet extends Observable implements IObserver {
     public IncidenceMatrix getForwardsIncidenceMatrix(Token token) {
 
         IncidenceMatrix forwardsIncidenceMatrix = new IncidenceMatrix();
-        for (Arc arc : arcs) {
-            Connectable target = arc.getTarget();
-            Connectable source = arc.getSource();
+        for (Arc<?, ?> arc : arcs) {
+            Connectable<?> target = arc.getTarget();
+            Connectable<?> source = arc.getSource();
 
             if (target instanceof Place) {
                 Place place = (Place) target;
