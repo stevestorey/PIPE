@@ -31,7 +31,7 @@
         <repository>
             <id>LocalLibs</id>
             <name>Imperial</name>
-            <url>file://${project.basedir}/src/local-libs</url>
+            <url>file://${project.build.directory}/../src/local-libs</url>
         </repository>
     </repositories>
 
@@ -121,10 +121,13 @@
             <version>1.0.16</version>
         </dependency>
 
+        <!-- Is this different from http://search.maven.org/#artifactdetails|gov.nist.math|jama|1.0.2|jar -->
         <dependency>
             <groupId>internal</groupId>
             <artifactId>jama</artifactId>
             <version>1.0.2</version>
+            <!-- At least on platforms with case-sensitive filesystems, you'll need to install
+                 this into your own repository as the Jama dir is uppercase -->
         </dependency>
 
         <dependency>
