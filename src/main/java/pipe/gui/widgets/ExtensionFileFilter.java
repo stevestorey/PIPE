@@ -1,10 +1,12 @@
 package pipe.gui.widgets;
 
-import javax.swing.*;
-import javax.swing.filechooser.FileFilter;
 import java.io.File;
 import java.util.Enumeration;
 import java.util.Hashtable;
+
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileFilter;
 
 /** A FileFilter that lets you specify which file extensions
  *  will be displayed. Also includes a static getFileName

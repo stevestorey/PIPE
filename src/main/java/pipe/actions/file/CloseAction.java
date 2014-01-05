@@ -1,10 +1,11 @@
 package pipe.actions.file;
 
+import java.awt.event.ActionEvent;
+
+import javax.swing.JTabbedPane;
+
 import pipe.gui.ApplicationSettings;
 import pipe.views.PipeApplicationView;
-
-import javax.swing.*;
-import java.awt.event.ActionEvent;
 
 public class CloseAction extends FileAction {
     public CloseAction() {

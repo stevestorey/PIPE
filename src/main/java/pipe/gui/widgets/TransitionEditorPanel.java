@@ -1,20 +1,28 @@
 package pipe.gui.widgets;
 
+import java.awt.Color;
+import java.util.Enumeration;
+
+import javax.swing.AbstractButton;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JRootPane;
+import javax.swing.JSlider;
+import javax.swing.JTextField;
+import javax.swing.event.CaretListener;
+
 import pipe.controllers.PetriNetController;
 import pipe.controllers.TransitionController;
 import pipe.gui.ApplicationSettings;
 import pipe.models.component.Arc;
-import pipe.models.component.Place;
 import pipe.models.component.Transition;
-import pipe.views.ArcView;
 import pipe.views.PetriNetView;
 import pipe.views.viewComponents.RateParameter;
-
-import javax.swing.*;
-import javax.swing.event.CaretListener;
-import java.awt.*;
-import java.util.Enumeration;
-import java.util.Iterator;
 
 /**
  * @author pere

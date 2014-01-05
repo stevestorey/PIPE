@@ -1,11 +1,11 @@
 package pipe.actions.edit;
 
+import java.awt.event.ActionEvent;
+
 import pipe.actions.GuiAction;
 import pipe.controllers.PetriNetController;
 import pipe.controllers.PipeApplicationController;
 import pipe.gui.ApplicationSettings;
-
-import java.awt.event.ActionEvent;
 
 public class UndoAction extends GuiAction {
 

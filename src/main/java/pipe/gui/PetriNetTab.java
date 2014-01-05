@@ -1,13 +1,13 @@
 package pipe.gui;
 
-import pipe.controllers.PetriNetController;
-import pipe.handlers.AnimationHandler;
-import pipe.views.PetriNetView;
-import pipe.views.PetriNetViewComponent;
-import pipe.views.PipeApplicationView;
-
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.Cursor;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Point;
+import java.awt.Rectangle;
 import java.awt.print.PageFormat;
 import java.awt.print.Printable;
 import java.awt.print.PrinterException;
@@ -15,6 +15,15 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
+
+import javax.swing.JLayeredPane;
+import javax.swing.JViewport;
+
+import pipe.controllers.PetriNetController;
+import pipe.handlers.AnimationHandler;
+import pipe.views.PetriNetView;
+import pipe.views.PetriNetViewComponent;
+import pipe.views.PipeApplicationView;
 
 public class PetriNetTab extends JLayeredPane implements Observer, Printable
 {

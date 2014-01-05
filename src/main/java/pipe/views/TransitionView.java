@@ -1,28 +1,13 @@
 package pipe.views;
 
-import net.sourceforge.jeval.EvaluationException;
-import parser.ExprEvaluator;
-import pipe.controllers.PetriNetController;
-import pipe.controllers.PipeApplicationController;
-import pipe.controllers.TransitionController;
-import pipe.gui.ApplicationSettings;
-import pipe.gui.Constants;
-import pipe.gui.PetriNetTab;
-import pipe.gui.ZoomController;
-import pipe.gui.widgets.EscapableDialog;
-import pipe.gui.widgets.TransitionEditorPanel;
-import pipe.handlers.ConnectableHandler;
-import pipe.handlers.LabelHandler;
-import pipe.handlers.TransitionHandler;
-import pipe.historyActions.*;
-import pipe.models.component.Arc;
-import pipe.models.component.Token;
-import pipe.models.component.Transition;
-import pipe.views.viewComponents.RateParameter;
-
-import javax.swing.*;
-import javax.swing.Timer;
-import java.awt.*;
+import java.awt.BasicStroke;
+import java.awt.Component;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.HeadlessException;
+import java.awt.Paint;
+import java.awt.RenderingHints;
+import java.awt.Shape;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.AffineTransform;
@@ -30,7 +15,34 @@ import java.awt.geom.GeneralPath;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import java.io.Serializable;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
+
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+import javax.swing.Timer;
+
+import net.sourceforge.jeval.EvaluationException;
+import parser.ExprEvaluator;
+import pipe.controllers.PetriNetController;
+import pipe.controllers.TransitionController;
+import pipe.gui.ApplicationSettings;
+import pipe.gui.Constants;
+import pipe.gui.PetriNetTab;
+import pipe.gui.widgets.EscapableDialog;
+import pipe.gui.widgets.TransitionEditorPanel;
+import pipe.handlers.ConnectableHandler;
+import pipe.handlers.LabelHandler;
+import pipe.handlers.TransitionHandler;
+import pipe.historyActions.ChangeRateParameter;
+import pipe.historyActions.ClearRateParameter;
+import pipe.historyActions.GroupTransition;
+import pipe.historyActions.HistoryItem;
+import pipe.historyActions.SetRateParameter;
+import pipe.historyActions.TransitionRate;
+import pipe.models.component.Transition;
+import pipe.views.viewComponents.RateParameter;
 
 
 public class TransitionView extends ConnectableView<Transition> implements Serializable {

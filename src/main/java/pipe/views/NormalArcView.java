@@ -1,21 +1,30 @@
 package pipe.views;
 
+import java.awt.BasicStroke;
+import java.awt.Container;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Polygon;
+import java.awt.RenderingHints;
+import java.awt.geom.AffineTransform;
+import java.io.Serializable;
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.Map;
+
 import pipe.controllers.ArcController;
 import pipe.controllers.PetriNetController;
 import pipe.gui.ApplicationSettings;
 import pipe.gui.Constants;
 import pipe.gui.ZoomController;
-import pipe.historyActions.*;
+import pipe.historyActions.ClearInverseArc;
+import pipe.historyActions.HistoryItem;
+import pipe.historyActions.JoinInverseArc;
+import pipe.historyActions.SetInverseArc;
+import pipe.historyActions.SplitInverseArc;
 import pipe.models.component.Arc;
 import pipe.models.component.Token;
-import pipe.utilities.Copier;
 import pipe.views.viewComponents.NameLabel;
-
-import java.awt.*;
-import java.awt.List;
-import java.awt.geom.AffineTransform;
-import java.io.Serializable;
-import java.util.*;
 
 
 public class NormalArcView extends ArcView<Arc> implements Serializable {

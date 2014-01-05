@@ -1,9 +1,10 @@
 package pipe.actions;
 
-import pipe.views.viewComponents.AnnotationNote;
-
-import javax.swing.*;
 import java.awt.event.ActionEvent;
+
+import javax.swing.AbstractAction;
+
+import pipe.views.viewComponents.AnnotationNote;
 
 
 /**

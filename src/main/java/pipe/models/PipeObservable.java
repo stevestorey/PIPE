@@ -3,6 +3,8 @@ package pipe.models;
 import java.io.Serializable;
 import java.util.Observable;
 
+import pipe.views.MarkingView;
+
 /**
  * A general sub-class of Observable, created for convenience in implementing
  * the observer pattern in classes that already have an inheritance hierarchy,

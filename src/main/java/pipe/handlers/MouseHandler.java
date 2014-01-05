@@ -1,19 +1,24 @@
 package pipe.handlers;
 
+import java.awt.Cursor;
+import java.awt.Point;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseWheelEvent;
+
+import javax.swing.event.MouseInputAdapter;
+
 import pipe.actions.TypeAction;
 import pipe.controllers.PetriNetController;
-import pipe.gui.*;
+import pipe.gui.ApplicationSettings;
+import pipe.gui.Constants;
+import pipe.gui.Grid;
+import pipe.gui.PetriNetTab;
+import pipe.gui.ZoomController;
 import pipe.handlers.mouse.MouseUtilities;
 import pipe.models.PetriNet;
 import pipe.models.PipeApplicationModel;
 import pipe.views.PetriNetView;
 import pipe.views.PetriNetViewComponent;
-
-import javax.swing.*;
-import javax.swing.event.MouseInputAdapter;
-import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseWheelEvent;
 
 /**
 * MouseHandler handles mouse press inputs on a given petri net tab.

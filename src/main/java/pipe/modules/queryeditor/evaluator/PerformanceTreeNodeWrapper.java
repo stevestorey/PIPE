@@ -11,6 +11,9 @@
 
 package pipe.modules.queryeditor.evaluator;
 
+import java.util.HashMap;
+import java.util.Iterator;
+
 import pipe.common.PetriNetNode;
 import pipe.common.SimpleOperationNode;
 import pipe.modules.queryeditor.QueryManager;
@@ -20,9 +23,6 @@ import pipe.modules.queryeditor.gui.performancetrees.operationnodes.OperationNod
 import pipe.modules.queryeditor.gui.performancetrees.valuenodes.ValueNode;
 import pipe.server.performancequery.SimpleNode;
 import pipe.server.performancequery.SimpleValueNode;
-
-import java.util.HashMap;
-import java.util.Iterator;
 
 class PerformanceTreeNodeWrapper
 {

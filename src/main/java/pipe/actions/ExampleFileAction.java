@@ -1,12 +1,13 @@
 package pipe.actions;
 
-import pipe.gui.ApplicationSettings;
-import pipe.io.JarUtilities;
-
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.io.File;
 import java.util.jar.JarEntry;
+
+import javax.swing.ImageIcon;
+
+import pipe.gui.ApplicationSettings;
+import pipe.io.JarUtilities;
 
 public class ExampleFileAction extends GuiAction
 {

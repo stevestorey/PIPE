@@ -1,5 +1,13 @@
 package pipe.views;
 
+import java.awt.geom.Point2D;
+import java.io.Serializable;
+import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
+
+import javax.swing.JLayeredPane;
+
 import pipe.controllers.PetriNetController;
 import pipe.gui.ApplicationSettings;
 import pipe.gui.Constants;
@@ -16,12 +24,6 @@ import pipe.models.interfaces.IObserver;
 import pipe.views.viewComponents.ArcPath;
 import pipe.views.viewComponents.ArcPathPoint;
 import pipe.views.viewComponents.NameLabel;
-
-import javax.swing.*;
-import java.awt.geom.Point2D;
-import java.io.Serializable;
-import java.util.*;
-import java.util.List;
 
 public abstract class ArcView<T extends Arc> extends PetriNetViewComponent<T>
         implements Cloneable, IObserver, Serializable, Observer {

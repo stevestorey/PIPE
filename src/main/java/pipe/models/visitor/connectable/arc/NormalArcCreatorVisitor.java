@@ -2,7 +2,11 @@ package pipe.models.visitor.connectable.arc;
 
 import pipe.controllers.PetriNetController;
 import pipe.controllers.PipeApplicationController;
-import pipe.models.component.*;
+import pipe.models.component.ConditionalPlace;
+import pipe.models.component.Place;
+import pipe.models.component.TemporaryArcTarget;
+import pipe.models.component.Token;
+import pipe.models.component.Transition;
 
 public class NormalArcCreatorVisitor implements ArcCreatorVisitor {
 

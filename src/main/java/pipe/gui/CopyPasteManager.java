@@ -3,18 +3,28 @@
  */
 package pipe.gui;
 
-import pipe.controllers.PetriNetController;
-import pipe.controllers.PipeApplicationController;
-import pipe.historyActions.HistoryItem;
-import pipe.historyActions.HistoryManager;
-import pipe.views.*;
-import pipe.views.viewComponents.RateParameter;
-
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Point;
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Iterator;
+
+import pipe.controllers.PetriNetController;
+import pipe.controllers.PipeApplicationController;
+import pipe.historyActions.HistoryItem;
+import pipe.historyActions.HistoryManager;
+import pipe.views.ArcView;
+import pipe.views.ConnectableView;
+import pipe.views.NormalArcView;
+import pipe.views.PetriNetView;
+import pipe.views.PetriNetViewComponent;
+import pipe.views.PipeApplicationView;
+import pipe.views.TransitionView;
+import pipe.views.viewComponents.RateParameter;
 
 
 /**

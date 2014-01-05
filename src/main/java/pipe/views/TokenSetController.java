@@ -2,11 +2,14 @@ package pipe.views;
 // Although this is a controller, it's currently in the views package because it collaborates closely with TokenView.
 // It could be moved, if some TokenView methods were changed from protected to public.
 
-import pipe.exceptions.TokenLockedException;
-
-import java.awt.*;
-import java.util.*;
+import java.awt.Color;
+import java.util.Hashtable;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.Observable;
+
+import pipe.exceptions.TokenLockedException;
 
 
 /**

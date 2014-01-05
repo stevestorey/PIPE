@@ -1,16 +1,27 @@
 package pipe.models;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Random;
+import java.util.Set;
+
 import parser.ExprEvaluator;
 import pipe.common.dataLayer.StateGroup;
-import pipe.models.component.*;
+import pipe.models.component.Annotation;
+import pipe.models.component.Arc;
+import pipe.models.component.Connectable;
+import pipe.models.component.PetriNetComponent;
+import pipe.models.component.Place;
+import pipe.models.component.Token;
+import pipe.models.component.Transition;
 import pipe.models.interfaces.IObserver;
 import pipe.models.visitor.PetriNetComponentAddVisitor;
 import pipe.models.visitor.PetriNetComponentRemovalVisitor;
 import pipe.models.visitor.PetriNetComponentVisitor;
 import pipe.utilities.math.IncidenceMatrix;
 import pipe.views.viewComponents.RateParameter;
-
-import java.util.*;
 
 public class PetriNet extends Observable implements IObserver {
     public String _pnmlName = "";

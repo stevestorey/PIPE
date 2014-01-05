@@ -1,7 +1,10 @@
 package pipe.models.visitor.connectable.arc;
 
-import pipe.models.component.*;
-import pipe.models.visitor.connectable.ConnectableVisitor;
+import pipe.models.component.ConditionalPlace;
+import pipe.models.component.Connectable;
+import pipe.models.component.Place;
+import pipe.models.component.TemporaryArcTarget;
+import pipe.models.component.Transition;
 
 /**
  * A class to determine if an inhibitor arc can be built from the source

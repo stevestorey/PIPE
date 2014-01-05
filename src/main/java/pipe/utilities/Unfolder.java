@@ -1,17 +1,21 @@
 package pipe.utilities;
 
-import org.w3c.dom.DOMException;
-import pipe.exceptions.TokenLockedException;
-import pipe.models.PetriNet;
-import pipe.models.component.Place;
-import pipe.models.component.Token;
-import pipe.models.component.Transition;
-import pipe.utilities.writers.PNMLWriter;
-import pipe.views.*;
-
 import java.io.File;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
+
+import org.w3c.dom.DOMException;
+
+import pipe.exceptions.TokenLockedException;
+import pipe.models.PetriNet;
+import pipe.utilities.writers.PNMLWriter;
+import pipe.views.ArcView;
+import pipe.views.PetriNetView;
+import pipe.views.PlaceView;
+import pipe.views.TokenView;
+import pipe.views.TransitionView;
 
 /**
  * 

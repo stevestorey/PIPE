@@ -1,12 +1,17 @@
 package pipe.gui;
 
+import java.awt.Color;
+
+import javax.swing.JTextPane;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.Document;
+import javax.swing.text.Style;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyleContext;
+
 import pipe.historyActions.AnimationHistory;
 import pipe.models.component.Transition;
 import pipe.models.interfaces.IObserver;
-
-import javax.swing.*;
-import javax.swing.text.*;
-import java.awt.*;
 
 
 /**

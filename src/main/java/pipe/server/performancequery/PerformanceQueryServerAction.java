@@ -1,16 +1,5 @@
 package pipe.server.performancequery;
 
-import pipe.common.*;
-import pipe.common.dataLayer.StateGroup;
-import pipe.modules.interfaces.Cleanable;
-import pipe.modules.interfaces.QueryConstants;
-import pipe.modules.queryresult.ResultWrapper;
-import pipe.server.CommunicationsManager;
-import pipe.server.performancequery.nodeanalyser.InvalidNodeAnalyserException;
-import pipe.server.performancequery.structure.*;
-import pipe.server.serverCommon.PathsWrapper;
-import pipe.server.serverCommon.ServerAction;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -19,9 +8,39 @@ import java.nio.channels.SocketChannel;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.PriorityQueue;
-import java.util.concurrent.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Handler;
 import java.util.logging.Level;
+
+import pipe.common.AnalysisInstruction;
+import pipe.common.AnalysisSettings;
+import pipe.common.LoggingHelper;
+import pipe.common.PetriNetNode;
+import pipe.common.SimplePlaces;
+import pipe.common.SimpleTransitions;
+import pipe.common.dataLayer.StateGroup;
+import pipe.modules.interfaces.Cleanable;
+import pipe.modules.interfaces.QueryConstants;
+import pipe.modules.queryresult.ResultWrapper;
+import pipe.server.CommunicationsManager;
+import pipe.server.performancequery.nodeanalyser.InvalidNodeAnalyserException;
+import pipe.server.performancequery.structure.OperationSubtree;
+import pipe.server.performancequery.structure.ParentSubtree;
+import pipe.server.performancequery.structure.RangeSubtree;
+import pipe.server.performancequery.structure.ResultSubtree;
+import pipe.server.performancequery.structure.SequentialSubtree;
+import pipe.server.performancequery.structure.Subtree;
+import pipe.server.performancequery.structure.SubtreeComparator;
+import pipe.server.performancequery.structure.SubtreeHelper;
+import pipe.server.performancequery.structure.TranslateQueryTree;
+import pipe.server.serverCommon.PathsWrapper;
+import pipe.server.serverCommon.ServerAction;
 
 public class PerformanceQueryServerAction extends ServerAction
 implements

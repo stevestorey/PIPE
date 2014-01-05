@@ -1,14 +1,18 @@
 package pipe.modules.passageTimeForTaggedNet;
 
 
-import pipe.common.dataLayer.StateGroup;
-import pipe.views.*;
-
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import pipe.common.dataLayer.StateGroup;
+import pipe.views.ArcView;
+import pipe.views.MarkingView;
+import pipe.views.PetriNetView;
+import pipe.views.PlaceView;
+import pipe.views.TransitionView;
 
 
 class TransModel {

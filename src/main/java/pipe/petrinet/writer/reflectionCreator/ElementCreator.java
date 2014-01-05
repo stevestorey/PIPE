@@ -1,19 +1,21 @@
 package pipe.petrinet.writer.reflectionCreator;
 
 
-import com.google.common.base.Joiner;
-import org.apache.commons.beanutils.PropertyUtils;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import pipe.models.component.PetriNetComponent;
-import pipe.models.component.Pnml;
-
-import java.awt.*;
+import java.awt.Color;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+
+import org.apache.commons.beanutils.PropertyUtils;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
+import pipe.models.component.PetriNetComponent;
+import pipe.models.component.Pnml;
+
+import com.google.common.base.Joiner;
 
 public class ElementCreator {
 

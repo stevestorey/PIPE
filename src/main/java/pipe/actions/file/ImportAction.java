@@ -1,7 +1,8 @@
 package pipe.actions.file;
 
-import javax.swing.*;
 import java.awt.event.ActionEvent;
+
+import javax.swing.JOptionPane;
 
 public class ImportAction extends FileAction {
     public ImportAction() {

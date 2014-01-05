@@ -3,10 +3,13 @@
  */
 package pipe.actions;
 
-import pipe.gui.ApplicationSettings;
-
-import javax.swing.*;
 import java.net.URL;
+
+import javax.swing.AbstractAction;
+import javax.swing.ImageIcon;
+import javax.swing.KeyStroke;
+
+import pipe.gui.ApplicationSettings;
 
 
 /**

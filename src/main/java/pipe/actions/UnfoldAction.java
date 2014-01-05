@@ -1,12 +1,13 @@
 package pipe.actions;
 
+import java.awt.event.ActionEvent;
+
+import javax.swing.JOptionPane;
+
 import pipe.gui.ApplicationSettings;
 import pipe.utilities.Expander;
 import pipe.views.PetriNetView;
 import pipe.views.PipeApplicationView;
-
-import javax.swing.*;
-import java.awt.event.ActionEvent;
 
 /**
  * @author Alex Charalambous, June 2010: Unfolds a coloured Petri net

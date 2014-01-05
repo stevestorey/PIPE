@@ -1,31 +1,62 @@
 package pipe.views;
 
+import java.io.File;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Observable;
+import java.util.Observer;
+import java.util.Set;
+import java.util.Vector;
+
+import javax.swing.JOptionPane;
+
 import org.w3c.dom.Document;
+
 import pipe.common.dataLayer.StateGroup;
 import pipe.controllers.PetriNetController;
 import pipe.exceptions.TokenLockedException;
 import pipe.gui.ApplicationSettings;
 import pipe.gui.Constants;
 import pipe.models.PetriNet;
-import pipe.models.component.*;
+import pipe.models.component.Annotation;
+import pipe.models.component.Arc;
+import pipe.models.component.ArcType;
+import pipe.models.component.PetriNetComponent;
+import pipe.models.component.Place;
+import pipe.models.component.Token;
+import pipe.models.component.Transition;
 import pipe.models.interfaces.IObserver;
 import pipe.models.strategy.arc.ArcStrategy;
 import pipe.models.strategy.arc.BackwardsNormalStrategy;
 import pipe.models.strategy.arc.ForwardsNormalStrategy;
 import pipe.models.strategy.arc.InhibitorStrategy;
 import pipe.petrinet.reader.PetriNetReader;
-import pipe.petrinet.reader.creator.*;
+import pipe.petrinet.reader.creator.AnnotationCreator;
+import pipe.petrinet.reader.creator.ArcCreator;
+import pipe.petrinet.reader.creator.CreatorStruct;
+import pipe.petrinet.reader.creator.PlaceCreator;
+import pipe.petrinet.reader.creator.RateParameterCreator;
+import pipe.petrinet.reader.creator.StateGroupCreator;
+import pipe.petrinet.reader.creator.TokenCreator;
+import pipe.petrinet.reader.creator.TransitionCreator;
 import pipe.utilities.Copier;
-import pipe.utilities.math.RandomNumberGenerator;
 import pipe.utilities.transformers.PNMLTransformer;
-import pipe.views.builder.*;
+import pipe.views.builder.AnnotationNodeBuilder;
+import pipe.views.builder.InhibitorArcViewBuilder;
+import pipe.views.builder.NormalArcViewBuilder;
+import pipe.views.builder.PlaceViewBuilder;
+import pipe.views.builder.TokenViewBuilder;
+import pipe.views.builder.TransitionViewBuilder;
 import pipe.views.viewComponents.AnnotationNote;
 import pipe.views.viewComponents.RateParameter;
-
-import javax.swing.*;
-import java.io.File;
-import java.io.Serializable;
-import java.util.*;
 
 
 /*

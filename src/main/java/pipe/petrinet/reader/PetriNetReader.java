@@ -1,21 +1,26 @@
 package pipe.petrinet.reader;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import pipe.common.dataLayer.StateGroup;
-import pipe.models.PetriNet;
-import pipe.models.component.*;
-import pipe.petrinet.reader.creator.CreatorStruct;
-import pipe.petrinet.reader.creator.ElementParser;
-import pipe.views.viewComponents.RateParameter;
-
-import java.awt.*;
+import java.awt.Color;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
+import pipe.common.dataLayer.StateGroup;
+import pipe.models.PetriNet;
+import pipe.models.component.Annotation;
+import pipe.models.component.Arc;
+import pipe.models.component.Place;
+import pipe.models.component.Token;
+import pipe.models.component.Transition;
+import pipe.petrinet.reader.creator.CreatorStruct;
+import pipe.petrinet.reader.creator.ElementParser;
+import pipe.views.viewComponents.RateParameter;
 
 public class PetriNetReader {
 

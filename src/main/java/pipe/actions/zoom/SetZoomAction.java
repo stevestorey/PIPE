@@ -1,13 +1,13 @@
 package pipe.actions.zoom;
 
+import java.awt.event.ActionEvent;
+
 import pipe.actions.GuiAction;
 import pipe.gui.ApplicationSettings;
 import pipe.gui.Constants;
 import pipe.gui.PetriNetTab;
 import pipe.gui.ZoomController;
 import pipe.views.PipeApplicationView;
-
-import java.awt.event.ActionEvent;
 
 public class SetZoomAction extends GuiAction {
 

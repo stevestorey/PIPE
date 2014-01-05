@@ -1,7 +1,9 @@
 package pipe.gui;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.BorderLayout;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /* Status Bar to let users know what to do*/
 public class StatusBar 

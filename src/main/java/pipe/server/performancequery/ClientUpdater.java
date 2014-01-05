@@ -12,17 +12,21 @@
 
 package pipe.server.performancequery;
 
-import pipe.common.AnalysisInstruction;
-import pipe.common.LoggingHelper;
-import pipe.modules.interfaces.Cleanable;
-import pipe.server.CommunicationsManager;
-
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.InterruptedIOException;
+import java.io.PrintWriter;
 import java.nio.channels.Channels;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.logging.Level;
+
+import pipe.common.AnalysisInstruction;
+import pipe.common.LoggingHelper;
+import pipe.modules.interfaces.Cleanable;
+import pipe.server.CommunicationsManager;
 
 public class ClientUpdater implements ServerLoggingHandler, Runnable
 {

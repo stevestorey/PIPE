@@ -1,13 +1,12 @@
 package pipe.actions.type;
 
+import java.awt.Point;
+
 import pipe.actions.TypeAction;
 import pipe.controllers.PetriNetController;
-import pipe.gui.Grid;
 import pipe.models.component.Connectable;
 import pipe.models.visitor.connectable.arc.ArcCreatorVisitor;
 import pipe.models.visitor.connectable.arc.ArcSourceVisitor;
-
-import java.awt.*;
 
 public class ArcAction extends TypeAction {
 

@@ -1,22 +1,17 @@
 package pipe.handlers;
 
-import pipe.actions.TypeAction;
-import pipe.controllers.PetriNetController;
-import pipe.controllers.PlaceController;
-import pipe.gui.ApplicationSettings;
-import pipe.gui.Constants;
-import pipe.models.PipeApplicationModel;
-import pipe.models.component.Place;
-import pipe.models.component.Token;
-import pipe.views.PipeApplicationView;
-import pipe.views.PlaceView;
-
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
+
+import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
+
+import pipe.controllers.PetriNetController;
+import pipe.models.component.Place;
+import pipe.views.PlaceView;
 
 
 /**

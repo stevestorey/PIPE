@@ -1,12 +1,16 @@
 package pipe.petrinet.reader.creator;
 
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
-import pipe.models.component.*;
-import pipe.models.strategy.arc.ArcStrategy;
-
 import java.util.HashMap;
 import java.util.Map;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+
+import pipe.models.component.Arc;
+import pipe.models.component.Place;
+import pipe.models.component.Token;
+import pipe.models.component.Transition;
+import pipe.models.strategy.arc.ArcStrategy;
 
 /**
  * Creates an {@link pipe.models.component.Arc} based on an {@link Element}'s information

@@ -9,14 +9,17 @@
 
 package pipe.modules.queryeditor.gui.performancetrees;
 
+import java.awt.Container;
+import java.awt.Graphics;
+import java.awt.Rectangle;
+
+import javax.swing.JComponent;
+
 import pipe.gui.Zoomable;
 import pipe.modules.interfaces.QueryConstants;
 import pipe.modules.queryeditor.QueryManager;
 import pipe.modules.queryeditor.gui.PerformanceTreeZoomController;
 import pipe.modules.queryeditor.gui.performancetrees.macros.MacroManager;
-
-import javax.swing.*;
-import java.awt.*;
 
 
 public class PerformanceTreeObject extends JComponent implements QueryConstants, Zoomable, Cloneable {

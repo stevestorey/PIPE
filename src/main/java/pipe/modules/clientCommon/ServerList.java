@@ -1,9 +1,18 @@
 package pipe.modules.clientCommon;
 
-import javax.swing.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 
 /**
  * This class loads / save the list of servers from the file servers.lst

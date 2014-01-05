@@ -1,9 +1,10 @@
 package pipe.gui;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.JDialog;
 
 /**
  * @author Alex Charalambous, June 2010: ColorDrawer, ColorPicker, 

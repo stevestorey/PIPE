@@ -1,5 +1,12 @@
 package pipe.modules.steadyStateCloud;
 
+import java.io.IOException;
+import java.io.OptionalDataException;
+import java.io.StreamCorruptedException;
+import java.net.UnknownHostException;
+
+import javax.swing.JTabbedPane;
+
 import pipe.common.AnalysisType;
 import pipe.common.PerformanceMeasure;
 import pipe.common.SimplePlaces;
@@ -9,12 +16,6 @@ import pipe.modules.clientCommon.HTMLPane;
 import pipe.modules.clientCommon.SocketIO;
 import pipe.utilities.Expander;
 import pipe.views.PetriNetView;
-
-import javax.swing.*;
-import java.io.IOException;
-import java.io.OptionalDataException;
-import java.io.StreamCorruptedException;
-import java.net.UnknownHostException;
 
 /**
  * This class performs the transfers the _pnmlData to the server

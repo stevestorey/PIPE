@@ -4,14 +4,17 @@
 
 package pipe.extensions.jpowergraph;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.util.Iterator;
+
+import javax.swing.JComponent;
+import javax.swing.JEditorPane;
+
 import net.sourceforge.jpowergraph.Edge;
 import net.sourceforge.jpowergraph.Node;
 import net.sourceforge.jpowergraph.defaults.TextEdge;
 import net.sourceforge.jpowergraph.swing.manipulator.DefaultSwingToolTipListener;
-
-import javax.swing.*;
-import java.awt.*;
-import java.util.Iterator;
 
 
 //REMARK: this class extends a jpowergraph's class which is LGPL

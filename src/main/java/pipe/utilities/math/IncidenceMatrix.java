@@ -1,10 +1,10 @@
 package pipe.utilities.math;
 
-import pipe.models.component.Place;
-import pipe.models.component.Transition;
-
 import java.util.HashMap;
 import java.util.Map;
+
+import pipe.models.component.Place;
+import pipe.models.component.Transition;
 
 /**
  * Incidence matrix for storing values for Places and Transitions

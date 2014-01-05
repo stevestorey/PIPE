@@ -12,17 +12,27 @@
 
 package pipe.modules.queryeditor.gui.performancetrees.valuenodes.labels;
 
+import java.awt.Component;
+import java.awt.Cursor;
+import java.awt.Dimension;
+import java.awt.Rectangle;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import javax.swing.JDialog;
+import javax.swing.JLayeredPane;
+
 import pipe.common.dataLayer.StateElement;
 import pipe.common.dataLayer.StateGroup;
 import pipe.modules.interfaces.QueryConstants;
-import pipe.views.*;
+import pipe.views.ArcView;
+import pipe.views.ConditionPlaceView;
+import pipe.views.PetriNetView;
+import pipe.views.PetriNetViewComponent;
+import pipe.views.PlaceView;
+import pipe.views.TransitionView;
 import pipe.views.viewComponents.AnnotationNote;
 import pipe.views.viewComponents.ArcPathPoint;
-
-import javax.swing.*;
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.Iterator;
 
 
 public class StateView extends JLayeredPane implements QueryConstants {

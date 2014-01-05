@@ -6,6 +6,19 @@
  */
 package pipe.modules.comparison;
 
+import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.BoxLayout;
+import javax.swing.JCheckBox;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
+
 import pipe.gui.ApplicationSettings;
 import pipe.gui.widgets.ButtonBar;
 import pipe.gui.widgets.EscapableDialog;
@@ -14,16 +27,11 @@ import pipe.gui.widgets.ResultsHTMLPane;
 import pipe.modules.interfaces.IModule;
 import pipe.utilities.Expander;
 import pipe.utilities.writers.PNMLWriter;
-import pipe.views.*;
-
-import javax.swing.*;
-import javax.swing.border.EtchedBorder;
-import javax.swing.border.TitledBorder;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
+import pipe.views.ArcView;
+import pipe.views.MarkingView;
+import pipe.views.PetriNetView;
+import pipe.views.PlaceView;
+import pipe.views.TransitionView;
 
 
 public class Comparison implements IModule {

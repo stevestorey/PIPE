@@ -7,18 +7,26 @@
 
 package pipe.modules.queryeditor.gui.performancetrees;
 
+import java.awt.BasicStroke;
+import java.awt.Rectangle;
+import java.awt.Shape;
+import java.awt.Stroke;
+import java.awt.geom.AffineTransform;
+import java.awt.geom.GeneralPath;
+import java.awt.geom.PathIterator;
+import java.awt.geom.Point2D;
+import java.awt.geom.Rectangle2D;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import javax.swing.JLayeredPane;
+
 import pipe.modules.interfaces.QueryConstants;
 import pipe.modules.queryeditor.gui.PerformanceTreeArcPathPointHandler;
 import pipe.modules.queryeditor.gui.QueryView;
 import pipe.modules.queryeditor.gui.performancetrees.macros.MacroManager;
 import pipe.modules.queryeditor.gui.performancetrees.macros.MacroView;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.geom.*;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 
 public class PerformanceTreeArcPath implements Shape, Cloneable, QueryConstants {

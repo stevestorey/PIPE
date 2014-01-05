@@ -1,10 +1,24 @@
 package pipe.controllers;
 
+import java.awt.Color;
+import java.io.File;
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.swing.text.BadLocationException;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+
 import org.apache.commons.io.FilenameUtils;
 import org.w3c.dom.Document;
-import pipe.actions.ActionEnum;
-import pipe.actions.GuiAction;
-import pipe.gui.*;
+
+import pipe.gui.AnimationHistoryView;
+import pipe.gui.Animator;
+import pipe.gui.ApplicationSettings;
+import pipe.gui.CopyPasteManager;
+import pipe.gui.PetriNetTab;
 import pipe.handlers.MouseHandler;
 import pipe.handlers.mouse.SwingMouseUtilities;
 import pipe.historyActions.AnimationHistory;
@@ -17,21 +31,18 @@ import pipe.models.strategy.arc.BackwardsNormalStrategy;
 import pipe.models.strategy.arc.ForwardsNormalStrategy;
 import pipe.models.strategy.arc.InhibitorStrategy;
 import pipe.petrinet.reader.PetriNetReader;
-import pipe.petrinet.reader.creator.*;
+import pipe.petrinet.reader.creator.AnnotationCreator;
+import pipe.petrinet.reader.creator.ArcCreator;
+import pipe.petrinet.reader.creator.CreatorStruct;
+import pipe.petrinet.reader.creator.PlaceCreator;
+import pipe.petrinet.reader.creator.RateParameterCreator;
+import pipe.petrinet.reader.creator.StateGroupCreator;
+import pipe.petrinet.reader.creator.TokenCreator;
+import pipe.petrinet.reader.creator.TransitionCreator;
 import pipe.petrinet.writer.PetriNetWriter;
 import pipe.utilities.transformers.PNMLTransformer;
 import pipe.utilities.transformers.TNTransformer;
 import pipe.views.PetriNetView;
-
-import javax.swing.text.BadLocationException;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.TransformerException;
-import java.awt.*;
-import java.io.File;
-import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class PipeApplicationController {
 

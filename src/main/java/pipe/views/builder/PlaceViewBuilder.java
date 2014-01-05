@@ -1,11 +1,11 @@
 package pipe.views.builder;
 
+import java.util.LinkedList;
+
 import pipe.controllers.PetriNetController;
 import pipe.models.component.Place;
 import pipe.views.MarkingView;
 import pipe.views.PlaceView;
-
-import java.util.LinkedList;
 
 public class PlaceViewBuilder {
     private final Place place;

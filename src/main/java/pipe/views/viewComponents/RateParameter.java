@@ -1,5 +1,8 @@
 package pipe.views.viewComponents;
 
+import java.util.HashSet;
+import java.util.Iterator;
+
 import pipe.gui.ApplicationSettings;
 import pipe.gui.Grid;
 import pipe.gui.widgets.EscapableDialog;
@@ -9,9 +12,6 @@ import pipe.historyActions.HistoryManager;
 import pipe.historyActions.RateParameterValue;
 import pipe.views.PetriNetView;
 import pipe.views.TransitionView;
-
-import java.util.HashSet;
-import java.util.Iterator;
 
 
 /**

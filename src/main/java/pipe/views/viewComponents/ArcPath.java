@@ -3,6 +3,20 @@
  */
 package pipe.views.viewComponents;
 
+import java.awt.BasicStroke;
+import java.awt.Rectangle;
+import java.awt.Shape;
+import java.awt.Stroke;
+import java.awt.geom.AffineTransform;
+import java.awt.geom.GeneralPath;
+import java.awt.geom.PathIterator;
+import java.awt.geom.Point2D;
+import java.awt.geom.Rectangle2D;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.JLayeredPane;
+
 import pipe.gui.Constants;
 import pipe.gui.PetriNetTab;
 import pipe.gui.ZoomController;
@@ -14,12 +28,6 @@ import pipe.views.ArcView;
 import pipe.views.ConnectableView;
 import pipe.views.PlaceView;
 import pipe.views.TransitionView;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.geom.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ArcPath implements Shape, Cloneable {
 

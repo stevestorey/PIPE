@@ -2,7 +2,11 @@ package pipe.models.visitor;
 
 import pipe.common.dataLayer.StateGroup;
 import pipe.models.PetriNet;
-import pipe.models.component.*;
+import pipe.models.component.Annotation;
+import pipe.models.component.Arc;
+import pipe.models.component.Place;
+import pipe.models.component.Token;
+import pipe.models.component.Transition;
 import pipe.views.viewComponents.RateParameter;
 
 public class PetriNetComponentAddVisitor implements PetriNetComponentVisitor {

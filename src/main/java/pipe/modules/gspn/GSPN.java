@@ -3,16 +3,16 @@
  */
 package pipe.modules.gspn;
 
+import java.io.BufferedWriter;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+
 import pipe.calculations.StateList;
 import pipe.gui.widgets.PetriNetChooserPanel;
 import pipe.gui.widgets.ResultsHTMLPane;
 import pipe.modules.classification.Classification;
 import pipe.views.PetriNetView;
 import pipe.views.PlaceView;
-
-import java.io.BufferedWriter;
-import java.text.DecimalFormat;
-import java.util.ArrayList;
 
 
 /**

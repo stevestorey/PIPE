@@ -3,6 +3,14 @@
  */
 package pipe.modules.minimalSiphons;
 
+import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Date;
+import java.util.Vector;
+
+import javax.swing.BoxLayout;
+
 import pipe.gui.ApplicationSettings;
 import pipe.gui.widgets.ButtonBar;
 import pipe.gui.widgets.EscapableDialog;
@@ -13,13 +21,6 @@ import pipe.utilities.Expander;
 import pipe.utilities.math.Matrix;
 import pipe.utilities.writers.PNMLWriter;
 import pipe.views.PetriNetView;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.Date;
-import java.util.Vector;
 
 
 /**

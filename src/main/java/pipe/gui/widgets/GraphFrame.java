@@ -1,10 +1,28 @@
 package pipe.gui.widgets;
 
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Window;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+
 import net.sourceforge.jpowergraph.defaults.DefaultGraph;
 import net.sourceforge.jpowergraph.defaults.TextEdge;
 import net.sourceforge.jpowergraph.layout.Layouter;
 import net.sourceforge.jpowergraph.layout.spring.SpringLayoutStrategy;
-import net.sourceforge.jpowergraph.lens.*;
+import net.sourceforge.jpowergraph.lens.CursorLens;
+import net.sourceforge.jpowergraph.lens.LegendLens;
+import net.sourceforge.jpowergraph.lens.LensSet;
+import net.sourceforge.jpowergraph.lens.NodeSizeLens;
+import net.sourceforge.jpowergraph.lens.RotateLens;
+import net.sourceforge.jpowergraph.lens.TooltipLens;
+import net.sourceforge.jpowergraph.lens.TranslateLens;
+import net.sourceforge.jpowergraph.lens.ZoomLens;
 import net.sourceforge.jpowergraph.manipulator.dragging.DraggingManipulator;
 import net.sourceforge.jpowergraph.manipulator.popup.PopupManipulator;
 import net.sourceforge.jpowergraph.painters.edge.LineEdgePainter;
@@ -14,13 +32,19 @@ import net.sourceforge.jpowergraph.swing.SwingJGraphScrollPane;
 import net.sourceforge.jpowergraph.swing.SwingJGraphViewPane;
 import net.sourceforge.jpowergraph.swing.manipulator.SwingPopupDisplayer;
 import net.sourceforge.jpowergraph.swtswinginteraction.color.JPowerGraphColor;
-import pipe.extensions.jpowergraph.*;
+import pipe.extensions.jpowergraph.PIPEInitialState;
+import pipe.extensions.jpowergraph.PIPEInitialTangibleState;
+import pipe.extensions.jpowergraph.PIPEInitialVanishingState;
+import pipe.extensions.jpowergraph.PIPELineWithTextEdgePainter;
+import pipe.extensions.jpowergraph.PIPELoopWithTextEdge;
+import pipe.extensions.jpowergraph.PIPELoopWithTextEdgePainter;
+import pipe.extensions.jpowergraph.PIPENode;
+import pipe.extensions.jpowergraph.PIPEState;
+import pipe.extensions.jpowergraph.PIPESwingContextMenuListener;
+import pipe.extensions.jpowergraph.PIPESwingToolTipListener;
+import pipe.extensions.jpowergraph.PIPETangibleState;
+import pipe.extensions.jpowergraph.PIPEVanishingState;
 import pipe.gui.ApplicationSettings;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
 
 public class GraphFrame extends JFrame

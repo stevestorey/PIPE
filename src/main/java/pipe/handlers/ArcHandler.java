@@ -1,5 +1,15 @@
 package pipe.handlers;
 
+import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseWheelEvent;
+
+import javax.swing.AbstractAction;
+import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
+
 import pipe.actions.SplitArcAction;
 import pipe.controllers.PetriNetController;
 import pipe.historyActions.HistoryManager;
@@ -7,13 +17,6 @@ import pipe.models.component.Arc;
 import pipe.views.ArcView;
 import pipe.views.NormalArcView;
 import pipe.views.PlaceView;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseWheelEvent;
 
 /**
  * Class used to implement methods corresponding to mouse events on arcs.

@@ -1,9 +1,9 @@
 package pipe.actions;
 
+import java.awt.event.ActionEvent;
+
 import pipe.gui.ApplicationSettings;
 import pipe.gui.Grid;
-
-import java.awt.event.ActionEvent;
 
 public class GridAction extends GuiAction
 {

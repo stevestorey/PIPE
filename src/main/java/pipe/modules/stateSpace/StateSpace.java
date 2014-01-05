@@ -1,5 +1,13 @@
 package pipe.modules.stateSpace;
 
+import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
+
+import javax.swing.BoxLayout;
+import javax.swing.JOptionPane;
+
 import pipe.calculations.myTree;
 import pipe.exceptions.EmptyNetException;
 import pipe.exceptions.TreeTooBigException;
@@ -12,12 +20,6 @@ import pipe.modules.interfaces.IModule;
 import pipe.utilities.writers.PNMLWriter;
 import pipe.views.MarkingView;
 import pipe.views.PetriNetView;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.List;
 
 
 public class StateSpace

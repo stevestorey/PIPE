@@ -3,6 +3,10 @@
  */
 package pipe.server.performancequery;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
+
 import pipe.modules.interfaces.QueryConstants;
 import pipe.modules.queryresult.PointsResultWrapper;
 import pipe.modules.queryresult.ResultWrapper;
@@ -10,10 +14,6 @@ import pipe.server.interfaces.ServerConstants;
 import pipe.server.performancequery.structure.ParentSubtree;
 import pipe.server.performancequery.structure.ResultSubtree;
 import pipe.server.performancequery.structure.SequentialSubtree;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.concurrent.ExecutionException;
 
 /**
  * @author dazz

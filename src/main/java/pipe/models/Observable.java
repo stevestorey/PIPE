@@ -1,11 +1,11 @@
 package pipe.models;
 
-import pipe.models.interfaces.IObservable;
-import pipe.models.interfaces.IObserver;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import pipe.models.interfaces.IObservable;
+import pipe.models.interfaces.IObserver;
 
 /**
  * Observable class can be used in classes that implement IObservable

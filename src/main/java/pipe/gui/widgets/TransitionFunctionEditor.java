@@ -1,16 +1,23 @@
 package pipe.gui.widgets;
 
-import parser.ExprEvaluator;
-import pipe.controllers.TransitionController;
-import pipe.views.PetriNetView;
-import pipe.views.PlaceView;
-
-import javax.swing.*;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Iterator;
 import java.util.Vector;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
+import parser.ExprEvaluator;
+import pipe.controllers.TransitionController;
+import pipe.views.PetriNetView;
+import pipe.views.PlaceView;
 
 /**
  * @author yufei wang

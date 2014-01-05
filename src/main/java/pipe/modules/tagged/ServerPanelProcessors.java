@@ -1,9 +1,14 @@
 package pipe.modules.tagged;
 
-import pipe.modules.clientCommon.ServerPanel;
+import java.awt.Dimension;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
+
+import pipe.modules.clientCommon.ServerPanel;
 
 /**
  * This class extends the features of ServerPanel by

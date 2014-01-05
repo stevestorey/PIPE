@@ -3,16 +3,16 @@
  */
 package pipe.calculations;
 
-import pipe.io.ImmediateAbortException;
-import pipe.io.ReachabilityGraphFileHeader;
-import pipe.io.TransitionRecord;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.text.DecimalFormat;
 import java.util.Iterator;
 import java.util.LinkedList;
+
+import pipe.io.ImmediateAbortException;
+import pipe.io.ReachabilityGraphFileHeader;
+import pipe.io.TransitionRecord;
 
 
 /**

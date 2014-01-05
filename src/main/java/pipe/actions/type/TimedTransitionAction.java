@@ -1,8 +1,6 @@
 package pipe.actions.type;
 
 
-import pipe.controllers.PetriNetController;
-import pipe.models.component.Connectable;
 
 public class TimedTransitionAction extends TransitionAction {
 

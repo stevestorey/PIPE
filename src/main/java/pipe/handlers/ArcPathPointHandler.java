@@ -5,16 +5,18 @@
  */
 package pipe.handlers;
 
+import java.awt.Container;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseWheelEvent;
+
+import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
+
 import pipe.actions.SplitArcPointAction;
 import pipe.actions.ToggleArcPointAction;
 import pipe.controllers.PetriNetController;
 import pipe.gui.ApplicationSettings;
 import pipe.views.viewComponents.ArcPathPoint;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseWheelEvent;
 
 
 public class ArcPathPointHandler 

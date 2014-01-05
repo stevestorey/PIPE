@@ -3,8 +3,9 @@
  */
 package pipe.gui;
 
-import javax.swing.filechooser.FileFilter;
 import java.io.File;
+
+import javax.swing.filechooser.FileFilter;
 
 public class ExtensionFilter 
         extends FileFilter {

@@ -1,16 +1,11 @@
 package pipe.views;
 
-import pipe.gui.*;
-import pipe.gui.widgets.EscapableDialog;
-import pipe.gui.widgets.GroupTransitionEditorPanel;
-import pipe.handlers.GroupTransitionHandler;
-import pipe.historyActions.GroupTransitionRotation;
-import pipe.historyActions.HistoryItem;
-import pipe.historyActions.UngroupTransition;
-import pipe.models.component.Transition;
-
-import javax.swing.*;
-import java.awt.*;
+import java.awt.BasicStroke;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Paint;
+import java.awt.RenderingHints;
+import java.awt.Shape;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Point2D;
@@ -19,6 +14,21 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
+
+import javax.swing.JOptionPane;
+
+import pipe.gui.ApplicationSettings;
+import pipe.gui.Constants;
+import pipe.gui.Grid;
+import pipe.gui.PetriNetTab;
+import pipe.gui.ZoomController;
+import pipe.gui.widgets.EscapableDialog;
+import pipe.gui.widgets.GroupTransitionEditorPanel;
+import pipe.handlers.GroupTransitionHandler;
+import pipe.historyActions.GroupTransitionRotation;
+import pipe.historyActions.HistoryItem;
+import pipe.historyActions.UngroupTransition;
+import pipe.models.component.Transition;
 
 public class GroupTransitionView extends ConnectableView<Transition> implements Serializable {
     private static final long serialVersionUID = 1L;

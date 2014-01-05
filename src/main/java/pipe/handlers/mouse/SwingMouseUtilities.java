@@ -1,7 +1,8 @@
 package pipe.handlers.mouse;
 
-import javax.swing.*;
 import java.awt.event.MouseEvent;
+
+import javax.swing.SwingUtilities;
 
 /**
  * A Swing implementation of MouseUtilities

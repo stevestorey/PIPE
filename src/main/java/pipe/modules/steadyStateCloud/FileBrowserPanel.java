@@ -1,11 +1,11 @@
 package pipe.modules.steadyStateCloud;
 
+import javax.swing.JList;
+
 import pipe.modules.clientCommon.PetriNetBrowsePanel;
 import pipe.views.PetriNetView;
 import pipe.views.PlaceView;
 import pipe.views.TransitionView;
-
-import javax.swing.*;
 
 public class FileBrowserPanel extends PetriNetBrowsePanel
 {

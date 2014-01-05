@@ -1,21 +1,18 @@
 package pipe.handlers;
 
+import java.awt.Container;
+import java.awt.event.MouseEvent;
+
+import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
+
 import pipe.actions.ShowHideInfoAction;
 import pipe.actions.TypeAction;
 import pipe.controllers.PetriNetController;
 import pipe.gui.ApplicationSettings;
-import pipe.gui.Constants;
-import pipe.gui.PetriNetTab;
-import pipe.historyActions.HistoryManager;
 import pipe.models.PipeApplicationModel;
 import pipe.models.component.Connectable;
-import pipe.models.component.Place;
-import pipe.models.component.Transition;
-import pipe.views.*;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.MouseEvent;
+import pipe.views.ConnectableView;
 
 /**
  * ConnectableHandler handles mouse clicks on Connectables.

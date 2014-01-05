@@ -1,10 +1,10 @@
 package pipe.common.dataLayer;
 
-import pipe.views.PetriNetView;
-
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
+
+import pipe.views.PetriNetView;
 
 /*
  * State is the collection of conditions that constitute a source / destination

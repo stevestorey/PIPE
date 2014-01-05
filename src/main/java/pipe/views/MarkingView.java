@@ -1,17 +1,18 @@
 package pipe.views;
 
-import net.sourceforge.jeval.EvaluationException;
-import parser.ExprEvaluator;
-import parser.MarkingDividedByNumberException;
-import pipe.controllers.MarkingController;
-import pipe.models.Marking;
-import pipe.models.PipeObservable;
-
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Graphics;
+import java.awt.Insets;
 import java.io.Serializable;
 import java.util.Observable;
 import java.util.Observer;
+
+import javax.swing.JComponent;
+import javax.swing.JOptionPane;
+
+import parser.ExprEvaluator;
+import pipe.controllers.MarkingController;
+import pipe.models.Marking;
+import pipe.models.PipeObservable;
 
 //  Steve Doubleday:  changed from IObserver to Observer interface to make use of 
 //  the update(Observable Object) method for TokenViews

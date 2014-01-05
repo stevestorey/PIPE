@@ -9,10 +9,12 @@
 
 package pipe.modules.queryeditor.gui;
 
-import pipe.modules.interfaces.QueryConstants;
+import java.awt.BorderLayout;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import pipe.modules.interfaces.QueryConstants;
 
 
 public class QueryStatusBar extends JPanel implements QueryConstants {

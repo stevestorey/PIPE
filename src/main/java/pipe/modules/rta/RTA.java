@@ -1,18 +1,31 @@
 package pipe.modules.rta;
 
 
-import pipe.gui.ApplicationSettings;
-import pipe.gui.widgets.*;
-import pipe.modules.interfaces.IModule;
-import pipe.views.PetriNetView;
-
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Component;
+import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+import javax.swing.BoxLayout;
+import javax.swing.JDialog;
+
+import pipe.gui.ApplicationSettings;
+import pipe.gui.widgets.ButtonBar;
+import pipe.gui.widgets.EnterOptionsPane;
+import pipe.gui.widgets.GraphPanel;
+import pipe.gui.widgets.PetriNetChooserPanel;
+import pipe.gui.widgets.ResultsHTMLPane;
+import pipe.modules.interfaces.IModule;
+import pipe.views.PetriNetView;
 
 
 /**

@@ -1,5 +1,12 @@
 package pipe.views;
 
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Insets;
+import java.io.Serializable;
+import java.util.Collection;
+import java.util.Observable;
+
 import pipe.controllers.TokenController;
 import pipe.exceptions.TokenLockedException;
 import pipe.models.component.Arc;
@@ -8,11 +15,6 @@ import pipe.models.component.Token;
 import pipe.models.component.Transition;
 import pipe.models.interfaces.IObserver;
 import pipe.utilities.math.Matrix;
-
-import java.awt.*;
-import java.io.Serializable;
-import java.util.Collection;
-import java.util.Observable;
 
 
 public class TokenView extends Observable implements Serializable, IObserver {

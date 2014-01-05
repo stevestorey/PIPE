@@ -9,6 +9,12 @@
 
 package pipe.modules.queryeditor.gui.performancetrees.macros;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Observable;
+
 import pipe.common.PetriNetNode;
 import pipe.modules.interfaces.QueryConstants;
 import pipe.modules.queryeditor.QueryManager;
@@ -16,8 +22,6 @@ import pipe.modules.queryeditor.gui.performancetrees.PerformanceTreeArc;
 import pipe.modules.queryeditor.gui.performancetrees.PerformanceTreeNode;
 import pipe.modules.queryeditor.gui.performancetrees.operationnodes.OperationNode;
 import pipe.modules.queryeditor.gui.performancetrees.valuenodes.ValueNode;
-
-import java.util.*;
 
 public class MacroDefinition extends Observable implements QueryConstants
 {

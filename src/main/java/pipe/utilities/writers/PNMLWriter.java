@@ -1,10 +1,12 @@
 package pipe.utilities.writers;
 
-import org.w3c.dom.*;
-import pipe.common.dataLayer.StateGroup;
-import pipe.views.*;
-import pipe.views.viewComponents.AnnotationNote;
-import pipe.views.viewComponents.RateParameter;
+import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -16,13 +18,24 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
-import java.io.File;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import org.w3c.dom.Attr;
+import org.w3c.dom.DOMException;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
+import pipe.common.dataLayer.StateGroup;
+import pipe.views.ArcView;
+import pipe.views.InhibitorArcView;
+import pipe.views.MarkingView;
+import pipe.views.NormalArcView;
+import pipe.views.PetriNetView;
+import pipe.views.PlaceView;
+import pipe.views.TokenView;
+import pipe.views.TransitionView;
+import pipe.views.viewComponents.AnnotationNote;
+import pipe.views.viewComponents.RateParameter;
 
 public class PNMLWriter
 {

@@ -1,7 +1,29 @@
 package pipe.views;
 
+import java.awt.BasicStroke;
+import java.awt.Container;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Insets;
+import java.awt.RenderingHints;
+import java.awt.Shape;
+import java.awt.geom.AffineTransform;
+import java.awt.geom.Ellipse2D;
+import java.io.Serializable;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Observable;
+import java.util.Observer;
+
+import javax.swing.BoxLayout;
+
 import pipe.controllers.PetriNetController;
-import pipe.gui.*;
+import pipe.gui.ApplicationSettings;
+import pipe.gui.Constants;
+import pipe.gui.Grid;
+import pipe.gui.PetriNetTab;
+import pipe.gui.ZoomController;
 import pipe.gui.widgets.EscapableDialog;
 import pipe.gui.widgets.PlaceEditorPanel;
 import pipe.handlers.ConnectableHandler;
@@ -13,14 +35,6 @@ import pipe.models.component.Place;
 import pipe.models.component.Token;
 import pipe.utilities.Copier;
 import pipe.views.builder.TokenViewBuilder;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.geom.AffineTransform;
-import java.awt.geom.Ellipse2D;
-import java.io.Serializable;
-import java.util.*;
-import java.util.List;
 
 // Steve Doubleday (Oct 2013): added as Observer of changes to MarkingViews; refactored to simplify testing
 public class PlaceView extends ConnectableView<Place> implements Serializable, Observer {

@@ -3,6 +3,14 @@
  */
 package pipe.modules.queryeditor.evaluator.gui;
 
+import java.awt.Component;
+import java.awt.event.MouseEvent;
+import java.util.logging.Level;
+
+import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
+import javax.swing.JTextArea;
+
 import pipe.common.PetriNetNode;
 import pipe.modules.interfaces.QueryConstants;
 import pipe.modules.queryeditor.QueryManager;
@@ -13,11 +21,6 @@ import pipe.modules.queryresult.PointsResultWrapper;
 import pipe.modules.queryresult.TextFileResultWrapper;
 import pipe.server.performancequery.nodeanalyser.InvalidNodeAnalyserException;
 import pipe.server.performancequery.nodeanalyser.NodeAnalyserHelper;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.util.logging.Level;
 
 /**
  * @author dazz

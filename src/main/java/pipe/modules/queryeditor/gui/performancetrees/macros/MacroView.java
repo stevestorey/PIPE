@@ -9,6 +9,27 @@
 
 package pipe.modules.queryeditor.gui.performancetrees.macros;
 
+import java.awt.Component;
+import java.awt.Cursor;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Point;
+import java.awt.Rectangle;
+import java.awt.event.MouseEvent;
+import java.awt.print.PageFormat;
+import java.awt.print.Printable;
+import java.awt.print.PrinterException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Observable;
+import java.util.Observer;
+
+import javax.swing.JLayeredPane;
+import javax.swing.JViewport;
+import javax.swing.event.MouseInputAdapter;
+
 import pipe.gui.Grid;
 import pipe.modules.interfaces.QueryConstants;
 import pipe.modules.queryeditor.QueryManager;
@@ -20,17 +41,30 @@ import pipe.modules.queryeditor.gui.performancetrees.PerformanceTreeArc;
 import pipe.modules.queryeditor.gui.performancetrees.PerformanceTreeArcPathPoint;
 import pipe.modules.queryeditor.gui.performancetrees.PerformanceTreeNode;
 import pipe.modules.queryeditor.gui.performancetrees.PerformanceTreeObject;
-import pipe.modules.queryeditor.gui.performancetrees.operationnodes.*;
-import pipe.modules.queryeditor.gui.performancetrees.valuenodes.*;
-
-import javax.swing.*;
-import javax.swing.event.MouseInputAdapter;
-import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.print.PageFormat;
-import java.awt.print.Printable;
-import java.awt.print.PrinterException;
-import java.util.*;
+import pipe.modules.queryeditor.gui.performancetrees.operationnodes.ArithCompNode;
+import pipe.modules.queryeditor.gui.performancetrees.operationnodes.ArithOpNode;
+import pipe.modules.queryeditor.gui.performancetrees.operationnodes.ConvolutionNode;
+import pipe.modules.queryeditor.gui.performancetrees.operationnodes.DisconNode;
+import pipe.modules.queryeditor.gui.performancetrees.operationnodes.DistributionNode;
+import pipe.modules.queryeditor.gui.performancetrees.operationnodes.FiringRateNode;
+import pipe.modules.queryeditor.gui.performancetrees.operationnodes.InIntervalNode;
+import pipe.modules.queryeditor.gui.performancetrees.operationnodes.MomentNode;
+import pipe.modules.queryeditor.gui.performancetrees.operationnodes.NegationNode;
+import pipe.modules.queryeditor.gui.performancetrees.operationnodes.OperationNode;
+import pipe.modules.queryeditor.gui.performancetrees.operationnodes.PassageTimeDensityNode;
+import pipe.modules.queryeditor.gui.performancetrees.operationnodes.PercentileNode;
+import pipe.modules.queryeditor.gui.performancetrees.operationnodes.ProbInIntervalNode;
+import pipe.modules.queryeditor.gui.performancetrees.operationnodes.ProbInStatesNode;
+import pipe.modules.queryeditor.gui.performancetrees.operationnodes.RangeNode;
+import pipe.modules.queryeditor.gui.performancetrees.operationnodes.StatesAtTimeNode;
+import pipe.modules.queryeditor.gui.performancetrees.operationnodes.SteadyStateProbNode;
+import pipe.modules.queryeditor.gui.performancetrees.operationnodes.SteadyStateStatesNode;
+import pipe.modules.queryeditor.gui.performancetrees.operationnodes.SubsetNode;
+import pipe.modules.queryeditor.gui.performancetrees.valuenodes.ActionsNode;
+import pipe.modules.queryeditor.gui.performancetrees.valuenodes.BoolNode;
+import pipe.modules.queryeditor.gui.performancetrees.valuenodes.NumNode;
+import pipe.modules.queryeditor.gui.performancetrees.valuenodes.StateFunctionNode;
+import pipe.modules.queryeditor.gui.performancetrees.valuenodes.StatesNode;
 
 public class MacroView extends JLayeredPane implements Observer, QueryConstants, Printable
 {

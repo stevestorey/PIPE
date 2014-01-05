@@ -1,9 +1,13 @@
 package pipe.gui;
 
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.Component;
+
+import javax.swing.BorderFactory;
+import javax.swing.JLabel;
+import javax.swing.JTable;
 import javax.swing.border.Border;
 import javax.swing.table.TableCellRenderer;
-import java.awt.*;
 
 /**
  * @author Alex Charalambous, June 2010: ColorDrawer, ColorPicker, 

@@ -10,6 +10,11 @@
 
 package pipe.modules.queryeditor.gui.performancetrees.macros;
 
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.util.ArrayList;
+import java.util.Iterator;
+
 import pipe.common.PetriNetNode;
 import pipe.modules.queryeditor.QueryManager;
 import pipe.modules.queryeditor.gui.QueryView;
@@ -17,10 +22,6 @@ import pipe.modules.queryeditor.gui.performancetrees.PerformanceTreeArc;
 import pipe.modules.queryeditor.gui.performancetrees.PerformanceTreeNode;
 import pipe.modules.queryeditor.gui.performancetrees.PerformanceTreeObjectLabel;
 import pipe.modules.queryeditor.gui.performancetrees.operationnodes.OperationNode;
-
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.Iterator;
 
 
 public class MacroNode extends OperationNode {

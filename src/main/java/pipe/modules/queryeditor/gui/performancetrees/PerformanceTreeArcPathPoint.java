@@ -7,16 +7,18 @@
 
 package pipe.modules.queryeditor.gui.performancetrees;
 
-import pipe.gui.Zoomable;
-import pipe.modules.interfaces.QueryConstants;
-import pipe.modules.queryeditor.QueryManager;
-import pipe.modules.queryeditor.gui.performancetrees.macros.MacroManager;
-
-import java.awt.*;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import java.awt.geom.RectangularShape;
+
+import pipe.gui.Zoomable;
+import pipe.modules.interfaces.QueryConstants;
+import pipe.modules.queryeditor.QueryManager;
+import pipe.modules.queryeditor.gui.performancetrees.macros.MacroManager;
 
 
 public class PerformanceTreeArcPathPoint extends PerformanceTreeObject implements Cloneable, QueryConstants, Zoomable {

@@ -1,11 +1,11 @@
 package pipe.actions;
 
+import java.awt.event.ActionEvent;
+import java.util.LinkedList;
+
 import pipe.gui.ApplicationSettings;
 import pipe.views.PipeApplicationView;
 import pipe.views.TokenView;
-
-import java.awt.event.ActionEvent;
-import java.util.LinkedList;
 
 /**
  * @author Alex Charalambous, June 2010: Handles the combo box used to

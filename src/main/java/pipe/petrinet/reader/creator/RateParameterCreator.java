@@ -1,6 +1,7 @@
 package pipe.petrinet.reader.creator;
 
 import org.w3c.dom.Element;
+
 import pipe.views.viewComponents.RateParameter;
 
 public class RateParameterCreator implements ComponentCreator<RateParameter>{

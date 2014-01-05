@@ -9,22 +9,33 @@
 
 package pipe.modules.queryeditor.gui;
 
-import pipe.modules.interfaces.QueryConstants;
-import pipe.modules.queryeditor.QueryManager;
-import pipe.modules.queryeditor.gui.performancetrees.*;
-import pipe.modules.queryeditor.gui.performancetrees.macros.MacroManager;
-import pipe.modules.queryeditor.gui.performancetrees.macros.MacroNode;
-import pipe.modules.queryeditor.gui.performancetrees.macros.MacroView;
-import pipe.modules.queryeditor.gui.performancetrees.operationnodes.ResultNode;
-import pipe.modules.queryeditor.gui.performancetrees.operationnodes.SequentialNode;
-
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Point;
+import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.Iterator;
+
+import javax.swing.JComponent;
+import javax.swing.JLayeredPane;
+
+import pipe.modules.interfaces.QueryConstants;
+import pipe.modules.queryeditor.QueryManager;
+import pipe.modules.queryeditor.gui.performancetrees.PerformanceTreeArc;
+import pipe.modules.queryeditor.gui.performancetrees.PerformanceTreeArcPath;
+import pipe.modules.queryeditor.gui.performancetrees.PerformanceTreeArcPathPoint;
+import pipe.modules.queryeditor.gui.performancetrees.PerformanceTreeNode;
+import pipe.modules.queryeditor.gui.performancetrees.PerformanceTreeObject;
+import pipe.modules.queryeditor.gui.performancetrees.macros.MacroManager;
+import pipe.modules.queryeditor.gui.performancetrees.macros.MacroNode;
+import pipe.modules.queryeditor.gui.performancetrees.macros.MacroView;
+import pipe.modules.queryeditor.gui.performancetrees.operationnodes.ResultNode;
+import pipe.modules.queryeditor.gui.performancetrees.operationnodes.SequentialNode;
 
 
 public class PerformanceTreeSelectionObject extends JComponent implements MouseListener, MouseMotionListener, QueryConstants

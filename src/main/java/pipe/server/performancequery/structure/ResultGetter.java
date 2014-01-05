@@ -1,8 +1,8 @@
 package pipe.server.performancequery.structure;
 
-import pipe.modules.queryresult.ResultWrapper;
-
 import java.util.concurrent.ExecutionException;
+
+import pipe.modules.queryresult.ResultWrapper;
 
 interface ResultGetter
 {

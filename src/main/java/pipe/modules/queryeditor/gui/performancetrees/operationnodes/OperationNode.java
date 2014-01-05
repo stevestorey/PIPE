@@ -9,6 +9,14 @@
 
 package pipe.modules.queryeditor.gui.performancetrees.operationnodes;
 
+import java.awt.Graphics;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+
+import javax.swing.JLayeredPane;
+
 import pipe.common.PetriNetNode;
 import pipe.modules.interfaces.QueryConstants;
 import pipe.modules.queryeditor.QueryManager;
@@ -18,13 +26,6 @@ import pipe.modules.queryeditor.gui.performancetrees.PerformanceTreeNode;
 import pipe.modules.queryeditor.gui.performancetrees.macros.MacroEditor;
 import pipe.modules.queryeditor.gui.performancetrees.macros.MacroManager;
 import pipe.modules.queryeditor.gui.performancetrees.macros.MacroView;
-
-import javax.swing.*;
-import java.awt.*;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 
 public abstract class OperationNode extends PerformanceTreeNode
 {

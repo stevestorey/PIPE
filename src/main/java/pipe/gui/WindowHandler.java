@@ -1,9 +1,9 @@
 package pipe.gui;
 
-import pipe.views.PipeApplicationView;
-
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+
+import pipe.views.PipeApplicationView;
 
 
 public class WindowHandler extends WindowAdapter

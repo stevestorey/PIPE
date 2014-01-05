@@ -1,11 +1,10 @@
 package pipe.actions.type;
 
+import java.awt.Point;
+
 import pipe.actions.TypeAction;
 import pipe.controllers.PetriNetController;
-import pipe.models.PetriNet;
 import pipe.models.component.Connectable;
-
-import java.awt.*;
 
 public class RateAction extends TypeAction {
 

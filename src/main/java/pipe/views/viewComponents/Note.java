@@ -1,5 +1,14 @@
 package pipe.views.viewComponents;
 
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Rectangle;
+import java.awt.geom.RectangularShape;
+
+import javax.swing.JTextArea;
+import javax.swing.text.DefaultHighlighter;
+
 import pipe.gui.ApplicationSettings;
 import pipe.gui.Constants;
 import pipe.gui.Translatable;
@@ -7,11 +16,6 @@ import pipe.gui.ZoomController;
 import pipe.historyActions.AnnotationBorder;
 import pipe.historyActions.HistoryItem;
 import pipe.views.PetriNetViewComponent;
-
-import javax.swing.*;
-import javax.swing.text.DefaultHighlighter;
-import java.awt.*;
-import java.awt.geom.RectangularShape;
 
 
 /**

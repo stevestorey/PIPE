@@ -1,12 +1,12 @@
 package pipe.controllers;
 
+import java.util.Map;
+
 import pipe.historyActions.ArcWeight;
 import pipe.historyActions.HistoryManager;
 import pipe.models.component.Arc;
 import pipe.models.component.Connectable;
 import pipe.models.component.Token;
-
-import java.util.Map;
 
 public class ArcController extends AbstractPetriNetComponentController
 {

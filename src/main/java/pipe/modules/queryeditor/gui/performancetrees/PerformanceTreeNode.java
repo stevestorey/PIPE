@@ -11,15 +11,11 @@
 
 package pipe.modules.queryeditor.gui.performancetrees;
 
-import pipe.common.PetriNetNode;
-import pipe.modules.interfaces.QueryConstants;
-import pipe.modules.queryeditor.QueryManager;
-import pipe.modules.queryeditor.gui.performancetrees.macros.MacroDefinition;
-import pipe.modules.queryeditor.gui.performancetrees.macros.MacroManager;
-import pipe.modules.queryeditor.io.MacroLoader;
-
-import javax.imageio.ImageIO;
-import java.awt.*;
+import java.awt.BasicStroke;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+import java.awt.Shape;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Point2D;
@@ -31,6 +27,15 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
+
+import javax.imageio.ImageIO;
+
+import pipe.common.PetriNetNode;
+import pipe.modules.interfaces.QueryConstants;
+import pipe.modules.queryeditor.QueryManager;
+import pipe.modules.queryeditor.gui.performancetrees.macros.MacroDefinition;
+import pipe.modules.queryeditor.gui.performancetrees.macros.MacroManager;
+import pipe.modules.queryeditor.io.MacroLoader;
 
 public abstract class PerformanceTreeNode extends PerformanceTreeObject
 {

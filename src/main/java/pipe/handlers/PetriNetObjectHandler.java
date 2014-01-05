@@ -1,5 +1,13 @@
 package pipe.handlers;
 
+import java.awt.Container;
+import java.awt.Point;
+import java.awt.event.MouseEvent;
+
+import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
+import javax.swing.SwingUtilities;
+
 import pipe.actions.DeletePetriNetObjectAction;
 import pipe.controllers.PetriNetController;
 import pipe.gui.ApplicationSettings;
@@ -8,10 +16,6 @@ import pipe.gui.PetriNetTab;
 import pipe.models.PipeApplicationModel;
 import pipe.models.component.PetriNetComponent;
 import pipe.views.PetriNetViewComponent;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.MouseEvent;
 
 //import java.awt.event.MouseWheelEvent; eliminat NOU-PERE
 

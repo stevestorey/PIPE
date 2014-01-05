@@ -3,15 +3,12 @@
  */
 package pipe.historyActions;
 
-import pipe.controllers.PipeApplicationController;
-import pipe.gui.ApplicationSettings;
-import pipe.gui.Constants;
-import pipe.models.PetriNet;
-import pipe.models.PipeApplicationModel;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import pipe.controllers.PipeApplicationController;
+import pipe.gui.Constants;
 
 
 /**

@@ -1,18 +1,20 @@
 package pipe.modules.passage;
 
+import java.io.IOException;
+import java.io.OptionalDataException;
+import java.io.StreamCorruptedException;
+import java.net.UnknownHostException;
+import java.util.ArrayList;
+
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+
 import pipe.common.AnalysisSettings;
 import pipe.common.AnalysisType;
 import pipe.common.SimplePlaces;
 import pipe.common.SimpleTransitions;
 import pipe.modules.clientCommon.SocketIO;
 import pipe.views.PetriNetView;
-
-import javax.swing.*;
-import java.io.IOException;
-import java.io.OptionalDataException;
-import java.io.StreamCorruptedException;
-import java.net.UnknownHostException;
-import java.util.ArrayList;
 
 /**
  * This class performs the transfers the _pnmlData to the server

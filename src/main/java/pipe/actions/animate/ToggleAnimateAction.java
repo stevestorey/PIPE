@@ -1,17 +1,17 @@
 package pipe.actions.animate;
 
+import java.awt.event.ActionEvent;
+
+import javax.swing.JOptionPane;
+
 import pipe.controllers.PetriNetController;
 import pipe.gui.Animator;
 import pipe.gui.ApplicationSettings;
-import pipe.gui.Constants;
 import pipe.gui.PetriNetTab;
 import pipe.models.PetriNet;
 import pipe.models.PipeApplicationModel;
 import pipe.views.PetriNetViewComponent;
 import pipe.views.PipeApplicationView;
-
-import javax.swing.*;
-import java.awt.event.ActionEvent;
 
 public class ToggleAnimateAction extends AnimateAction {
     public ToggleAnimateAction(final String name, final String tooltip, final String keystroke) {

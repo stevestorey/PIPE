@@ -5,12 +5,12 @@
  */
 package pipe.handlers;
 
+import java.awt.Container;
+import java.awt.event.MouseEvent;
+
 import pipe.controllers.PetriNetController;
 import pipe.models.component.Annotation;
 import pipe.views.viewComponents.AnnotationNote;
-
-import java.awt.*;
-import java.awt.event.MouseEvent;
 
 public class NoteHandler
         extends PetriNetObjectHandler<Annotation, AnnotationNote>

@@ -3,16 +3,17 @@
  */
 package pipe.server.performancequery;
 
-import org.ggf.drmaa.DrmaaException;
-import pipe.exceptions.UnexpectedResultException;
-import pipe.modules.queryresult.ResultWrapper;
-import pipe.server.performancequery.nodeanalyser.InvalidNodeAnalyserException;
-import pipe.server.performancequery.structure.ParentSubtree;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
+
+import org.ggf.drmaa.DrmaaException;
+
+import pipe.exceptions.UnexpectedResultException;
+import pipe.modules.queryresult.ResultWrapper;
+import pipe.server.performancequery.nodeanalyser.InvalidNodeAnalyserException;
+import pipe.server.performancequery.structure.ParentSubtree;
 
 /**
  * @author dazz

@@ -5,13 +5,14 @@
  */
  package pipe.handlers;
 
- import pipe.controllers.PetriNetController;
- import pipe.models.component.Annotation;
- import pipe.views.viewComponents.AnnotationNote;
+ import java.awt.Container;
+import java.awt.event.MouseEvent;
 
- import javax.swing.*;
- import java.awt.*;
- import java.awt.event.MouseEvent;
+import javax.swing.JPopupMenu;
+
+import pipe.controllers.PetriNetController;
+import pipe.models.component.Annotation;
+import pipe.views.viewComponents.AnnotationNote;
 
 
  public class AnnotationNoteHandler

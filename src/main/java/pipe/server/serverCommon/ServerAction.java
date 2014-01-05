@@ -16,14 +16,15 @@
 
 package pipe.server.serverCommon;
 
-import org.ggf.drmaa.DrmaaException;
-import pipe.common.*;
-import pipe.common.dataLayer.StateGroup;
-import pipe.server.JobStatusChecker;
-import pipe.server.ServerDrmaaSession;
-import pipe.server.TransMod;
-
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.OutputStream;
+import java.io.PrintStream;
+import java.io.StreamCorruptedException;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.text.DateFormat;
@@ -31,6 +32,18 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+
+import org.ggf.drmaa.DrmaaException;
+
+import pipe.common.AnalysisSettings;
+import pipe.common.AnalysisType;
+import pipe.common.PerformanceMeasure;
+import pipe.common.SimplePlaces;
+import pipe.common.SimpleTransitions;
+import pipe.common.dataLayer.StateGroup;
+import pipe.server.JobStatusChecker;
+import pipe.server.ServerDrmaaSession;
+import pipe.server.TransMod;
 
 public class ServerAction implements Runnable
 {

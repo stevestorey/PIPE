@@ -10,10 +10,13 @@
 package pipe.modules.queryeditor.gui;
 
 
-import pipe.modules.queryeditor.QueryManager;
-
-import javax.swing.*;
 import java.net.URL;
+
+import javax.swing.AbstractAction;
+import javax.swing.ImageIcon;
+import javax.swing.KeyStroke;
+
+import pipe.modules.queryeditor.QueryManager;
 
 
 public abstract class QueryAction extends AbstractAction {

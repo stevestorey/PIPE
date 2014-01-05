@@ -6,6 +6,13 @@
  */
 package pipe.calculations;
 
+import java.io.EOFException;
+import java.io.File;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.ArrayList;
+import java.util.LinkedList;
+
 import pipe.exceptions.TreeTooBigException;
 import pipe.io.ImmediateAbortException;
 import pipe.io.ReachabilityGraphFileHeader;
@@ -13,13 +20,6 @@ import pipe.io.TransitionRecord;
 import pipe.utilities.math.Matrix;
 import pipe.views.MarkingView;
 import pipe.views.PetriNetView;
-
-import java.io.EOFException;
-import java.io.File;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.util.ArrayList;
-import java.util.LinkedList;
 
 
 /**

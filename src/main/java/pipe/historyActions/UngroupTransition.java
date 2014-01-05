@@ -1,9 +1,9 @@
 package pipe.historyActions;
 
+import java.util.ArrayList;
+
 import pipe.views.GroupTransitionView;
 import pipe.views.TransitionView;
-
-import java.util.ArrayList;
 
 /**
  * 

@@ -1,12 +1,13 @@
 package pipe.handlers;
 
-import pipe.views.ConnectableView;
-import pipe.views.viewComponents.NameLabel;
-
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
+
+import javax.swing.SwingUtilities;
+
+import pipe.views.ConnectableView;
+import pipe.views.viewComponents.NameLabel;
 
 
 public class LabelHandler 

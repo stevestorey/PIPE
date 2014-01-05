@@ -4,6 +4,8 @@
 
 package pipe.extensions.jpowergraph;
 
+import java.awt.geom.Point2D;
+
 import net.sourceforge.jpowergraph.SubGraphHighlighter;
 import net.sourceforge.jpowergraph.defaults.TextEdge;
 import net.sourceforge.jpowergraph.painters.edge.LineWithTextEdgePainter;
@@ -11,8 +13,6 @@ import net.sourceforge.jpowergraph.pane.JGraphPane;
 import net.sourceforge.jpowergraph.swtswinginteraction.JPowerGraphGraphics;
 import net.sourceforge.jpowergraph.swtswinginteraction.color.JPowerGraphColor;
 import net.sourceforge.jpowergraph.swtswinginteraction.geometry.JPowerGraphPoint;
-
-import java.awt.geom.Point2D;
 
 
 //REMARK: this class extends a jpowergraph's class which is LGPL

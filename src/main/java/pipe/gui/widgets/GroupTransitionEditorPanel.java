@@ -1,5 +1,15 @@
 package pipe.gui.widgets;
 
+import java.awt.Color;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JRootPane;
+import javax.swing.JTextField;
+import javax.swing.event.CaretListener;
+
 import pipe.controllers.PetriNetController;
 import pipe.controllers.PipeApplicationController;
 import pipe.gui.ApplicationSettings;
@@ -7,10 +17,6 @@ import pipe.gui.PetriNetTab;
 import pipe.historyActions.HistoryManager;
 import pipe.views.GroupTransitionView;
 import pipe.views.PetriNetView;
-
-import javax.swing.*;
-import javax.swing.event.CaretListener;
-import java.awt.*;
 
 
 /**

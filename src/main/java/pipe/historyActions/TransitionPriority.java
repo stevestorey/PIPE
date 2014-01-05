@@ -1,6 +1,5 @@
 package pipe.historyActions;
 
-import pipe.models.PetriNet;
 import pipe.models.component.Transition;
 
 public class TransitionPriority extends HistoryItem

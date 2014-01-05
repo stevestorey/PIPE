@@ -1,5 +1,26 @@
 package pipe.gui.widgets;
 
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JRootPane;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
+import javax.swing.event.ChangeListener;
+
 import pipe.controllers.PetriNetController;
 import pipe.controllers.PlaceController;
 import pipe.gui.ApplicationSettings;
@@ -8,12 +29,6 @@ import pipe.models.component.Token;
 import pipe.views.ArcView;
 import pipe.views.PetriNetView;
 import pipe.views.TransitionView;
-
-import javax.swing.*;
-import javax.swing.event.ChangeListener;
-import java.awt.*;
-import java.util.*;
-import java.util.List;
 
 /**
  * @author pere

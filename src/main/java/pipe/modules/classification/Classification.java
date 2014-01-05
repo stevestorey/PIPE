@@ -9,6 +9,15 @@
  */
 package pipe.modules.classification;
 
+import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import javax.swing.BoxLayout;
+import javax.swing.JOptionPane;
+
 import pipe.exceptions.EmptyNetException;
 import pipe.gui.ApplicationSettings;
 import pipe.gui.widgets.ButtonBar;
@@ -19,13 +28,6 @@ import pipe.modules.interfaces.IModule;
 import pipe.utilities.Expander;
 import pipe.utilities.writers.PNMLWriter;
 import pipe.views.PetriNetView;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 
 /**

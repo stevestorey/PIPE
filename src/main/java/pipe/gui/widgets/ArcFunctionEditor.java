@@ -1,18 +1,24 @@
 package pipe.gui.widgets;
 
-import parser.ExprEvaluator;
-import parser.MarkingDividedByNumberException;
-import pipe.controllers.ArcController;
-import pipe.models.PetriNet;
-import pipe.models.component.Place;
-import pipe.models.component.Token;
-
-import javax.swing.*;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.LinkedList;
 import java.util.List;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
+import parser.ExprEvaluator;
+import pipe.controllers.ArcController;
+import pipe.models.PetriNet;
+import pipe.models.component.Place;
+import pipe.models.component.Token;
 
 public class ArcFunctionEditor extends JPanel {
     private PetriNet petriNet;

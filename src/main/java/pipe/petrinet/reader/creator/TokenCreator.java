@@ -1,9 +1,10 @@
 package pipe.petrinet.reader.creator;
 
-import org.w3c.dom.Element;
-import pipe.models.component.Token;
+import java.awt.Color;
 
-import java.awt.*;
+import org.w3c.dom.Element;
+
+import pipe.models.component.Token;
 
 public class TokenCreator implements ComponentCreator<Token>{
     public Token create(Element element) {

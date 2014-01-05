@@ -1,18 +1,20 @@
 package pipe.handlers;
 
+import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseWheelEvent;
+
+import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
+
 import pipe.controllers.PetriNetController;
 import pipe.controllers.PipeApplicationController;
 import pipe.gui.ApplicationSettings;
 import pipe.historyActions.HistoryItem;
 import pipe.historyActions.HistoryManager;
 import pipe.views.GroupTransitionView;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseWheelEvent;
 
 /**
  * Class used to implement methods corresponding to mouse events on transitions.

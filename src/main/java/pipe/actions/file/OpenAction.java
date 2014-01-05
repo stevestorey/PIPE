@@ -1,12 +1,13 @@
 package pipe.actions.file;
 
+import java.awt.event.ActionEvent;
+import java.io.File;
+
+import javax.swing.JOptionPane;
+
 import pipe.gui.ApplicationSettings;
 import pipe.gui.widgets.FileBrowser;
 import pipe.views.PipeApplicationView;
-
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.io.File;
 
 public class OpenAction extends FileAction {
 

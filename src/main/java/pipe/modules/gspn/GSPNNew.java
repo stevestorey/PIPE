@@ -3,12 +3,28 @@
  */
 package pipe.modules.gspn;
 
+import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.LinkedList;
+
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
+
 import pipe.calculations.StateList;
 import pipe.calculations.StateSpaceGenerator;
 import pipe.calculations.SteadyStateSolver;
 import pipe.exceptions.MarkingNotIntegerException;
 import pipe.exceptions.StateSpaceTooBigException;
-import pipe.exceptions.TimelessTrapException;
 import pipe.gui.ApplicationSettings;
 import pipe.gui.widgets.ButtonBar;
 import pipe.gui.widgets.EscapableDialog;
@@ -22,19 +38,6 @@ import pipe.views.MarkingView;
 import pipe.views.PetriNetView;
 import pipe.views.PlaceView;
 import pipe.views.TransitionView;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.LinkedList;
 
 /**
  * @author Nadeem

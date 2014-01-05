@@ -1,17 +1,15 @@
 package pipe.actions;
 
+import java.awt.Point;
+import java.awt.event.ActionEvent;
+
 import pipe.controllers.PetriNetController;
 import pipe.gui.ApplicationSettings;
 import pipe.gui.Constants;
 import pipe.gui.PetriNetTab;
 import pipe.gui.StatusBar;
-import pipe.models.PetriNet;
 import pipe.models.PipeApplicationModel;
 import pipe.models.component.Connectable;
-import pipe.models.component.PetriNetComponent;
-
-import java.awt.*;
-import java.awt.event.ActionEvent;
 
 public abstract class TypeAction extends GuiAction
 {

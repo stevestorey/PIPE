@@ -1,14 +1,19 @@
 package pipe.views;
 
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Insets;
+import java.awt.RenderingHints;
+import java.awt.geom.AffineTransform;
+import java.awt.geom.Ellipse2D;
+import java.io.Serializable;
+
 import pipe.controllers.PetriNetController;
 import pipe.gui.Constants;
 import pipe.gui.PetriNetTab;
 import pipe.models.component.ConditionalPlace;
-
-import java.awt.*;
-import java.awt.geom.AffineTransform;
-import java.awt.geom.Ellipse2D;
-import java.io.Serializable;
 
 public class ConditionPlaceView extends ConnectableView implements Cloneable, Constants, Serializable {
     private static final long serialVersionUID = 1L;

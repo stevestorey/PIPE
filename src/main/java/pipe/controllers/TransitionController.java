@@ -1,16 +1,15 @@
 package pipe.controllers;
 
-import org.apache.poi.openxml4j.opc.PackageRelationshipCollection;
-import pipe.controllers.interfaces.IController;
-import pipe.historyActions.*;
-import pipe.models.component.Arc;
-import pipe.models.component.Place;
-import pipe.models.component.Transition;
-import pipe.views.TransitionView;
-import pipe.views.viewComponents.RateParameter;
-
-import java.util.ArrayList;
 import java.util.Collection;
+
+import pipe.historyActions.HistoryManager;
+import pipe.historyActions.TransitionInfiniteServer;
+import pipe.historyActions.TransitionPriority;
+import pipe.historyActions.TransitionRotation;
+import pipe.historyActions.TransitionTiming;
+import pipe.models.component.Arc;
+import pipe.models.component.Transition;
+import pipe.views.viewComponents.RateParameter;
 
 public class TransitionController extends AbstractPetriNetComponentController<Transition>
 {

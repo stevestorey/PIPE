@@ -4,8 +4,11 @@
 
 package pipe.gui;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
+import javax.swing.JComponent;
 
 /**
  * This class must be removed after zoom functionality is improved!!!

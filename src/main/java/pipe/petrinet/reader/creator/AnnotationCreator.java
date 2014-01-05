@@ -1,6 +1,7 @@
 package pipe.petrinet.reader.creator;
 
 import org.w3c.dom.Element;
+
 import pipe.models.component.Annotation;
 
 public class AnnotationCreator implements ComponentCreator<Annotation> {

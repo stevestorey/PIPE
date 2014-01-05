@@ -1,11 +1,11 @@
 package pipe.views.builder;
 
+import java.util.LinkedList;
+
 import pipe.controllers.PetriNetController;
 import pipe.models.component.Arc;
 import pipe.views.MarkingView;
 import pipe.views.NormalArcView;
-
-import java.util.LinkedList;
 
 public class NormalArcViewBuilder {
     private final Arc arc;

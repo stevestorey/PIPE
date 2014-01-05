@@ -3,10 +3,10 @@
  */
 package pipe.common;
 
-import pipe.modules.interfaces.QueryConstants;
-
-import java.awt.*;
+import java.awt.Color;
 import java.io.Serializable;
+
+import pipe.modules.interfaces.QueryConstants;
 
 /**
  * @author dazz

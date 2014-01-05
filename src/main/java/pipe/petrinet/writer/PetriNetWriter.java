@@ -1,14 +1,6 @@
 package pipe.petrinet.writer;
 
-import org.w3c.dom.Attr;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import pipe.models.PetriNet;
-import pipe.models.component.Arc;
-import pipe.models.component.Place;
-import pipe.models.component.Token;
-import pipe.models.component.Transition;
-import pipe.petrinet.writer.reflectionCreator.ElementCreator;
+import java.lang.reflect.InvocationTargetException;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -20,7 +12,17 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
-import java.lang.reflect.InvocationTargetException;
+
+import org.w3c.dom.Attr;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
+import pipe.models.PetriNet;
+import pipe.models.component.Arc;
+import pipe.models.component.Place;
+import pipe.models.component.Token;
+import pipe.models.component.Transition;
+import pipe.petrinet.writer.reflectionCreator.ElementCreator;
 
 
 public class PetriNetWriter {

@@ -6,6 +6,14 @@
  */
 package pipe.views.viewComponents;
 
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+import java.awt.geom.Ellipse2D;
+import java.awt.geom.Point2D;
+import java.awt.geom.Rectangle2D;
+import java.awt.geom.RectangularShape;
+
 import pipe.gui.ApplicationSettings;
 import pipe.gui.Constants;
 import pipe.gui.PetriNetTab;
@@ -16,12 +24,6 @@ import pipe.historyActions.HistoryItem;
 import pipe.views.PetriNetView;
 import pipe.views.PetriNetViewComponent;
 import pipe.views.PipeApplicationView;
-
-import java.awt.*;
-import java.awt.geom.Ellipse2D;
-import java.awt.geom.Point2D;
-import java.awt.geom.Rectangle2D;
-import java.awt.geom.RectangularShape;
 
 
 public class ArcPathPoint extends PetriNetViewComponent {

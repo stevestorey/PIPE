@@ -1,11 +1,11 @@
 package pipe.modules.queryresult;
 
-import pipe.common.PetriNetNode;
-import pipe.handlers.StringHelper;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
+
+import pipe.common.PetriNetNode;
+import pipe.handlers.StringHelper;
 
 public class FilePointsResultWrapper extends TextFileResultWrapper implements Serializable
 {

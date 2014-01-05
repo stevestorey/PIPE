@@ -3,10 +3,11 @@
  */
 package pipe.actions;
 
-import pipe.views.viewComponents.Note;
-
-import javax.swing.*;
 import java.awt.event.ActionEvent;
+
+import javax.swing.AbstractAction;
+
+import pipe.views.viewComponents.Note;
 
 
 public class EditNoteAction 

@@ -1,19 +1,32 @@
 package pipe.controllers;
 
+import java.awt.Color;
+import java.awt.Rectangle;
+import java.awt.geom.Point2D;
+import java.io.Serializable;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 import pipe.controllers.interfaces.IController;
 import pipe.gui.Animator;
-import pipe.historyActions.*;
+import pipe.historyActions.AddPetriNetObject;
+import pipe.historyActions.DeletePetriNetObject;
+import pipe.historyActions.HistoryManager;
 import pipe.models.PetriNet;
-import pipe.models.component.*;
+import pipe.models.component.Arc;
+import pipe.models.component.Connectable;
+import pipe.models.component.PetriNetComponent;
+import pipe.models.component.Place;
+import pipe.models.component.TemporaryArcTarget;
+import pipe.models.component.Token;
+import pipe.models.component.Transition;
 import pipe.models.strategy.arc.ArcStrategy;
 import pipe.models.strategy.arc.BackwardsNormalStrategy;
 import pipe.models.strategy.arc.ForwardsNormalStrategy;
 import pipe.models.strategy.arc.InhibitorStrategy;
-
-import java.awt.*;
-import java.awt.geom.Point2D;
-import java.io.Serializable;
-import java.util.*;
 
 public class PetriNetController implements IController, Serializable {
 

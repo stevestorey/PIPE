@@ -1,13 +1,15 @@
 package pipe.actions.zoom;
 
+import java.awt.event.ActionEvent;
+
+import javax.swing.JScrollPane;
+import javax.swing.JViewport;
+
 import pipe.actions.GuiAction;
 import pipe.gui.ApplicationSettings;
 import pipe.gui.PetriNetTab;
 import pipe.gui.ZoomController;
 import pipe.views.PipeApplicationView;
-
-import javax.swing.*;
-import java.awt.event.ActionEvent;
 
 public class ZoomInAction extends GuiAction {
 

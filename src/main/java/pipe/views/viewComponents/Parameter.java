@@ -4,14 +4,17 @@
  */
 package pipe.views.viewComponents;
 
+import java.awt.BasicStroke;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+
 import pipe.gui.Constants;
 import pipe.gui.PetriNetTab;
 import pipe.gui.ZoomController;
 import pipe.handlers.ParameterHandler;
 import pipe.historyActions.HistoryItem;
 import pipe.historyActions.ParameterName;
-
-import java.awt.*;
 
 
 public abstract class Parameter extends Note {

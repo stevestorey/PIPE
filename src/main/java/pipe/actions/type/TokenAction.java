@@ -1,15 +1,13 @@
 package pipe.actions.type;
 
+import java.awt.Point;
+
 import pipe.actions.TypeAction;
 import pipe.controllers.PetriNetController;
 import pipe.controllers.PlaceController;
-import pipe.gui.ApplicationSettings;
 import pipe.models.component.Connectable;
 import pipe.models.component.Place;
 import pipe.models.component.Token;
-import pipe.views.PipeApplicationView;
-
-import java.awt.*;
 
 public abstract class TokenAction extends TypeAction {
 

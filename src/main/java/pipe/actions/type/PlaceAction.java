@@ -1,18 +1,14 @@
 package pipe.actions.type;
 
-import pipe.actions.GuiAction;
+import java.awt.Point;
+
 import pipe.actions.TypeAction;
 import pipe.controllers.PetriNetController;
-import pipe.gui.ApplicationSettings;
 import pipe.gui.Grid;
 import pipe.historyActions.AddPetriNetObject;
 import pipe.models.PetriNet;
-import pipe.models.PipeApplicationModel;
 import pipe.models.component.Connectable;
-import pipe.models.component.PetriNetComponent;
 import pipe.models.component.Place;
-
-import java.awt.*;
 
 /**
  * Creates a new Place, adds it to a petri net and adds a history item

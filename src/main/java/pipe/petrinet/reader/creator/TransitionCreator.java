@@ -1,11 +1,12 @@
 package pipe.petrinet.reader.creator;
 
-import org.w3c.dom.Element;
-import pipe.models.component.Transition;
-import pipe.views.viewComponents.RateParameter;
-
 import java.util.HashMap;
 import java.util.Map;
+
+import org.w3c.dom.Element;
+
+import pipe.models.component.Transition;
+import pipe.views.viewComponents.RateParameter;
 
 public class TransitionCreator implements ComponentCreator<Transition> {
 

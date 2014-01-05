@@ -10,16 +10,6 @@
 
 package pipe.modules.queryeditor.evaluator;
 
-import pipe.common.*;
-import pipe.common.dataLayer.StateGroup;
-import pipe.gui.ApplicationSettings;
-import pipe.modules.interfaces.Cleanable;
-import pipe.modules.queryeditor.QueryManager;
-import pipe.modules.queryeditor.evaluator.gui.ProgressWindow;
-import pipe.modules.queryeditor.gui.performancetrees.PerformanceTreeNode;
-import pipe.server.performancequery.SimpleNode;
-import pipe.views.PetriNetView;
-
 import java.io.IOException;
 import java.io.OptionalDataException;
 import java.io.StreamCorruptedException;
@@ -29,6 +19,21 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.logging.Handler;
 import java.util.logging.Level;
+
+import pipe.common.AnalysisInstruction;
+import pipe.common.AnalysisSettings;
+import pipe.common.AnalysisType;
+import pipe.common.EvaluationStatus;
+import pipe.common.SimplePlaces;
+import pipe.common.SimpleTransitions;
+import pipe.common.dataLayer.StateGroup;
+import pipe.gui.ApplicationSettings;
+import pipe.modules.interfaces.Cleanable;
+import pipe.modules.queryeditor.QueryManager;
+import pipe.modules.queryeditor.evaluator.gui.ProgressWindow;
+import pipe.modules.queryeditor.gui.performancetrees.PerformanceTreeNode;
+import pipe.server.performancequery.SimpleNode;
+import pipe.views.PetriNetView;
 
 public class AnalysisThread implements Runnable, CommunicatorStarter, EvaluatorLoggingHandler, Cleanable
 {

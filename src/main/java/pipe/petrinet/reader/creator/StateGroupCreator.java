@@ -1,10 +1,11 @@
 package pipe.petrinet.reader.creator;
 
+import java.util.StringTokenizer;
+
 import org.w3c.dom.Element;
+
 import pipe.common.dataLayer.StateElement;
 import pipe.common.dataLayer.StateGroup;
-
-import java.util.StringTokenizer;
 
 public class StateGroupCreator implements ComponentCreator<StateGroup> {
     public StateGroup create(Element element) {

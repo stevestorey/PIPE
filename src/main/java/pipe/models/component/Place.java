@@ -1,12 +1,12 @@
 package pipe.models.component;
 
-import pipe.models.visitor.connectable.ConnectableVisitor;
-import pipe.models.visitor.PetriNetComponentVisitor;
-
 import java.awt.geom.Point2D;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
+
+import pipe.models.visitor.PetriNetComponentVisitor;
+import pipe.models.visitor.connectable.ConnectableVisitor;
 
 public class Place extends Connectable<Place> implements Serializable
 {

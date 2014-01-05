@@ -3,6 +3,17 @@
  */
 package pipe.calculations;
 
+import java.io.EOFException;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Stack;
+
 import pipe.exceptions.MarkingNotIntegerException;
 import pipe.exceptions.TimelessTrapException;
 import pipe.gui.ApplicationSettings;
@@ -13,10 +24,11 @@ import pipe.io.ReachabilityGraphFileHeader;
 import pipe.io.StateRecord;
 import pipe.io.TransitionRecord;
 import pipe.utilities.math.Matrix;
-import pipe.views.*;
-
-import java.io.*;
-import java.util.*;
+import pipe.views.ArcView;
+import pipe.views.MarkingView;
+import pipe.views.PetriNetView;
+import pipe.views.PlaceView;
+import pipe.views.TransitionView;
 
 /**
  * @author Nadeem

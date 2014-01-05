@@ -1,5 +1,9 @@
 package pipe.actions;
 
+import java.awt.event.ActionEvent;
+import java.util.LinkedList;
+import java.util.List;
+
 import pipe.controllers.PetriNetController;
 import pipe.controllers.PipeApplicationController;
 import pipe.gui.ApplicationSettings;
@@ -8,10 +12,6 @@ import pipe.views.GroupTransitionView;
 import pipe.views.PetriNetView;
 import pipe.views.PipeApplicationView;
 import pipe.views.TransitionView;
-
-import java.awt.event.ActionEvent;
-import java.util.LinkedList;
-import java.util.List;
 
 /**
  * @author Alex Charalambous, June 2010: Ungroups any transitions that have

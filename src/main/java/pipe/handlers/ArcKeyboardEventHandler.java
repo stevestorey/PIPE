@@ -1,13 +1,13 @@
 package pipe.handlers;
 
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+
 import pipe.controllers.PetriNetController;
 import pipe.gui.ApplicationSettings;
 import pipe.gui.Constants;
 import pipe.gui.PetriNetTab;
 import pipe.views.ArcView;
-
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 
 
 /**

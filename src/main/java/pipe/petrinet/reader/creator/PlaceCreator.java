@@ -1,11 +1,12 @@
 package pipe.petrinet.reader.creator;
 
-import org.w3c.dom.Element;
-import pipe.models.component.Place;
-import pipe.models.component.Token;
-
 import java.util.HashMap;
 import java.util.Map;
+
+import org.w3c.dom.Element;
+
+import pipe.models.component.Place;
+import pipe.models.component.Token;
 
 public class PlaceCreator implements ComponentCreator<Place> {
 

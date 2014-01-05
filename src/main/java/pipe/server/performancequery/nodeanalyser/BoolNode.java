@@ -3,9 +3,9 @@
  */
 package pipe.server.performancequery.nodeanalyser;
 
-import pipe.common.PetriNetNode;
-
 import java.io.Serializable;
+
+import pipe.common.PetriNetNode;
 
 /**
  * @author dazz

@@ -1,10 +1,10 @@
 package pipe.models.component;
 
-import pipe.models.visitor.PetriNetComponentVisitor;
-import pipe.models.visitor.connectable.ConnectableVisitor;
-
 import java.awt.geom.Point2D;
 import java.io.Serializable;
+
+import pipe.models.visitor.PetriNetComponentVisitor;
+import pipe.models.visitor.connectable.ConnectableVisitor;
 
 public class ConditionalPlace extends Connectable<ConditionalPlace> implements Serializable
 {

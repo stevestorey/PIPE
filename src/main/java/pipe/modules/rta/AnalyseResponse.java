@@ -1,12 +1,33 @@
 package pipe.modules.rta;
 
+import java.awt.Component;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.BufferOverflowException;
+import java.nio.MappedByteBuffer;
+import java.nio.channels.FileChannel;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.swing.ImageIcon;
+
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
-import pipe.calculations.*;
+
+import pipe.calculations.DynamicMarkingCompiler;
+import pipe.calculations.LTIMapRed;
+import pipe.calculations.LaplaceTransformInverter;
+import pipe.calculations.LargeStateSpaceGen;
+import pipe.calculations.NewSteadyStateSolver;
 import pipe.exceptions.EnterOptionsException;
 import pipe.exceptions.NotConvergingException;
 import pipe.exceptions.NotValidExpressionException;
@@ -22,21 +43,6 @@ import pipe.io.NewTransitionRecord;
 import pipe.models.interfaces.IDynamicMarking;
 import pipe.views.PetriNetView;
 import pipe.views.PlaceView;
-
-import javax.swing.*;
-import java.awt.*;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.nio.BufferOverflowException;
-import java.nio.MappedByteBuffer;
-import java.nio.channels.FileChannel;
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Class containing main functionality and flow of control of Response Time Analysis pipeline

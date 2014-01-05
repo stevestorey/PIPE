@@ -13,7 +13,7 @@
 
 package pipe.modules.interfaces;
 
-import java.awt.*;
+import java.awt.Color;
 
 public interface QueryConstants
 {

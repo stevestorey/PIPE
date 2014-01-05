@@ -3,7 +3,7 @@
  */
 package pipe.modules.queryeditor.evaluator.gui;
 
-import javax.swing.*;
+import javax.swing.AbstractAction;
 
 /**
  * @author dazz

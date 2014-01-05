@@ -3,9 +3,6 @@ package pipe.views.builder;
 import pipe.controllers.PetriNetController;
 import pipe.models.component.Arc;
 import pipe.views.InhibitorArcView;
-import pipe.views.MarkingView;
-
-import java.util.LinkedList;
 
 public class InhibitorArcViewBuilder {
     private final Arc arc;

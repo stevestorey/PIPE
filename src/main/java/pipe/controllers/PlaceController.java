@@ -1,13 +1,13 @@
 package pipe.controllers;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import pipe.historyActions.HistoryManager;
 import pipe.historyActions.PlaceCapacity;
 import pipe.historyActions.PlaceMarking;
 import pipe.models.component.Place;
 import pipe.models.component.Token;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class PlaceController
         extends AbstractPetriNetComponentController<Place> {

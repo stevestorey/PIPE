@@ -1,13 +1,13 @@
 package pipe.modules.tagged;
 
-import pipe.views.ArcView;
-import pipe.views.PetriNetView;
-import pipe.views.TransitionView;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
+
+import pipe.views.ArcView;
+import pipe.views.PetriNetView;
+import pipe.views.TransitionView;
 
 
 

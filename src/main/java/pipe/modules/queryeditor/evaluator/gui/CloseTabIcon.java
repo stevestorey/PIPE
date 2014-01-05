@@ -3,8 +3,11 @@
  */
 package pipe.modules.queryeditor.evaluator.gui;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Component;
+import java.awt.Graphics;
+import java.awt.Rectangle;
+
+import javax.swing.Icon;
 
 class CloseTabIcon implements Icon
 {

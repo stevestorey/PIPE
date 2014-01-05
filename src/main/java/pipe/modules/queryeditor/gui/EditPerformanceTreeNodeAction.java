@@ -7,6 +7,14 @@
 
 package pipe.modules.queryeditor.gui;
 
+import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.util.HashMap;
+import java.util.regex.Pattern;
+
+import javax.swing.AbstractAction;
+import javax.swing.JOptionPane;
+
 import pipe.gui.ApplicationSettings;
 import pipe.handlers.StringHelper;
 import pipe.modules.queryeditor.QueryManager;
@@ -15,17 +23,19 @@ import pipe.modules.queryeditor.gui.performancetrees.macros.ArgumentNode;
 import pipe.modules.queryeditor.gui.performancetrees.macros.MacroEditor;
 import pipe.modules.queryeditor.gui.performancetrees.macros.MacroManager;
 import pipe.modules.queryeditor.gui.performancetrees.macros.MacroNode;
-import pipe.modules.queryeditor.gui.performancetrees.operationnodes.*;
-import pipe.modules.queryeditor.gui.performancetrees.valuenodes.*;
+import pipe.modules.queryeditor.gui.performancetrees.operationnodes.ArithCompNode;
+import pipe.modules.queryeditor.gui.performancetrees.operationnodes.ArithOpNode;
+import pipe.modules.queryeditor.gui.performancetrees.operationnodes.DisconNode;
+import pipe.modules.queryeditor.gui.performancetrees.operationnodes.MomentNode;
+import pipe.modules.queryeditor.gui.performancetrees.operationnodes.PercentileNode;
+import pipe.modules.queryeditor.gui.performancetrees.valuenodes.ActionsNode;
+import pipe.modules.queryeditor.gui.performancetrees.valuenodes.BoolNode;
+import pipe.modules.queryeditor.gui.performancetrees.valuenodes.NumNode;
+import pipe.modules.queryeditor.gui.performancetrees.valuenodes.StateFunctionNode;
+import pipe.modules.queryeditor.gui.performancetrees.valuenodes.StatesNode;
 import pipe.modules.queryeditor.gui.performancetrees.valuenodes.labels.ActionLabelManager;
 import pipe.modules.queryeditor.gui.performancetrees.valuenodes.labels.StateLabelManager;
 import pipe.views.PlaceView;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.util.HashMap;
-import java.util.regex.Pattern;
 
 class EditPerformanceTreeNodeAction extends AbstractAction
 {

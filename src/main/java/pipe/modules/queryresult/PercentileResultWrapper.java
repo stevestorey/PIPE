@@ -3,13 +3,13 @@
  */
 package pipe.modules.queryresult;
 
-import pipe.common.PetriNetNode;
-import pipe.exceptions.UnexpectedResultException;
-import pipe.server.interfaces.ServerConstants;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
+
+import pipe.common.PetriNetNode;
+import pipe.exceptions.UnexpectedResultException;
+import pipe.server.interfaces.ServerConstants;
 
 /**
  * @author dazz

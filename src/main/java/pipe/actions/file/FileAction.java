@@ -1,8 +1,8 @@
 package pipe.actions.file;
 
-import pipe.actions.GuiAction;
-
 import java.awt.event.ActionEvent;
+
+import pipe.actions.GuiAction;
 
 public abstract class FileAction extends GuiAction
 {

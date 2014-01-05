@@ -1,9 +1,9 @@
 package pipe.actions.file;
 
+import java.awt.event.ActionEvent;
+
 import pipe.controllers.PipeApplicationController;
 import pipe.gui.ApplicationSettings;
-
-import java.awt.event.ActionEvent;
 
 public class CreateAction extends FileAction {
 

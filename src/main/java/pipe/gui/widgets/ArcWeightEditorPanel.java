@@ -1,8 +1,20 @@
 package pipe.gui.widgets;
 
-import net.sourceforge.jeval.EvaluationException;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JRootPane;
+import javax.swing.JTextField;
+import javax.swing.event.CaretListener;
+
 import parser.ExprEvaluator;
-import parser.MarkingDividedByNumberException;
 import pipe.controllers.ArcController;
 import pipe.controllers.PetriNetController;
 import pipe.gui.ApplicationSettings;
@@ -10,13 +22,6 @@ import pipe.models.component.Connectable;
 import pipe.models.component.Token;
 import pipe.models.component.Transition;
 import pipe.views.TokenView;
-
-import javax.swing.*;
-import javax.swing.event.CaretListener;
-import java.awt.*;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
 
 /**
  * @author Alex Charalambous

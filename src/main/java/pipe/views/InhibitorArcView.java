@@ -1,16 +1,16 @@
 package pipe.views;
 
+import java.awt.BasicStroke;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+import java.awt.geom.AffineTransform;
+import java.io.Serializable;
+
 import pipe.controllers.PetriNetController;
 import pipe.gui.Constants;
 import pipe.gui.ZoomController;
 import pipe.models.component.Arc;
-import pipe.utilities.Copier;
-import pipe.views.viewComponents.NameLabel;
-
-import java.awt.*;
-import java.awt.geom.AffineTransform;
-import java.io.Serializable;
-import java.util.LinkedList;
 
 
 /**

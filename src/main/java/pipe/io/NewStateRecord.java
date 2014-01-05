@@ -1,10 +1,10 @@
 package pipe.io;
 
-import pipe.calculations.MarkingState;
-import pipe.calculations.RtaMarking;
-
 import java.io.IOException;
 import java.nio.MappedByteBuffer;
+
+import pipe.calculations.MarkingState;
+import pipe.calculations.RtaMarking;
 
 /**
  * Implementation of the StateRecord class using java.nio.* classes for improved speed

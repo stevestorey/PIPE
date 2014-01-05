@@ -1,10 +1,10 @@
 package pipe.actions;
 
+import java.awt.event.ActionEvent;
+
 import pipe.controllers.PetriNetController;
 import pipe.controllers.PipeApplicationController;
 import pipe.gui.ApplicationSettings;
-
-import java.awt.event.ActionEvent;
 
 public class DeleteAction extends GuiAction
 {

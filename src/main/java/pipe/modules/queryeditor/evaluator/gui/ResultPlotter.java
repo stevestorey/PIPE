@@ -3,15 +3,19 @@
  */
 package pipe.modules.queryeditor.evaluator.gui;
 
+import javax.swing.Box;
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JPanel;
+
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.xy.XYSeries;
+
 import pipe.modules.queryeditor.evaluator.QueryAnalysisException;
 import pipe.modules.queryresult.ResultWrapper;
 import pipe.modules.queryresult.XYCoordinate;
 import pipe.modules.queryresult.XYCoordinates;
-
-import javax.swing.*;
 
 /**
  * @author dazz

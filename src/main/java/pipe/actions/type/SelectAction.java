@@ -1,10 +1,10 @@
 package pipe.actions.type;
 
+import java.awt.Point;
+
 import pipe.actions.TypeAction;
 import pipe.controllers.PetriNetController;
 import pipe.models.component.Connectable;
-
-import java.awt.*;
 
 public class SelectAction extends TypeAction {
     @Override

@@ -11,6 +11,32 @@
 
 package pipe.modules.queryeditor;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.io.File;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Iterator;
+
+import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JEditorPane;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
+import javax.swing.JTabbedPane;
+import javax.swing.JToolBar;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
 import pipe.gui.Grid;
 import pipe.modules.interfaces.IModule;
 import pipe.modules.interfaces.QueryConstants;
@@ -36,19 +62,6 @@ import pipe.modules.queryeditor.gui.performancetrees.valuenodes.BoolNode;
 import pipe.modules.queryeditor.gui.performancetrees.valuenodes.NumNode;
 import pipe.modules.queryeditor.gui.performancetrees.valuenodes.StatesNode;
 import pipe.modules.queryeditor.io.QueryData;
-
-import javax.swing.*;
-import javax.swing.border.EtchedBorder;
-import javax.swing.border.TitledBorder;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-import java.awt.*;
-import java.io.File;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Iterator;
 
 
 public class QueryManager implements IModule, QueryConstants

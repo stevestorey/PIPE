@@ -11,9 +11,9 @@
 
 package pipe.common;
 
-import pipe.server.performancequery.SimpleNode;
-
 import java.util.HashMap;
+
+import pipe.server.performancequery.SimpleNode;
 
 public class SimpleOperationNode extends SimpleNode
 {

@@ -1,6 +1,6 @@
 package pipe.gui;
 
-import java.awt.*;
+import java.awt.Color;
 
 public interface Constants {
    

@@ -4,7 +4,20 @@
  */
 package pipe.views.viewComponents;
 
-import pipe.gui.*;
+import java.awt.BasicStroke;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Point;
+import java.awt.Rectangle;
+import java.awt.RenderingHints;
+import java.awt.event.MouseEvent;
+import java.awt.geom.AffineTransform;
+
+import pipe.gui.ApplicationSettings;
+import pipe.gui.Constants;
+import pipe.gui.Grid;
+import pipe.gui.PetriNetTab;
+import pipe.gui.ZoomController;
 import pipe.gui.widgets.AnnotationPanel;
 import pipe.gui.widgets.EscapableDialog;
 import pipe.handlers.AnnotationNoteHandler;
@@ -12,10 +25,6 @@ import pipe.historyActions.AnnotationText;
 import pipe.models.component.Annotation;
 import pipe.views.PetriNetView;
 import pipe.views.PetriNetViewComponent;
-
-import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.geom.AffineTransform;
 
 
 public class AnnotationNote extends Note {

@@ -3,24 +3,31 @@
  */
 package pipe.server.performancequery;
 
-import org.ggf.drmaa.DrmaaException;
-import org.ggf.drmaa.JobInfo;
-import pipe.common.AnalysisSettings;
-import pipe.exceptions.UnexpectedResultException;
-import pipe.modules.interfaces.QueryConstants;
-import pipe.modules.queryresult.*;
-import pipe.server.interfaces.ServerConstants;
-import pipe.server.performancequery.nodeanalyser.InvalidNodeAnalyserException;
-import pipe.server.performancequery.nodeanalyser.NumNode;
-import pipe.server.performancequery.nodeanalyser.RangeNode;
-import pipe.server.performancequery.structure.OperationSubtree;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
+
+import org.ggf.drmaa.DrmaaException;
+import org.ggf.drmaa.JobInfo;
+
+import pipe.common.AnalysisSettings;
+import pipe.exceptions.UnexpectedResultException;
+import pipe.modules.interfaces.QueryConstants;
+import pipe.modules.queryresult.FilePointsResultWrapper;
+import pipe.modules.queryresult.NodeAnalyserResultWrapper;
+import pipe.modules.queryresult.PercentileResultWrapper;
+import pipe.modules.queryresult.PointsResultWrapper;
+import pipe.modules.queryresult.ProbInIntervalResultWrapper;
+import pipe.modules.queryresult.ResultWrapper;
+import pipe.modules.queryresult.TextFileResultWrapper;
+import pipe.server.interfaces.ServerConstants;
+import pipe.server.performancequery.nodeanalyser.InvalidNodeAnalyserException;
+import pipe.server.performancequery.nodeanalyser.NumNode;
+import pipe.server.performancequery.nodeanalyser.RangeNode;
+import pipe.server.performancequery.structure.OperationSubtree;
 
 /**
  * @author dazz

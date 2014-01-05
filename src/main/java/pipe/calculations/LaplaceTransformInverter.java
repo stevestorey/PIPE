@@ -1,12 +1,12 @@
 package pipe.calculations;
 
-import pipe.exceptions.NotConvergingException;
-import pipe.utilities.math.ComplexNumber;
-
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import pipe.exceptions.NotConvergingException;
+import pipe.utilities.math.ComplexNumber;
 
 
 /**

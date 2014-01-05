@@ -1,9 +1,9 @@
 package pipe.controllers;
 
+import java.util.ArrayList;
+
 import pipe.models.Marking;
 import pipe.views.MarkingView;
-
-import java.util.ArrayList;
 
 public class MarkingController
 {

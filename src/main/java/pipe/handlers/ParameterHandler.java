@@ -3,12 +3,13 @@
  */
 package pipe.handlers;
 
+import java.awt.Container;
+import java.awt.event.MouseEvent;
+
+import javax.swing.JPopupMenu;
+
 import pipe.controllers.PetriNetController;
 import pipe.views.viewComponents.Parameter;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.MouseEvent;
 
 
 public class ParameterHandler 

@@ -3,6 +3,27 @@
  */
 package pipe.modules.queryeditor.evaluator.gui;
 
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.image.RenderedImage;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+
+import javax.imageio.ImageIO;
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.annotations.XYLineAnnotation;
@@ -17,23 +38,16 @@ import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 import org.jfree.ui.TextAnchor;
+
 import pipe.common.LoggingHelper;
 import pipe.handlers.StringHelper;
 import pipe.modules.queryeditor.evaluator.QueryAnalysisException;
-import pipe.modules.queryresult.*;
-
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.image.RenderedImage;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.logging.Level;
+import pipe.modules.queryresult.PercentileResultWrapper;
+import pipe.modules.queryresult.PointsResultWrapper;
+import pipe.modules.queryresult.ProbInIntervalResultWrapper;
+import pipe.modules.queryresult.ResultWrapper;
+import pipe.modules.queryresult.XYCoordinate;
+import pipe.modules.queryresult.XYCoordinates;
 
 /**
  * @author dazz

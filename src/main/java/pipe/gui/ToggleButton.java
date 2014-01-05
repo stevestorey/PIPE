@@ -1,8 +1,10 @@
 package pipe.gui;
 
-import javax.swing.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+
+import javax.swing.Action;
+import javax.swing.JToggleButton;
 
 public class ToggleButton extends JToggleButton implements PropertyChangeListener
 {

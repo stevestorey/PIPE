@@ -1,9 +1,9 @@
 package pipe.models.component;
 
+import java.awt.geom.Point2D;
+
 import pipe.models.visitor.PetriNetComponentVisitor;
 import pipe.models.visitor.connectable.ConnectableVisitor;
-
-import java.awt.geom.Point2D;
 
 /**
  * This is a temporary class, if an arc does not yet have a target

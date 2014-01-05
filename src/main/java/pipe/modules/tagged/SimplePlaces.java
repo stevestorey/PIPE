@@ -1,9 +1,9 @@
 package pipe.modules.tagged;
 
+import java.io.Serializable;
+
 import pipe.views.PetriNetView;
 import pipe.views.PlaceView;
-
-import java.io.Serializable;
 
 
 

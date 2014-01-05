@@ -3,10 +3,10 @@
  */
 package pipe.calculations;
 
+import java.util.LinkedList;
+
 import pipe.exceptions.TreeTooBigException;
 import pipe.views.MarkingView;
-
-import java.util.LinkedList;
 
 
 /**

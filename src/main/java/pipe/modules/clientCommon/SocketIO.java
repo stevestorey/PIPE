@@ -11,16 +11,16 @@
 
 package pipe.modules.clientCommon;
 
-import pipe.common.AnalysisSettings;
-import pipe.common.SimplePlaces;
-import pipe.common.SimpleTransitions;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 //import pipe.modules.queryeditor.QueryManager;
+
+import pipe.common.AnalysisSettings;
+import pipe.common.SimplePlaces;
+import pipe.common.SimpleTransitions;
 
 public class SocketIO
 {

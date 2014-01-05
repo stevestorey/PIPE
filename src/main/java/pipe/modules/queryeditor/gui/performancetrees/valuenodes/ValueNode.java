@@ -9,6 +9,9 @@
 
 package pipe.modules.queryeditor.gui.performancetrees.valuenodes;
 
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
 import pipe.common.PetriNetNode;
 import pipe.modules.queryeditor.QueryManager;
 import pipe.modules.queryeditor.gui.QueryView;
@@ -17,8 +20,6 @@ import pipe.modules.queryeditor.gui.performancetrees.PerformanceTreeNode;
 import pipe.modules.queryeditor.gui.performancetrees.PerformanceTreeObjectLabel;
 import pipe.modules.queryeditor.gui.performancetrees.macros.MacroManager;
 import pipe.modules.queryeditor.gui.performancetrees.macros.MacroView;
-
-import java.awt.*;
 
 public abstract class ValueNode extends PerformanceTreeNode
 {

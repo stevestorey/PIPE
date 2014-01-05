@@ -1,8 +1,8 @@
 package pipe.actions;
 
-import pipe.views.PipeApplicationView;
-
 import java.awt.event.ActionEvent;
+
+import pipe.views.PipeApplicationView;
 
 class ValidateAction extends GuiAction
 {

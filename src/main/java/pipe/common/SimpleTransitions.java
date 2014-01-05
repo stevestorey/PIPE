@@ -1,15 +1,15 @@
 package pipe.common;
 
-import pipe.views.ArcView;
-import pipe.views.MarkingView;
-import pipe.views.PetriNetView;
-import pipe.views.TransitionView;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+
+import pipe.views.ArcView;
+import pipe.views.MarkingView;
+import pipe.views.PetriNetView;
+import pipe.views.TransitionView;
 
 
 public class SimpleTransitions implements Serializable

@@ -1,8 +1,8 @@
 package pipe.actions.edit;
 
-import pipe.actions.GuiAction;
-
 import java.awt.event.ActionEvent;
+
+import pipe.actions.GuiAction;
 
 public class PasteAction extends GuiAction {
 

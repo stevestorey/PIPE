@@ -1,12 +1,14 @@
 package pipe.views.viewComponents;
 
+import java.awt.Color;
+import java.awt.Font;
+
+import javax.swing.JTextArea;
+
 import pipe.gui.Constants;
 import pipe.gui.Translatable;
 import pipe.gui.ZoomController;
 import pipe.gui.Zoomable;
-
-import javax.swing.*;
-import java.awt.*;
 
 public class NameLabel extends JTextArea implements Cloneable, Translatable, Zoomable {
 

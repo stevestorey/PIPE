@@ -1,9 +1,8 @@
 package pipe.actions;
 
-import pipe.gui.ApplicationSettings;
-import pipe.views.PipeApplicationView;
-
 import java.awt.event.ActionEvent;
+
+import pipe.views.PipeApplicationView;
 
 public class ExitAction extends GuiAction {
 

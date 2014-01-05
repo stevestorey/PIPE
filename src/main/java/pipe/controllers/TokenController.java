@@ -1,10 +1,10 @@
 package pipe.controllers;
 
+import java.util.ArrayList;
+
 import pipe.controllers.interfaces.IController;
 import pipe.models.component.Token;
 import pipe.views.TokenView;
-
-import java.util.ArrayList;
 
 public class TokenController implements IController{
     private ArrayList<TokenView> _views;

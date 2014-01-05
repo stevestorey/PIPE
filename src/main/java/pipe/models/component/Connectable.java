@@ -1,10 +1,10 @@
 package pipe.models.component;
 
-import pipe.models.visitor.connectable.ConnectableVisitor;
-
 import java.awt.geom.Point2D;
 import java.util.Collection;
 import java.util.HashSet;
+
+import pipe.models.visitor.connectable.ConnectableVisitor;
 /**
  *
  * @param <S> class that T connects to type

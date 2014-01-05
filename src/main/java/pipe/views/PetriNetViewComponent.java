@@ -1,18 +1,25 @@
 package pipe.views;
 
-import pipe.controllers.PetriNetController;
-import pipe.gui.*;
-import pipe.historyActions.HistoryItem;
-import pipe.models.component.PetriNetComponent;
-import pipe.views.viewComponents.NameLabel;
-
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Container;
+import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseWheelListener;
 import java.io.Serializable;
 import java.util.EventListener;
+
+import javax.swing.JComponent;
+
+import pipe.controllers.PetriNetController;
+import pipe.gui.CopyPasteable;
+import pipe.gui.PetriNetTab;
+import pipe.gui.Translatable;
+import pipe.gui.ZoomController;
+import pipe.gui.Zoomable;
+import pipe.historyActions.HistoryItem;
+import pipe.models.component.PetriNetComponent;
+import pipe.views.viewComponents.NameLabel;
 
 public abstract class PetriNetViewComponent<T extends PetriNetComponent> extends JComponent implements Zoomable, CopyPasteable, Cloneable, Translatable, Serializable {
     static final int COMPONENT_DRAW_OFFSET = 5;

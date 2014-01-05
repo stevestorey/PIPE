@@ -1,5 +1,12 @@
 package pipe.views;
 
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.Point2D;
+import java.io.Serializable;
+import java.util.Iterator;
+import java.util.LinkedList;
+
 import pipe.controllers.PetriNetController;
 import pipe.gui.ApplicationSettings;
 import pipe.gui.Constants;
@@ -8,12 +15,6 @@ import pipe.gui.ZoomController;
 import pipe.models.component.Connectable;
 import pipe.models.interfaces.IObserver;
 import pipe.views.viewComponents.NameLabel;
-
-import java.awt.*;
-import java.awt.geom.Point2D;
-import java.io.Serializable;
-import java.util.Iterator;
-import java.util.LinkedList;
 
 public abstract class ConnectableView<T extends Connectable> extends PetriNetViewComponent<T> implements Cloneable, IObserver, Serializable {
     private ConnectableView _lastCopy = null;

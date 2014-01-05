@@ -10,6 +10,16 @@
 
 package pipe.modules.queryeditor.io;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Observable;
+
+import javax.swing.JOptionPane;
+
 import pipe.common.PetriNetNode;
 import pipe.common.dataLayer.StateGroup;
 import pipe.gui.ApplicationSettings;
@@ -29,10 +39,6 @@ import pipe.modules.queryeditor.gui.performancetrees.valuenodes.ValueNode;
 import pipe.views.PetriNetView;
 import pipe.views.PlaceView;
 import pipe.views.TransitionView;
-
-import javax.swing.*;
-import java.io.File;
-import java.util.*;
 
 public class QueryData extends Observable implements QueryConstants, Cloneable
 {

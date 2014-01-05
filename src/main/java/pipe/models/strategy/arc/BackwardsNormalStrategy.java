@@ -1,7 +1,11 @@
 package pipe.models.strategy.arc;
 
 import pipe.models.PetriNet;
-import pipe.models.component.*;
+import pipe.models.component.Arc;
+import pipe.models.component.ArcType;
+import pipe.models.component.Place;
+import pipe.models.component.Token;
+import pipe.models.component.Transition;
 import pipe.utilities.math.IncidenceMatrix;
 
 /**

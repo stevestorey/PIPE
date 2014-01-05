@@ -1,9 +1,9 @@
 package pipe.common;
 
+import java.io.Serializable;
+
 import pipe.views.PetriNetView;
 import pipe.views.PlaceView;
-
-import java.io.Serializable;
 
 
 public class SimplePlaces implements Serializable

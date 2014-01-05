@@ -1,15 +1,6 @@
 package pipe.calculations;
 
 
-import pipe.io.ImmediateAbortException;
-import pipe.io.NewReachabilityGraphFileHeader;
-import pipe.io.NewStateRecord;
-import pipe.io.NewTransitionRecord;
-import pipe.modules.rta.AnalyseResponse;
-import pipe.views.MarkingView;
-import pipe.views.PetriNetView;
-import pipe.views.TransitionView;
-
 import java.io.EOFException;
 import java.io.File;
 import java.io.IOException;
@@ -20,6 +11,15 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
+
+import pipe.io.ImmediateAbortException;
+import pipe.io.NewReachabilityGraphFileHeader;
+import pipe.io.NewStateRecord;
+import pipe.io.NewTransitionRecord;
+import pipe.modules.rta.AnalyseResponse;
+import pipe.views.MarkingView;
+import pipe.views.PetriNetView;
+import pipe.views.TransitionView;
 
 /**
  * Class that generates a reachability graph of a Petri net. Generates the full graph -

@@ -1,8 +1,6 @@
 package pipe.modules.tagged;
 
 
-import pipe.common.dataLayer.StateGroup;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -11,6 +9,8 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
+
+import pipe.common.dataLayer.StateGroup;
 
 
 /**
