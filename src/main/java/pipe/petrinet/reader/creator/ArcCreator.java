@@ -15,16 +15,16 @@ import pipe.models.strategy.arc.ArcStrategy;
 /**
  * Creates an {@link pipe.models.component.Arc} based on an {@link Element}'s information
  */
-public class ArcCreator implements ComponentCreator<Arc> {
+public class ArcCreator implements ComponentCreator<Arc<?, ?>> {
 
     private Map<String, Place> places = new HashMap<String, Place>();
     private Map<String, Transition> transitions = new HashMap<String, Transition>();
     private Map<String, Token> tokens = new HashMap<String, Token>();
-    private ArcStrategy inhibitorStrategy;
-    private ArcStrategy normalForwardStrategy;
-    private ArcStrategy normalBackwardStrategy;
+    private ArcStrategy<Place, Transition> inhibitorStrategy;
+    private ArcStrategy<Transition, Place> normalForwardStrategy;
+    private ArcStrategy<Place, Transition> normalBackwardStrategy;
 
-    public ArcCreator(ArcStrategy inhibitorStrategy, ArcStrategy normalForwardStrategy, ArcStrategy normalBackwardStrategy) {
+    public ArcCreator(ArcStrategy<Place, Transition> inhibitorStrategy, ArcStrategy<Transition, Place> normalForwardStrategy, ArcStrategy<Place, Transition> normalBackwardStrategy) {
         this.inhibitorStrategy = inhibitorStrategy;
         this.normalForwardStrategy = normalForwardStrategy;
         this.normalBackwardStrategy = normalBackwardStrategy;
@@ -64,7 +64,7 @@ public class ArcCreator implements ComponentCreator<Arc> {
      * @param element PNML XML Arc element
      * @return
      */
-    public Arc create(Element element) {
+    public Arc<?, ?> create(Element element) {
         String id = element.getAttribute("id");
         String sourceId = element.getAttribute("source");
         String targetId = element.getAttribute("target");
@@ -73,7 +73,7 @@ public class ArcCreator implements ComponentCreator<Arc> {
 
         Map<Token, String> tokenWeights = createTokenWeights(weightInput);
 
-        Arc arc;
+        Arc<?, ?> arc;
         if (isInhibitorArc(element)) {
             Place source = places.get(sourceId);
             Transition target = transitions.get(targetId);

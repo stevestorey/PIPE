@@ -8,12 +8,12 @@ import pipe.models.component.Arc;
 import pipe.models.component.Connectable;
 import pipe.models.component.Token;
 
-public class ArcController extends AbstractPetriNetComponentController
+public class ArcController<S extends Connectable<S>, T extends Connectable<T>> extends AbstractPetriNetComponentController<Arc<S, T>>
 {
-    private final Arc arc;
+    private final Arc<S, T> arc;
     private final HistoryManager historyManager;
 
-    ArcController(Arc arc, HistoryManager historyManager) {
+    ArcController(Arc<S, T> arc, HistoryManager historyManager) {
 
         super(arc, historyManager);
         this.arc = arc;
@@ -58,7 +58,7 @@ public class ArcController extends AbstractPetriNetComponentController
         return arc.hasFunctionalWeight();
     }
 
-    public Connectable getTarget() {
+    public T getTarget() {
         return arc.getTarget();
     }
 }

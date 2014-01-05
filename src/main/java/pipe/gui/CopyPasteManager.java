@@ -73,7 +73,7 @@ public class CopyPasteManager
     }
 
 
-    public void doCopy(ArrayList<PetriNetViewComponent> toCopy, PetriNetTab _sourceView) {
+    public void doCopy(ArrayList<PetriNetViewComponent<?>> toCopy, PetriNetTab _sourceView) {
 
         this._sourceView = _sourceView;
         zoom = this._sourceView.getZoom();

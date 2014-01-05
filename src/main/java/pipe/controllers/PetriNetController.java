@@ -147,7 +147,7 @@ public class PetriNetController implements IController, Serializable {
      * @param target
      * @return true if could create an arc, false otherwise
      */
-    public boolean finishCreatingArc(Connectable target) {
+    public boolean finishCreatingArc(Connectable<?> target) {
         if (isApplicableEndPoint(target) && currentlyCreatingArc) {
             arc.setTarget(target);
             historyManager.addNewEdit(new AddPetriNetObject(arc, petriNet));
@@ -164,7 +164,7 @@ public class PetriNetController implements IController, Serializable {
      * @param potentialEnd
      * @return true if arc can end on the connectable
      */
-    public boolean isApplicableEndPoint(Connectable potentialEnd) {
+    public boolean isApplicableEndPoint(Connectable<?> potentialEnd) {
         if (currentlyCreatingArc && potentialEnd.isEndPoint()) {
             return potentialEnd.getClass() != arc.getSource().getClass();
         }
@@ -212,7 +212,7 @@ public class PetriNetController implements IController, Serializable {
     public void translateSelected(Point2D.Double translation) {
         for (PetriNetComponent component : selectedComponents) {
             if (component instanceof Connectable) {
-                Connectable connectable = (Connectable) component;
+                Connectable<?> connectable = (Connectable<?>) component;
                 connectable.setX(connectable.getX() + translation.getX());
                 connectable.setY(connectable.getY() + translation.getY());
             }
@@ -234,7 +234,7 @@ public class PetriNetController implements IController, Serializable {
         for (Transition transition : petriNet.getTransitions()) {
             selectConnectable(transition, selectionRectangle);
         }
-        for (Arc arc : petriNet.getArcs()) {
+        for (Arc<?, ?> arc : petriNet.getArcs()) {
             if (selectedComponents.contains(arc.getSource()) ||
                     selectedComponents.contains(arc.getTarget())) {
                 select(arc);
@@ -250,7 +250,7 @@ public class PetriNetController implements IController, Serializable {
      * @param connectable        object to select
      * @param selectionRectangle
      */
-    private void selectConnectable(Connectable connectable,
+    private void selectConnectable(Connectable<?> connectable,
                                    Rectangle selectionRectangle) {
         int x = new Double(connectable.getX()).intValue();
         int y = new Double(connectable.getY()).intValue();
@@ -336,8 +336,8 @@ public class PetriNetController implements IController, Serializable {
 
 
 
-    public ArcController getArcController(Arc arc) {
-        return new ArcController(arc, historyManager);
+    public <S extends Connectable<S>, T extends Connectable<T>> ArcController<S, T> getArcController(Arc<S, T> arc) {
+        return new ArcController<S, T>(arc, historyManager);
     }
 
     public PlaceController getPlaceController(Place place) {

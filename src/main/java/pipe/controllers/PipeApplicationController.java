@@ -25,7 +25,9 @@ import pipe.historyActions.AnimationHistory;
 import pipe.historyActions.HistoryManager;
 import pipe.models.PetriNet;
 import pipe.models.PipeApplicationModel;
+import pipe.models.component.Place;
 import pipe.models.component.Token;
+import pipe.models.component.Transition;
 import pipe.models.strategy.arc.ArcStrategy;
 import pipe.models.strategy.arc.BackwardsNormalStrategy;
 import pipe.models.strategy.arc.ForwardsNormalStrategy;
@@ -43,6 +45,7 @@ import pipe.petrinet.writer.PetriNetWriter;
 import pipe.utilities.transformers.PNMLTransformer;
 import pipe.utilities.transformers.TNTransformer;
 import pipe.views.PetriNetView;
+import pipe.views.PetriNetViewComponent;
 
 public class PipeApplicationController {
 
@@ -75,9 +78,9 @@ public class PipeApplicationController {
                 //petriNetTab.scrollRectToVisible(new Rectangle(0, 0, 1, 1));
             }
             PetriNet net = new PetriNet();
-            ArcStrategy inhibitorStrategy = new InhibitorStrategy();
-            ArcStrategy normalForwardStrategy = new ForwardsNormalStrategy(net);
-            ArcStrategy normalBackwardStrategy = new BackwardsNormalStrategy(net);
+            ArcStrategy<Place, Transition> inhibitorStrategy = new InhibitorStrategy();
+            ArcStrategy<Transition, Place> normalForwardStrategy = new ForwardsNormalStrategy(net);
+            ArcStrategy<Place, Transition> normalBackwardStrategy = new BackwardsNormalStrategy(net);
 
 
             CreatorStruct struct = new CreatorStruct(new PlaceCreator(), new TransitionCreator(), new ArcCreator(inhibitorStrategy, normalForwardStrategy, normalBackwardStrategy),
@@ -186,7 +189,7 @@ public class PipeApplicationController {
         copyPasteManager.cancelPaste();
     }
 
-    public void copy(ArrayList selection, PetriNetTab appView) {
+    public void copy(ArrayList<PetriNetViewComponent<?>> selection, PetriNetTab appView) {
         copyPasteManager.doCopy(selection, appView);
     }
 
