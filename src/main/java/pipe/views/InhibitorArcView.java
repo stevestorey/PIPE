@@ -11,13 +11,14 @@ import pipe.controllers.PetriNetController;
 import pipe.gui.Constants;
 import pipe.gui.ZoomController;
 import pipe.models.component.Arc;
+import pipe.models.component.Connectable;
 
 
 /**
  * @author Pere Bonet
  * @version 1.0
  */
-public class InhibitorArcView extends ArcView<Arc> implements Serializable {
+public class InhibitorArcView<S extends Connectable<S>, T extends Connectable<T>> extends ArcView<S, T> implements Serializable {
 
     private final static String type = "inhibitor";
     private final static int OVAL_X = -4;

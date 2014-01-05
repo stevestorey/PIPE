@@ -2,26 +2,27 @@ package pipe.views;
 
 import org.junit.Before;
 import org.junit.Test;
+
 import pipe.controllers.PetriNetController;
 import pipe.gui.PetriNetTab;
 import pipe.gui.ZoomController;
+import pipe.models.DummyConnectable;
 import pipe.models.component.Connectable;
 import pipe.views.viewComponents.NameLabel;
-
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class ConnectableViewTest {
 
-    ConnectableView<Connectable> view;
-    Connectable mockModel;
+    ConnectableView<DummyConnectable> view;
+    DummyConnectable mockModel;
 
     private PetriNetController mockController;
 
     @Before
     public void setUp() {
-        mockModel = mock(Connectable.class);
+        mockModel = mock(DummyConnectable.class);
         view = new DummyConnectableView(mockModel);
         mockController = mock(PetriNetController.class);
     }
@@ -47,10 +48,10 @@ public class ConnectableViewTest {
         assertEquals(expectedY, label.getPositionY(), 0.001);
     }
 
-    private class DummyConnectableView extends ConnectableView<Connectable>
+    private class DummyConnectableView extends ConnectableView<DummyConnectable>
     {
 
-        DummyConnectableView(Connectable model) {
+        DummyConnectableView(DummyConnectable model) {
             super("test", "test", 0, 0, model, mockController);
         }
 

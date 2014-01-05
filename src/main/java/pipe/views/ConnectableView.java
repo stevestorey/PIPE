@@ -16,9 +16,9 @@ import pipe.models.component.Connectable;
 import pipe.models.interfaces.IObserver;
 import pipe.views.viewComponents.NameLabel;
 
-public abstract class ConnectableView<T extends Connectable> extends PetriNetViewComponent<T> implements Cloneable, IObserver, Serializable {
-    private ConnectableView _lastCopy = null;
-    private ConnectableView _original = null;
+public abstract class ConnectableView<T extends Connectable<T>> extends PetriNetViewComponent<T> implements Cloneable, IObserver, Serializable {
+    private ConnectableView<T> _lastCopy = null;
+    private ConnectableView<T> _original = null;
     private int _copyNumber = 0;
 
     boolean _attributesVisible = false;

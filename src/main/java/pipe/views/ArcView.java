@@ -20,12 +20,13 @@ import pipe.historyActions.AddArcPathPoint;
 import pipe.historyActions.HistoryItem;
 import pipe.models.PipeObservable;
 import pipe.models.component.Arc;
+import pipe.models.component.Connectable;
 import pipe.models.interfaces.IObserver;
 import pipe.views.viewComponents.ArcPath;
 import pipe.views.viewComponents.ArcPathPoint;
 import pipe.views.viewComponents.NameLabel;
 
-public abstract class ArcView<T extends Arc> extends PetriNetViewComponent<T>
+public abstract class ArcView<S extends Connectable<S>, T extends Connectable<T>> extends PetriNetViewComponent<Arc<S, T>>
         implements Cloneable, IObserver, Serializable, Observer {
 
 
@@ -39,7 +40,7 @@ public abstract class ArcView<T extends Arc> extends PetriNetViewComponent<T>
     final int zoomGrow = 10;
     private boolean _noFunctionalWeights = true;
 
-    ArcView(T model,
+    ArcView(Arc<S, T> model,
             PetriNetController controller) {
         super(model.getId(), model.getId(), 0, 0, model, controller);
 

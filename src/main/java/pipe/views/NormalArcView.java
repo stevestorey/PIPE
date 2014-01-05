@@ -23,11 +23,12 @@ import pipe.historyActions.JoinInverseArc;
 import pipe.historyActions.SetInverseArc;
 import pipe.historyActions.SplitInverseArc;
 import pipe.models.component.Arc;
+import pipe.models.component.Connectable;
 import pipe.models.component.Token;
 import pipe.views.viewComponents.NameLabel;
 
 
-public class NormalArcView extends ArcView<Arc> implements Serializable {
+public class NormalArcView<S extends Connectable<S>, T extends Connectable<T>> extends ArcView<S, T> implements Serializable {
     private final static String type = "normal";
     private final static Polygon head = new Polygon(new int[]{0, 5, 0, -5}, new int[]{0, -10, -7, -10}, 4);
 
