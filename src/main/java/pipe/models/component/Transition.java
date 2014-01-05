@@ -1,19 +1,18 @@
 package pipe.models.component;
 
-import parser.ExprEvaluator;
-import pipe.gui.Constants;
-import pipe.models.PetriNet;
-import pipe.models.visitor.connectable.ConnectableVisitor;
-import pipe.models.visitor.PetriNetComponentVisitor;
-import pipe.views.viewComponents.RateParameter;
-
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Point2D;
 import java.io.Serializable;
 import java.util.Map;
 
+import parser.ExprEvaluator;
+import pipe.gui.Constants;
+import pipe.models.visitor.PetriNetComponentVisitor;
+import pipe.models.visitor.connectable.ConnectableVisitor;
+import pipe.views.viewComponents.RateParameter;
 
-public class Transition extends Connectable<Place, Transition> implements Serializable
+
+public class Transition extends Connectable<Transition> implements Serializable
 {
 
     @Pnml("priority")
@@ -268,7 +267,7 @@ public class Transition extends Connectable<Place, Transition> implements Serial
         int enablingDegree = Integer.MAX_VALUE;
 
 
-        for (Arc arc : inboundArcs()) {
+        for (Arc<?, Transition> arc : inboundArcs()) {
             Place place = (Place) arc.getSource();
             Map<Token, String> arcWeights = arc.getTokenWeights();
             for (Map.Entry<Token, String> entry : arcWeights.entrySet()) {

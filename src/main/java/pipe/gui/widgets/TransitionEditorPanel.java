@@ -614,7 +614,7 @@ public class TransitionEditorPanel extends javax.swing.JPanel {
     }
 
     private boolean checkIfArcsAreFunctional() {
-        for (Arc<Place, Transition> arc : transitionController.inboundArcs()) {
+        for (Arc<?, Transition> arc : transitionController.inboundArcs()) {
             if (arc.hasFunctionalWeight()) {
                 return true;
             }

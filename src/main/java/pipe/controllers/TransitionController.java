@@ -44,7 +44,7 @@ public class TransitionController extends AbstractPetriNetComponentController<Tr
         return component.getPriority();
     }
 
-    public Collection<Arc<Place, Transition>> inboundArcs() {
+    public Collection<Arc<?, Transition>> inboundArcs() {
         return component.inboundArcs();
     }
 

@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Place extends Connectable<Transition, Place> implements Serializable
+public class Place extends Connectable<Place> implements Serializable
 {
 
     /**

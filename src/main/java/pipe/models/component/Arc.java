@@ -8,7 +8,7 @@ import java.awt.geom.Point2D;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Arc<S extends Connectable, T extends Connectable> extends AbstractPetriNetComponent {
+public class Arc<S extends Connectable<S>, T extends Connectable<T>> extends AbstractPetriNetComponent {
 
     @Pnml("source")
     protected S source;

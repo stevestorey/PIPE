@@ -6,7 +6,7 @@ import pipe.utilities.math.IncidenceMatrix;
 /**
  * Arc strategy used to determine arc behaviour
  */
-public interface ArcStrategy<S extends Connectable, T extends Connectable> {
+public interface ArcStrategy<S extends Connectable<S>, T extends Connectable<T>> {
     public boolean canFire(Arc<S, T> arc);
 
     ArcType getType();
