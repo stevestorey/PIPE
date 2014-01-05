@@ -174,9 +174,9 @@ public abstract class PetriNetViewComponent<T extends PetriNetComponent> extends
     }
 
 
-    public PetriNetViewComponent clone() {
+    public PetriNetViewComponent<T> clone() {
         try {
-            PetriNetViewComponent pnCopy = (PetriNetViewComponent) super.clone();
+            PetriNetViewComponent<T> pnCopy = (PetriNetViewComponent<T>) super.clone();
 
             EventListener[] mouseListeners = pnCopy.getListeners(MouseListener.class);
             for (EventListener mouseListener2 : mouseListeners) {

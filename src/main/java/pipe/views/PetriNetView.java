@@ -68,7 +68,7 @@ public class PetriNetView extends Observable implements Cloneable, IObserver, Se
     protected Map<Place, PlaceView> _placeViews = new HashMap<Place, PlaceView>();
     private Map<Transition, TransitionView> _transitionViews = new HashMap<Transition, TransitionView>();
     private Map<Arc<?, ?>, ArcView> _arcViews = new HashMap<Arc<?, ?>, ArcView>();
-    private Map<Arc, InhibitorArcView> _inhibitorViews = new HashMap<Arc, InhibitorArcView>();
+    private Map<Arc, InhibitorArcView<?, ?>> _inhibitorViews = new HashMap<Arc, InhibitorArcView<?, ?>>();
     private Map<Annotation, AnnotationNote> _labels = new HashMap<Annotation, AnnotationNote>();
     private Set<RateParameter> _rateParameters = new HashSet<RateParameter>();
 
@@ -837,7 +837,7 @@ public class PetriNetView extends Observable implements Cloneable, IObserver, Se
     /* (non-Javadoc)
       * @see pipe.models.interfaces.IPetriNet#getInhibitorsArrayList()
       */
-    public Collection<InhibitorArcView> getInhibitorsArrayList() {
+    public Collection<InhibitorArcView<?, ?>> getInhibitorsArrayList() {
         return _inhibitorViews.values();
     }
 

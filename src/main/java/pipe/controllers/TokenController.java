@@ -17,7 +17,7 @@ public class TokenController implements IController{
         if(_views == null)
             _views = new ArrayList<TokenView>();
         _models.add(model);
-        _views.add(new TokenView(this, model));
+        _views.add(new TokenView(model));
     }
 
     public TokenController()

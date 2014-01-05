@@ -26,7 +26,7 @@ public class MarkingView extends JComponent implements Serializable, Observer {
     public MarkingView(MarkingController controller, Marking model) {
         _controller = controller;
         _model = model;
-        _tokenView = new TokenView(_controller.getTokenController(), _model.getToken());
+        _tokenView = new TokenView(_model.getToken());
         _tokenView.addObserver(this);
         _pipeObservable = new PipeObservable(this);
     }

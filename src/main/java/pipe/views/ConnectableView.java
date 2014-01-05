@@ -231,8 +231,8 @@ public abstract class ConnectableView<T extends Connectable<T>> extends PetriNet
         update();
     }
 
-    public PetriNetViewComponent clone() {
-        PetriNetViewComponent pnCopy = super.clone();
+    public PetriNetViewComponent<T> clone() {
+        PetriNetViewComponent<T> pnCopy = super.clone();
         pnCopy.setNameLabel((NameLabel) _nameLabel.clone());
         return pnCopy;
     }

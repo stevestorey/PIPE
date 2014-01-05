@@ -15,7 +15,7 @@ import pipe.gui.Constants;
 import pipe.gui.PetriNetTab;
 import pipe.models.component.ConditionalPlace;
 
-public class ConditionPlaceView extends ConnectableView implements Cloneable, Constants, Serializable {
+public class ConditionPlaceView extends ConnectableView<ConditionalPlace> implements Cloneable, Constants, Serializable {
     private static final long serialVersionUID = 1L;
     public final static String type = "ConditionalPlace";
 
@@ -97,7 +97,7 @@ public class ConditionPlaceView extends ConnectableView implements Cloneable, Co
         return place.contains((int) unZoomedX, (int) unZoomedY);
     }
 
-    public PetriNetViewComponent clone() {
+    public PetriNetViewComponent<ConditionalPlace> clone() {
         return super.clone();
     }
 
@@ -143,11 +143,11 @@ public class ConditionPlaceView extends ConnectableView implements Cloneable, Co
     public void toggleAttributesVisible() {
     }
 
-    public PetriNetViewComponent copy() {
+    public PetriNetViewComponent<ConditionalPlace> copy() {
         return null;
     }
 
-    public PetriNetViewComponent paste(double despX, double despY, boolean notInTheSameView, PetriNetView model) {
+    public PetriNetViewComponent<ConditionalPlace> paste(double despX, double despY, boolean notInTheSameView, PetriNetView model) {
         // TODO Auto-generated method stub
         return null;
     }

@@ -12,7 +12,6 @@ import pipe.controllers.PetriNetController;
 import pipe.gui.ApplicationSettings;
 import pipe.gui.Constants;
 import pipe.gui.PetriNetTab;
-import pipe.gui.ZoomController;
 import pipe.gui.widgets.ArcWeightEditorPanel;
 import pipe.gui.widgets.EscapableDialog;
 import pipe.handlers.ArcHandler;
@@ -73,14 +72,7 @@ public abstract class ArcView<S extends Connectable<S>, T extends Connectable<T>
      */
     protected abstract void arcSpecificAdd();
 
-
-
-
-    private double zoom(double x) {
-        return ZoomController.getZoomedValue(x, _zoomPercentage);
-    }
-
-    ArcView(ConnectableView newSource) {
+    ArcView(ConnectableView<S> newSource) {
         arcPath.addPoint();
         arcPath.addPoint();
         arcPath.createPath();
@@ -92,12 +84,12 @@ public abstract class ArcView<S extends Connectable<S>, T extends Connectable<T>
 
 
     //TODO: DELETE
-    void setSource(ConnectableView sourceInput) {
+    void setSource(ConnectableView<S> sourceInput) {
          throw new RuntimeException("Should be setting models source");
     }
 
     //TODO: DELETE
-    public void setTarget(ConnectableView targetInput) {
+    public void setTarget(ConnectableView<T> targetInput) {
         throw new RuntimeException("Should be setting models target");
     }
 
@@ -124,13 +116,13 @@ public abstract class ArcView<S extends Connectable<S>, T extends Connectable<T>
     }
 
     //TODO: DELETE AND REPOINT METHODS AT THE MODEL VERSION
-    public ConnectableView getSource() {
+    public ConnectableView<S> getSource() {
         return null;
     }
 
 
     //TODO: DELETE AND REPOINT METHODS AT THE MODEL VERSION
-    public ConnectableView getTarget() {
+    public ConnectableView<T> getTarget() {
         return null;
     }
 
@@ -299,7 +291,7 @@ public abstract class ArcView<S extends Connectable<S>, T extends Connectable<T>
     /**
      * Method to clone an Arc object
      */
-    public PetriNetViewComponent clone() {
+    public PetriNetViewComponent<Arc<S, T>> clone() {
         return super.clone();
     }
 
@@ -354,8 +346,8 @@ public abstract class ArcView<S extends Connectable<S>, T extends Connectable<T>
     public void update(Observable observable, Object obj) {
         if ((observable instanceof PipeObservable) && (obj == null)) {
             // if multiple cases are added, consider creating specific subclasses of Observable
-            Object originalObject =
-                    ((PipeObservable) observable).getObservable();
+//            Object originalObject =
+//                    ((PipeObservable) observable).getObservable();
 //            if (originalObject instanceof MarkingView) {
 //                MarkingView viewToDelete = (MarkingView) originalObject;
 //                _weight.remove(viewToDelete);

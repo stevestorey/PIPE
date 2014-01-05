@@ -12,7 +12,6 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.Map;
 
-import pipe.controllers.ArcController;
 import pipe.controllers.PetriNetController;
 import pipe.gui.ApplicationSettings;
 import pipe.gui.Constants;
@@ -36,15 +35,13 @@ public class NormalArcView<S extends Connectable<S>, T extends Connectable<T>> e
     private boolean joined = false;
 
     // Whether or not exists an inverse arc
-    private NormalArcView _inverse = null;
+    private NormalArcView<T, S> _inverse = null;
 
     private Boolean tagged = false;
-    private ArcController _controller;
 
     private final Collection<NameLabel> weightLabel = new LinkedList<NameLabel>();
-    private final java.util.List<MarkingView> _weight = new LinkedList<MarkingView>();
 
-    public NormalArcView(Arc model,
+    public NormalArcView(Arc<S, T> model,
             PetriNetController controller) {
         super(model, controller);
         setTagged(model.isTagged());
@@ -140,11 +137,11 @@ public class NormalArcView<S extends Connectable<S>, T extends Connectable<T>> e
         }
     }
 
-    public NormalArcView(ConnectableView newSource) {
+    public NormalArcView(ConnectableView<S> newSource) {
         super(newSource);
     }
 
-    public NormalArcView(NormalArcView arc) {
+    public NormalArcView(NormalArcView<S, T> arc) {
 
         for (int i = 0; i <= arc.arcPath.getEndIndex(); i++) {
             this.arcPath
@@ -157,14 +154,13 @@ public class NormalArcView<S extends Connectable<S>, T extends Connectable<T>> e
         this.joined = arc.joined;
     }
 
-    public NormalArcView(ArcController arcController, Arc model) {
-        _controller = arcController;
+    public NormalArcView(Arc<S, T> model) {
         this.model = model;
         this.model.registerObserver(this);
     }
 
 
-    public NormalArcView paste(double despX, double despY, boolean toAnotherView, PetriNetView model) {
+    public NormalArcView<S, T> paste(double despX, double despY, boolean toAnotherView, PetriNetView model) {
 //        ConnectableView source = this.getSource().getLastCopy();
 //        ConnectableView target = this.getTarget().getLastCopy();
 //
@@ -217,8 +213,8 @@ public class NormalArcView<S extends Connectable<S>, T extends Connectable<T>> e
         return null;
     }
 
-    public NormalArcView copy() {
-        return new NormalArcView(this);
+    public NormalArcView<S, T> copy() {
+        return new NormalArcView<S, T>(this);
     }
 
     public String getType() {
@@ -269,7 +265,7 @@ public class NormalArcView<S extends Connectable<S>, T extends Connectable<T>> e
     }
 
     public HistoryItem clearInverse() {
-        NormalArcView oldInverse = _inverse;
+        NormalArcView<T, S> oldInverse = _inverse;
 
         _inverse.inView = true;
         inView = true;
@@ -290,11 +286,11 @@ public class NormalArcView<S extends Connectable<S>, T extends Connectable<T>> e
         return _inverse != null;
     }
 
-    public NormalArcView getInverse() {
+    public NormalArcView<T, S> getInverse() {
         return _inverse;
     }
 
-    public HistoryItem setInverse(NormalArcView _inverse, boolean joined) {
+    public HistoryItem setInverse(NormalArcView<T, S> _inverse, boolean joined) {
         this._inverse = _inverse;
         this._inverse._inverse = this;
         updateArc(joined);

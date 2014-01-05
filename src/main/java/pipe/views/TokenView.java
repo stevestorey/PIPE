@@ -7,7 +7,6 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Observable;
 
-import pipe.controllers.TokenController;
 import pipe.exceptions.TokenLockedException;
 import pipe.models.component.Arc;
 import pipe.models.component.Place;
@@ -19,11 +18,9 @@ import pipe.utilities.math.Matrix;
 
 public class TokenView extends Observable implements Serializable, IObserver {
     private Token _model;  // Steve Doubleday was final, but changed for replace(tokenView)
-    private TokenController _controller;
     private Matrix previousIncidenceMatrix;
 
-    public TokenView(TokenController controller, Token model) {
-        _controller = controller;
+    public TokenView(Token model) {
         _model = model;
         _model.registerObserver(this);
     }
@@ -173,12 +170,12 @@ public class TokenView extends Observable implements Serializable, IObserver {
         return otherTokenView.getID().equals(getID());
     }
 
-    public void createIncidenceMatrix(Collection<ArcView> arcsArray, Collection<TransitionView> transitionsArray,
+    public void createIncidenceMatrix(Collection<ArcView<?, ?>> arcsArray, Collection<TransitionView> transitionsArray,
             Collection<PlaceView> placesArray) {
 //        _model.createIncidenceMatrix(arcsArray, transitionsArray, placesArray);
     }
 
-    public void createInhibitionMatrix(Collection<InhibitorArcView> inhibitorsArray,
+    public void createInhibitionMatrix(Collection<InhibitorArcView<?, ?>> inhibitorsArray,
             Collection<TransitionView> transitionsArray, Collection<PlaceView> placesArray) {
 //        _model.createInhibitionMatrix(inhibitorsArray, transitionsArray, placesArray);
     }
@@ -278,7 +275,7 @@ public class TokenView extends Observable implements Serializable, IObserver {
     }
 
     //TODO: DELETE STUB
-    public Matrix getInhibitionMatrix(final Collection<InhibitorArcView> inhibitorsArrayList, final Collection<TransitionView> transitionsArrayList, final Collection<PlaceView> placesArrayList) {
+    public Matrix getInhibitionMatrix(final Collection<InhibitorArcView<?, ?>> inhibitorsArrayList, final Collection<TransitionView> transitionsArrayList, final Collection<PlaceView> placesArrayList) {
         return null;
     }
 

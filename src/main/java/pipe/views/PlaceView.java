@@ -26,7 +26,6 @@ import pipe.gui.PetriNetTab;
 import pipe.gui.ZoomController;
 import pipe.gui.widgets.EscapableDialog;
 import pipe.gui.widgets.PlaceEditorPanel;
-import pipe.handlers.ConnectableHandler;
 import pipe.handlers.LabelHandler;
 import pipe.handlers.PlaceHandler;
 import pipe.historyActions.HistoryItem;
@@ -130,8 +129,6 @@ public class PlaceView extends ConnectableView<Place> implements Serializable, O
      * @return
      */
     public int getTotalMarking() {
-
-        int size = _currentMarkingView.size();
         int totalMarking = 0;
         for (MarkingView a_currentMarkingView : _currentMarkingView) {
             totalMarking += a_currentMarkingView.getCurrentMarking();
@@ -385,16 +382,12 @@ public class PlaceView extends ConnectableView<Place> implements Serializable, O
         return model.getMarkingYOffset();
     }
 
-    private int getDiameter() {
-        return ZoomController.getZoomedValue(model.getWidth(), _zoomPercentage);
-    }
-
     public boolean contains(int x, int y) {
         double unZoomedX = ZoomController.getUnzoomedValue(x - getComponentDrawOffset(), _zoomPercentage);
         double unZoomedY = ZoomController.getUnzoomedValue(y - getComponentDrawOffset(), _zoomPercentage);
 
         //TODO: WORK OUT WHAT THIS DOES
-        ArcView someArcView = null;//ApplicationSettings.getApplicationView().getCurrentTab()._createArcView;
+        /*ArcView someArcView = null;//ApplicationSettings.getApplicationView().getCurrentTab()._createArcView;
         if (someArcView != null) { // Must be drawing a new Arc if non-NULL.
             if ((proximityPlace.contains((int) unZoomedX, (int) unZoomedY) ||
                     place.contains((int) unZoomedX, (int) unZoomedY)) && areNotSameType(someArcView.getSource())) {
@@ -413,9 +406,9 @@ public class PlaceView extends ConnectableView<Place> implements Serializable, O
                 }
                 return false;
             }
-        } else {
+        } else { */
             return place.contains((int) unZoomedX, (int) unZoomedY);
-        }
+        //}
     }
 
     public void toggleAttributesVisible() {

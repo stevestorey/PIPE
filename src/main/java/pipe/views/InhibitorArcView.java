@@ -27,7 +27,7 @@ public class InhibitorArcView<S extends Connectable<S>, T extends Connectable<T>
     private final static int OVAL_HEIGHT = 8;
 
 
-    public InhibitorArcView(Arc model, PetriNetController controller) {
+    public InhibitorArcView(Arc<S, T> model, PetriNetController controller) {
         super(model, controller);
     }
 
@@ -46,7 +46,7 @@ public class InhibitorArcView<S extends Connectable<S>, T extends Connectable<T>
 
     }
 
-    private InhibitorArcView(InhibitorArcView arcView) {
+    private InhibitorArcView(InhibitorArcView<S, T> arcView) {
         for (int i = 0; i <= arcView.arcPath.getEndIndex(); i++) {
             this.arcPath.addPoint(arcView.arcPath.getPoint(i).getX(), arcView.arcPath.getPoint(i).getY(),
                     arcView.arcPath.getPointType(i));
@@ -57,7 +57,7 @@ public class InhibitorArcView<S extends Connectable<S>, T extends Connectable<T>
     }
 
 
-    public InhibitorArcView paste(double despX, double despY, boolean toAnotherView, PetriNetView model) {
+    public InhibitorArcView<S, T> paste(double despX, double despY, boolean toAnotherView, PetriNetView model) {
 //        ConnectableView source = this.getSource().getLastCopy();
 //        ConnectableView target = this.getTarget().getLastCopy();
 //
@@ -106,8 +106,8 @@ public class InhibitorArcView<S extends Connectable<S>, T extends Connectable<T>
     }
 
 
-    public InhibitorArcView copy() {
-        return new InhibitorArcView(this);
+    public InhibitorArcView<S, T> copy() {
+        return new InhibitorArcView<S, T>(this);
     }
 
 
