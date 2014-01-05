@@ -13,7 +13,7 @@ public class PetriNetComponentRemovalVisitor implements PetriNetComponentVisitor
     }
 
     @Override
-    public void visit(Arc arc) {
+    public void visit(Arc<?, ?> arc) {
         net.removeArc(arc);
     }
 
