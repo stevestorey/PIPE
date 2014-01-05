@@ -12,15 +12,12 @@ import pipe.historyActions.AddArcPathPoint;
 import pipe.historyActions.HistoryItem;
 import pipe.models.PipeObservable;
 import pipe.models.component.Arc;
-import pipe.models.component.Token;
 import pipe.models.interfaces.IObserver;
-import pipe.utilities.Copier;
 import pipe.views.viewComponents.ArcPath;
 import pipe.views.viewComponents.ArcPathPoint;
 import pipe.views.viewComponents.NameLabel;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.geom.Point2D;
 import java.io.Serializable;
 import java.util.*;
@@ -28,14 +25,10 @@ import java.util.List;
 
 public abstract class ArcView<T extends Arc> extends PetriNetViewComponent<T>
         implements Cloneable, IObserver, Serializable, Observer {
-    private static final long serialVersionUID = 1L;
-    List<NameLabel> weightLabel = new LinkedList<NameLabel>();
-    List<MarkingView> _weight = new LinkedList<MarkingView>();
 
-    private ConnectableView _source = null;
-    private ConnectableView _target = null;
 
-    final ArcPath myPath = new ArcPath(this);
+
+    final ArcPath arcPath = new ArcPath(this);
 
     // true if arc is not hidden when a bidirectional arc is used
     boolean inView = true;
@@ -44,55 +37,65 @@ public abstract class ArcView<T extends Arc> extends PetriNetViewComponent<T>
     final int zoomGrow = 10;
     private boolean _noFunctionalWeights = true;
 
-    ArcView(double startPositionXInput, double startPositionYInput,
-            double endPositionXInput, double endPositionYInput,
-            ConnectableView sourceInput, ConnectableView targetInput,
-            List<MarkingView> weightInput, String idInput, T model,
+    ArcView(T model,
             PetriNetController controller) {
         super(model.getId(), model.getId(), 0, 0, model, controller);
+
         Point2D.Double startPoint = model.getStartPoint();
-        myPath.addPoint(startPoint.getX(), startPoint.getY(),
+        arcPath.addPoint(startPoint.getX(), startPoint.getY(),
                 ArcPathPoint.STRAIGHT);
 
         Point2D.Double endPoint = model.getEndPoint();
-        myPath.addPoint(endPoint.getX(), endPoint.getY(),
+        arcPath.addPoint(endPoint.getX(), endPoint.getY(),
                 ArcPathPoint.STRAIGHT);
-        myPath.createPath();
+        arcPath.createPath();
 
         updateBounds();
-        _id = idInput;
-        setSource(sourceInput);
-        setTarget(targetInput);
-        setWeight(Copier.mediumCopy(weightInput));
     }
+
+    /**
+     * Perform any updates specific to the arc type
+     * E.g. NormalArc should show weights
+     */
+    protected abstract void arcSpecificUpdate();
+
+
+    /**
+     * Perform any arc specific deletion acitons
+     */
+    protected abstract void arcSpecificDelete();
+
+    /**
+     * Perform any arc specific addition acitons
+     */
+    protected abstract void arcSpecificAdd();
+
+
+
 
     private double zoom(double x) {
         return ZoomController.getZoomedValue(x, _zoomPercentage);
     }
 
-    protected Point2D.Double zoomPoint(Point2D.Double point) {
-        double x = zoom(point.x);
-        double y = zoom(point.y);
-        return new Point2D.Double(x, y);
-    }
-
     ArcView(ConnectableView newSource) {
-        _source = newSource;
-        myPath.addPoint();
-        myPath.addPoint();
-        myPath.createPath();
+        arcPath.addPoint();
+        arcPath.addPoint();
+        arcPath.createPath();
     }
 
     ArcView() {
         super();
     }
 
+
+    //TODO: DELETE
     void setSource(ConnectableView sourceInput) {
-        _source = sourceInput;
+         throw new RuntimeException("Should be setting models source");
     }
 
+    //TODO: DELETE
     public void setTarget(ConnectableView targetInput) {
-        _target = targetInput;
+        throw new RuntimeException("Should be setting models target");
     }
 
     public HistoryItem setWeight(List<MarkingView> weightInput) {
@@ -103,101 +106,61 @@ public abstract class ArcView<T extends Arc> extends PetriNetViewComponent<T>
         return null;
     }
 
-    public void setWeightLabelPosition() {
-        int originalX = (int) (myPath.midPoint.x);
-        int originalY = (int) (myPath.midPoint.y) - 10;
-        int x = originalX;
-        int y = originalY;
-        int yCount = 0;
 
-        for (NameLabel label : weightLabel) {
-            if (yCount >= 4) {
-                y = originalY;
-                x += 17;
-                yCount = 0;
-            }
-            label.setPosition(x + label.getWidth() / 2 - 4, y);
-            y += 10;
-            yCount++;
-        }
-    }
 
     protected void removeLabelFromParentContainer(NameLabel label) {
         getParent().remove(label);
     }
 
     public String getId() {
-        if (_id != null) {
-            return _id;
-        }
-        else {
-            if (_source != null && _target != null) {
-                return _source.getId() + " to " + _target.getId();
-            }
-        }
-        return "";
+        return model.getId();
     }
 
     public String getName() {
         return getId();
     }
 
+    //TODO: DELETE AND REPOINT METHODS AT THE MODEL VERSION
     public ConnectableView getSource() {
-        return _source;
+        return null;
     }
 
+
+    //TODO: DELETE AND REPOINT METHODS AT THE MODEL VERSION
     public ConnectableView getTarget() {
-        return _target;
-    }
-
-    public ConnectableView getTheOtherEndFor(ConnectableView connectableView) {
-        if (_source == connectableView) {
-            return _target;
-        }
-        return _source;
-    }
-
-    public double getStartPositionX() {
-        return myPath.getPoint(0).getX();
-    }
-
-    public double getStartPositionY() {
-        return myPath.getPoint(0).getY();
+        return null;
     }
 
     public int getSimpleWeight() {
         return 1;
     }
 
+    //TODO: DELETE
     public void updateArcPosition() {
         //Pair<Point2D.Double, Point2D.Double> points = getArcStartAndEnd();
-        //        setSourceLocation(points.first.x, points.first.y);
+        //        updatePathSourceLocation(points.first.x, points.first.y);
         //        setTargetLocation(points.second.x, points.second.y);
-        if (_source != null) {
-            _source.updateEndPoint(this);
-        }
-        if (_target != null) {
-            _target.updateEndPoint(this);
-        }
-        myPath.createPath();
+//        if (_source != null) {
+//            _source.updateEndPoint(this);
+//        }
+//        if (_target != null) {
+//            _target.updateEndPoint(this);
+//        }
+//        arcPath.createPath();
     }
 
-    public void setEndPoint(double x, double y, boolean type) {
-        myPath.setPointLocation(myPath.getEndIndex(), x, y);
-        myPath.setPointType(myPath.getEndIndex(), type);
+
+    private void updatePathEndPoint(boolean type) {
+        Point2D.Double endPoint = model.getEndPoint();
+        arcPath.setPointLocation(arcPath.getEndIndex(), endPoint);
+        arcPath.setPointType(arcPath.getEndIndex(), type);
         updateArcPosition();
     }
 
-    public void setTargetLocation(double x, double y) {
-        myPath.setPointLocation(myPath.getEndIndex(), x, y);
-        myPath.createPath();
-        updateBounds();
-        repaint();
-    }
-
-    public void setSourceLocation(double x, double y) {
-        myPath.setPointLocation(0, x, y);
-        myPath.createPath();
+    private void updatePathSourceLocation() {
+        Point2D.Double startPoint = model.getStartPoint();
+        arcPath.setPointLocation(0, startPoint);
+        arcPath.createPath();
         updateBounds();
         repaint();
     }
@@ -206,35 +169,35 @@ public abstract class ArcView<T extends Arc> extends PetriNetViewComponent<T>
      * Updates the bounding box of the arc component based on the arcs bounds
      */
     void updateBounds() {
-        _bounds = myPath.getBounds();
-        _bounds.grow(getComponentDrawOffset() + zoomGrow,
+        bounds = arcPath.getBounds();
+        bounds.grow(getComponentDrawOffset() + zoomGrow,
                 getComponentDrawOffset() + zoomGrow);
-        setBounds(_bounds);
+        setBounds(bounds);
     }
 
     public ArcPath getArcPath() {
-        return myPath;
+        return arcPath;
     }
 
     public boolean contains(int x, int y) {
         Point2D.Double point = new Point2D.Double(
-                x + myPath.getBounds().getX() - getComponentDrawOffset() -
+                x + arcPath.getBounds().getX() - getComponentDrawOffset() -
                         zoomGrow,
-                y + myPath.getBounds().getY() - getComponentDrawOffset() -
+                y + arcPath.getBounds().getY() - getComponentDrawOffset() -
                         zoomGrow);
         if (!ApplicationSettings.getApplicationView().getCurrentTab()
                 .isInAnimationMode()) {
-            if (myPath.proximityContains(point) || isSelected()) {
+            if (arcPath.proximityContains(point) || isSelected()) {
                 // show also if Arc itself selected
-                myPath.showPoints();
+                arcPath.showPoints();
             }
             else {
                 //TODO: HIDEPOINTS
-//                myPath.hidePoints();
+//                arcPath.hidePoints();
             }
         }
 
-        return myPath.contains(point);
+        return arcPath.contains(point);
     }
 
     public void addedToGui() {
@@ -243,10 +206,10 @@ public abstract class ArcView<T extends Arc> extends PetriNetViewComponent<T>
         _markedAsDeleted = false;
 
         if (getParent() instanceof PetriNetTab) {
-            myPath.addPointsToGui((PetriNetTab) getParent());
+            arcPath.addPointsToGui((PetriNetTab) getParent());
         }
         else {
-            myPath.addPointsToGui((JLayeredPane) getParent());
+            arcPath.addPointsToGui((JLayeredPane) getParent());
         }
         updateArcPosition();
         update();
@@ -255,21 +218,20 @@ public abstract class ArcView<T extends Arc> extends PetriNetViewComponent<T>
 
     public void delete() {
         if (!_deleted) {
-            for (NameLabel label : weightLabel) {
-                removeLabelFromParentContainer(label);
-            }
-            myPath.forceHidePoints();
+            arcSpecificDelete();
+
+            arcPath.forceHidePoints();
             super.delete();
             _deleted = true;
         }
     }
 
     public void setPathToTransitionAngle(int angle) {
-        myPath.set_transitionAngle(angle);
+        arcPath.set_transitionAngle(angle);
     }
 
     public HistoryItem split(Point2D.Float mouseposition) {
-        ArcPathPoint newPoint = myPath.splitSegment(mouseposition);
+        ArcPathPoint newPoint = arcPath.splitSegment(mouseposition);
         return new AddArcPathPoint(this, newPoint);
     }
 
@@ -290,21 +252,17 @@ public abstract class ArcView<T extends Arc> extends PetriNetViewComponent<T>
 
     public void removeFromView() {
         if (getParent() != null) {
-            for (NameLabel label : weightLabel) {
-                removeLabelFromParentContainer(label);
-            }
+            arcSpecificDelete();
         }
-        myPath.forceHidePoints();
+        arcPath.forceHidePoints();
         removeFromContainer();
     }
 
     public void addToView(PetriNetTab view) {
         if (getParent() != null) {
-            for (NameLabel label : weightLabel) {
-                getParent().add(label);
-            }
+            arcSpecificUpdate();
         }
-        myPath.showPoints();
+        arcPath.showPoints();
         view.add(this);
     }
 
@@ -319,10 +277,7 @@ public abstract class ArcView<T extends Arc> extends PetriNetViewComponent<T>
     public void zoomUpdate(int percent) {
         _zoomPercentage = percent;
         update();
-        for (NameLabel label : weightLabel) {
-            label.zoomUpdate(percent);
-            label.updateSize();
-        }
+
     }
 
     public void setZoom(int percent) {
@@ -377,90 +332,18 @@ public abstract class ArcView<T extends Arc> extends PetriNetViewComponent<T>
         return false;
     }
 
+    //TODO: DELETE
     public List<MarkingView> getWeightSimple() {
-        return _weight;
+        return null;
     }
 
     public boolean isWeightFunctional() {
         return !_noFunctionalWeights;
     }
 
-    public List<MarkingView> getConstantWeight() {
-        if (_noFunctionalWeights) {
-            return _weight;
-        }
-        for (int i = 0; i < _weight.size(); i++) {
-            _weight.get(i)
-                    .setCurrentMarking(_weight.get(i).getCurrentMarking() + "");
-        }
-        return _weight;
-    }
-
+    //TODO DELETE:
     public List<MarkingView> getWeight() {
-        return _weight;
-    }
-
-    public int getWeightOfTokenClass(String id) {
-        if (_weight != null) {
-            for (MarkingView m : _weight) {
-                if (m.getToken().getID().equals(id)) {
-                    if (m.getCurrentMarking() == -1) {
-                        JOptionPane.showMessageDialog(null,
-                                "Error in weight expression. Please make sure\r\n it is an integer");
-                    }
-                    if (m.getCurrentMarking() == 0) {
-                        return 1;
-                    }
-                    return m.getCurrentMarking();
-                }
-            }
-        }
-
-        return 0;
-    }
-
-    public String getWeightFunctionOfTokenClass(String id) {
-        if (_weight != null) {
-            for (MarkingView m : _weight) {
-                if (m.getToken().getID().equals(id)) {
-                    return m.getCurrentFunctionalMarking();
-                }
-            }
-        }
-        return "";
-    }
-
-    public void setWeightFunctionByID(String id, String func) {
-        if (_weight != null) {
-            for (MarkingView m : _weight) {
-                if (m.getToken().getID().equals(id)) {
-                    m.setCurrentMarking(func);
-                }
-            }
-        }
-        checkIfFunctionalWeightExists();
-    }
-
-    public void checkIfFunctionalWeightExists() {
-        if (_weight != null) {
-            for (MarkingView m : _weight) {
-                try {
-                    Integer.parseInt(m.getCurrentFunctionalMarking());
-                    _noFunctionalWeights = true;
-                } catch (Exception e) {
-                    _noFunctionalWeights = false;
-                    return;
-                }
-
-            }
-        }
-    }
-
-    //TODO determine which lists really need to be updated, and remove the argument.
-    public void addThisAsObserverToWeight(List<MarkingView> weights) {
-        for (MarkingView markingView : weights) {
-            markingView.addObserver(this);
-        }
+        return null;
     }
 
     // Steve Doubleday (Oct 2013): cascading clean up of Marking Views if Token View is disabled
@@ -470,12 +353,10 @@ public abstract class ArcView<T extends Arc> extends PetriNetViewComponent<T>
             // if multiple cases are added, consider creating specific subclasses of Observable
             Object originalObject =
                     ((PipeObservable) observable).getObservable();
-            if (originalObject instanceof MarkingView) {
-                MarkingView viewToDelete = (MarkingView) originalObject;
-                _weight.remove(viewToDelete);
-                HistoryItem historyItem = this.setWeight(_weight);
-                updateHistory(historyItem);
-            }
+//            if (originalObject instanceof MarkingView) {
+//                MarkingView viewToDelete = (MarkingView) originalObject;
+//                _weight.remove(viewToDelete);
+//            }
         }
     }
 
@@ -496,53 +377,18 @@ public abstract class ArcView<T extends Arc> extends PetriNetViewComponent<T>
 
     @Override
     public void update() {
-        Point2D.Double startCoord = zoomPoint(model.getStartPoint());
-        setSourceLocation(startCoord.getX(), startCoord.getY());
-
-        Point2D.Double endCoord = zoomPoint(model.getEndPoint());
+        updatePathSourceLocation();
         //TODO: THIS FALSE IS MEANT TO BE 'SHIFT UP'
-        setEndPoint(endCoord.getX(), endCoord.getY(), false);
-        updateWeights();
+        updatePathEndPoint(false);
+        arcSpecificUpdate();
         updateBounds();
         repaint();
     }
 
-    private void updateWeights() {
 
-        removeCurrentWeights();
-        createWeightLabels();
-        setWeightLabelPosition();
 
-        Container parent = getParent();
-        if (parent != null) {
-            addWeightLabelsToContainer(parent);
-        }
-    }
 
-    private void removeCurrentWeights() {
-        for (NameLabel name : weightLabel) {
-            removeLabelFromParentContainer(name);
-        }
-        weightLabel.clear();
-    }
 
-    private void createWeightLabels() {
-        final Map<Token, String> weights = model.getTokenWeights();
-        for (Map.Entry<Token, String> entry : weights.entrySet()) {
-            Token token = entry.getKey();
-            String weight = entry.getValue();
 
-            NameLabel label = new NameLabel(_zoomPercentage);
-            label.setText(weight);
-            label.setColor(token.getColor());
-            label.updateSize();
-            weightLabel.add(label);
-        }
-    }
 
-    private void addWeightLabelsToContainer(Container container) {
-        for (NameLabel label : weightLabel) {
-            container.add(label);
-        }
-    }
 }

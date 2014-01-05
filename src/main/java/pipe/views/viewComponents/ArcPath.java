@@ -109,7 +109,6 @@ public class ArcPath implements Shape, Cloneable {
         }
 
         shape = stroke.createStrokedShape(this);
-        getArc().setWeightLabelPosition();
         proximityShape = proximityStroke.createStrokedShape(this);
     }
 
@@ -310,9 +309,9 @@ public class ArcPath implements Shape, Cloneable {
     }
 
 
-    public void setPointLocation(int index, double x, double y) {
+    public void setPointLocation(int index, Point2D point) {
         if (index < pathPoints.size() && index >= 0) {
-            pathPoints.get(index).setPointLocation((float) x, (float) y);
+            pathPoints.get(index).setPointLocation((float) point.getX(), (float) point.getY());
         }
     }
 
