@@ -27,10 +27,10 @@ public class Arc<S extends Connectable<S>, T extends Connectable<T>> extends Abs
     @Pnml("inscription")
     protected Map<Token, String> tokenWeights = new HashMap<Token, String>();
 
-    private final ArcStrategy strategy;
+    private final ArcStrategy<S, T> strategy;
 
     public Arc(S source, T target,
-               Map<Token, String> tokenWeights, ArcStrategy strategy) {
+               Map<Token, String> tokenWeights, ArcStrategy<S, T> strategy) {
         this.source = source;
         this.target = target;
         this.tokenWeights = tokenWeights;
