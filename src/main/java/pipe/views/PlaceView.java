@@ -6,7 +6,6 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Insets;
 import java.awt.RenderingHints;
-import java.awt.Shape;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Ellipse2D;
 import java.io.Serializable;
@@ -47,7 +46,7 @@ public class PlaceView extends ConnectableView<Place> implements Serializable, O
     private Integer totalMarking = 0;
 
     private final Ellipse2D.Double place;
-    private final Shape proximityPlace;
+    //private final Shape proximityPlace;
 
     //transferred
     private TokenView _activeTokenView;
@@ -58,8 +57,8 @@ public class PlaceView extends ConnectableView<Place> implements Serializable, O
         //MODEL
         super(new Place("", ""));
         place = new Ellipse2D.Double(0, 0, model.getWidth(), model.getWidth());
-        proximityPlace =
-                (new BasicStroke(Constants.PLACE_TRANSITION_PROXIMITY_RADIUS)).createStrokedShape(place);
+        //proximityPlace =
+        //        (new BasicStroke(Constants.PLACE_TRANSITION_PROXIMITY_RADIUS)).createStrokedShape(place);
     }
 
 
@@ -73,8 +72,8 @@ public class PlaceView extends ConnectableView<Place> implements Serializable, O
         totalMarking = getTotalMarking();
         setId(model.getId());
         place = new Ellipse2D.Double(0, 0, model.getWidth(), model.getWidth());
-        proximityPlace =
-                (new BasicStroke(Constants.PLACE_TRANSITION_PROXIMITY_RADIUS)).createStrokedShape(place);
+        //proximityPlace =
+        //        (new BasicStroke(Constants.PLACE_TRANSITION_PROXIMITY_RADIUS)).createStrokedShape(place);
         updateDisplayTokens();
     }
 

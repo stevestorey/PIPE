@@ -128,7 +128,7 @@ public class PipeApplicationView extends JFrame implements ActionListener, Obser
     private final JTabbedPane frameForPetriNetTabs = new JTabbedPane();
     private final ArrayList<PetriNetTab> petriNetTabs;
 
-    private AnimationHistoryView currentAnimationView;
+    //private AnimationHistoryView currentAnimationView;
     private final PipeApplicationController applicationController;
     private final PipeApplicationModel applicationModel;
 
@@ -409,9 +409,9 @@ public class PipeApplicationView extends JFrame implements ActionListener, Obser
                 ArrayList<JarEntry> nets =
                         JarUtilities.getJarEntries(jarFile, ApplicationSettings.getExamplesDirectoryPath());
 
-                Arrays.sort(nets.toArray(), new Comparator() {
-                    public int compare(Object one, Object two) {
-                        return ((JarEntry) one).getName().compareTo(((JarEntry) two).getName());
+                Arrays.sort(nets.toArray(new JarEntry[0]), new Comparator<JarEntry>() {
+                    public int compare(JarEntry one, JarEntry two) {
+                        return one.getName().compareTo(two.getName());
                     }
                 });
 
@@ -449,9 +449,9 @@ public class PipeApplicationView extends JFrame implements ActionListener, Obser
 
                 File[] nets = examplesDir.listFiles();
 
-                Arrays.sort(nets, new Comparator() {
-                    public int compare(Object one, Object two) {
-                        return ((File) one).getName().compareTo(((File) two).getName());
+                Arrays.sort(nets, new Comparator<File>() {
+                    public int compare(File one, File two) {
+                        return one.getName().compareTo(two.getName());
                     }
                 });
 
@@ -470,14 +470,12 @@ public class PipeApplicationView extends JFrame implements ActionListener, Obser
                     }
 
                 }
-                return exampleMenu;
             }
         } catch (Exception e) {
             System.err.println("Error getting example files:" + e);
             e.printStackTrace();
-        } finally {
-            return exampleMenu;
         }
+        return exampleMenu;
     }
 
     private void buildToolbar() {
