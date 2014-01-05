@@ -10,9 +10,9 @@ import java.util.HashSet;
  * @param <S> class that T connects to type
  * @param <T> current class type
  */
-public abstract class Connectable<S extends Connectable, T extends Connectable> extends AbstractPetriNetComponent {
-    protected final Collection<Arc<S, T>> inboundArcs = new HashSet<Arc<S, T>>();
-    protected final Collection<Arc<T, S>> outboundArcs = new HashSet<Arc<T, S>>();
+public abstract class Connectable<T extends Connectable<T>> extends AbstractPetriNetComponent {
+    protected final Collection<Arc<?, T>> inboundArcs = new HashSet<Arc<?, T>>();
+    protected final Collection<Arc<T, ?>> outboundArcs = new HashSet<Arc<T, ?>>();
 
     /**
      * Connectable position x
@@ -73,19 +73,19 @@ public abstract class Connectable<S extends Connectable, T extends Connectable> 
         notifyObservers();
     }
 
-    public Collection<Arc<T, S>> outboundArcs() {
+    public Collection<Arc<T, ?>> outboundArcs() {
         return outboundArcs;
     }
 
-    public Collection<Arc<S, T>> inboundArcs() {
+    public Collection<Arc<?, T>> inboundArcs() {
         return inboundArcs;
     }
 
-    public void addInbound(Arc<S, T> arc) {
+    public void addInbound(Arc<?, T> arc) {
         inboundArcs.add(arc);
     }
 
-    public void addOutbound(Arc<T, S> arc) {
+    public void addOutbound(Arc<T, ?> arc) {
         outboundArcs.add(arc);
     }
 
@@ -97,11 +97,11 @@ public abstract class Connectable<S extends Connectable, T extends Connectable> 
 //        }
 //    }
 
-    public void removeOutboundArc(Arc arc) {
+    public void removeOutboundArc(Arc<T, ?> arc) {
         outboundArcs.remove(arc);
     }
 
-    public void removeInboundArc(Arc arc) {
+    public void removeInboundArc(Arc<?, T> arc) {
         inboundArcs.remove(arc);
     }
 

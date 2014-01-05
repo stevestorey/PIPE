@@ -66,7 +66,7 @@ public class PetriNetWriter {
             netElement.appendChild(element);
         }
 
-        for (Arc arc : net.getArcs()) {
+        for (Arc<?, ?> arc : net.getArcs()) {
             Element element = creator.createElement(arc, document);
             netElement.appendChild(element);
 

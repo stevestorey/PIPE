@@ -1,8 +1,20 @@
 package pipe.models;
 
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Random;
+import java.util.Set;
+
 import parser.ExprEvaluator;
 import pipe.common.dataLayer.StateGroup;
-import pipe.models.component.*;
+import pipe.models.component.Annotation;
+import pipe.models.component.Arc;
+import pipe.models.component.Connectable;
+import pipe.models.component.PetriNetComponent;
+import pipe.models.component.Place;
+import pipe.models.component.Token;
+import pipe.models.component.Transition;
 import pipe.models.interfaces.IObserver;
 import pipe.models.visitor.PetriNetComponentAddVisitor;
 import pipe.models.visitor.PetriNetComponentRemovalVisitor;
@@ -10,17 +22,14 @@ import pipe.models.visitor.PetriNetComponentVisitor;
 import pipe.utilities.math.IncidenceMatrix;
 import pipe.views.viewComponents.RateParameter;
 
-import java.util.*;
-
 public class PetriNet extends Observable implements IObserver {
     public String _pnmlName = "";
     private boolean _validated = false;
-    private ArrayList _changeArrayList;
 
     private Set<Transition> transitions = new HashSet<Transition>();
     private Set<Place> places = new HashSet<Place>();
     private Set<Token> tokens = new HashSet<Token>();
-    private Set<Arc> arcs = new HashSet<Arc>();
+    private Set<Arc<?, ?>> arcs = new HashSet<Arc<?, ?>>();
     private Set<Annotation> annotations = new HashSet<Annotation>();
     private Set<RateParameter> rates = new HashSet<RateParameter>();
     private Set<StateGroup> stateGroups = new HashSet<StateGroup>();
@@ -61,7 +70,7 @@ public class PetriNet extends Observable implements IObserver {
         notifyObservers();
     }
 
-    public void addArc(Arc arc) {
+    public void addArc(Arc<?, ?> arc) {
         arcs.add(arc);
         arc.registerObserver(this);
         notifyObservers();
@@ -109,7 +118,7 @@ public class PetriNet extends Observable implements IObserver {
         return transitions;
     }
 
-    public Collection<Arc> getArcs() {
+    public Collection<Arc<?, ?>> getArcs() {
         return arcs;
     }
 
@@ -127,7 +136,7 @@ public class PetriNet extends Observable implements IObserver {
         notifyObservers();
     }
 
-    public void removeArc(Arc arc) {
+    public <S extends Connectable<S>, T extends Connectable<T>> void removeArc(Arc<S, T> arc) {
         this.arcs.remove(arc);
         removeArcFromSourceAndTarget(arc);
         notifyObservers();
@@ -136,9 +145,9 @@ public class PetriNet extends Observable implements IObserver {
     /**
      * Removes the arc from the source and target inbound/outbound Collections
      */
-    private void removeArcFromSourceAndTarget(Arc arc) {
-        Connectable source = arc.getSource();
-        Connectable target = arc.getTarget();
+    private <S extends Connectable<S>, T extends Connectable<T>> void removeArcFromSourceAndTarget(Arc<S, T> arc) {
+    	S source = arc.getSource();
+    	T target = arc.getTarget();
         source.removeOutboundArc(arc);
         target.removeInboundArc(arc);
     }
@@ -192,9 +201,9 @@ public class PetriNet extends Observable implements IObserver {
     public IncidenceMatrix getBackwardsIncidenceMatrix(Token token) {
         ExprEvaluator paser = new ExprEvaluator(this);
         IncidenceMatrix backwardsIncidenceMatrix = new IncidenceMatrix();
-        for (Arc arc : arcs) {
-            Connectable target = arc.getTarget();
-            Connectable source = arc.getSource();
+        for (Arc<?, ?> arc : arcs) {
+            Connectable<?> target = arc.getTarget();
+            Connectable<?> source = arc.getSource();
             if (target instanceof Transition) {
                 Transition transition = (Transition) target;
                 if (source instanceof Place) {
@@ -222,9 +231,9 @@ public class PetriNet extends Observable implements IObserver {
     public IncidenceMatrix getForwardsIncidenceMatrix(Token token) {
 
         IncidenceMatrix forwardsIncidenceMatrix = new IncidenceMatrix();
-        for (Arc arc : arcs) {
-            Connectable target = arc.getTarget();
-            Connectable source = arc.getSource();
+        for (Arc<?, ?> arc : arcs) {
+        	Connectable<?> target = arc.getTarget();
+        	Connectable<?> source = arc.getSource();
 
             if (target instanceof Place) {
                 Place place = (Place) target;
