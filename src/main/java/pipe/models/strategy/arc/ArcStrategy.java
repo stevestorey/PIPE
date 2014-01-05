@@ -1,7 +1,8 @@
 package pipe.models.strategy.arc;
 
-import pipe.models.component.*;
-import pipe.utilities.math.IncidenceMatrix;
+import pipe.models.component.Arc;
+import pipe.models.component.ArcType;
+import pipe.models.component.Connectable;
 
 /**
  * Arc strategy used to determine arc behaviour

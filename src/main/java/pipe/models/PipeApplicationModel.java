@@ -1,14 +1,12 @@
 package pipe.models;
 
-import pipe.actions.*;
-import pipe.gui.ApplicationSettings;
-
 import java.io.Serializable;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
+import pipe.actions.TypeAction;
+import pipe.actions.ZoomAction;
+import pipe.gui.ApplicationSettings;
 
 public class PipeApplicationModel implements Serializable {
 
