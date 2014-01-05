@@ -36,7 +36,7 @@ import java.util.*;
 public class PetriNetView extends Observable implements Cloneable, IObserver, Serializable, Observer {
     protected Map<Place, PlaceView> _placeViews = new HashMap<Place, PlaceView>();
     private Map<Transition, TransitionView> _transitionViews = new HashMap<Transition, TransitionView>();
-    private Map<Arc, ArcView> _arcViews = new HashMap<Arc, ArcView>();
+    private Map<Arc<?, ?>, ArcView> _arcViews = new HashMap<Arc<?, ?>, ArcView>();
     private Map<Arc, InhibitorArcView> _inhibitorViews = new HashMap<Arc, InhibitorArcView>();
     private Map<Annotation, AnnotationNote> _labels = new HashMap<Annotation, AnnotationNote>();
     private Set<RateParameter> _rateParameters = new HashSet<RateParameter>();
@@ -920,8 +920,8 @@ public class PetriNetView extends Observable implements Cloneable, IObserver, Se
         }
     }
 
-    private void displayArcs(Collection<Arc> arcs) {
-        for (Arc arc : arcs) {
+    private void displayArcs(Collection<Arc<?, ?>> arcs) {
+        for (Arc<?, ?> arc : arcs) {
             ArcView view;
             if (_arcViews.containsKey(arc)) {
                 view = _arcViews.get(arc);

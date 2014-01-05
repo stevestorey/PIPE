@@ -266,12 +266,12 @@ public class TokenView extends Observable implements Serializable, IObserver {
     }
 
     //TODO: DELETE STUB
-    public int[][] getBackwardsIncidenceMatrix(final Collection<Arc> arcs, final Collection<Transition> transitions, final Collection<Place> places) {
+    public int[][] getBackwardsIncidenceMatrix(final Collection<Arc<?, ?>> arcs, final Collection<Transition> transitions, final Collection<Place> places) {
         return new int[0][];  //To change body of created methods use File | Settings | File Templates.
     }
 
     //TODO: DELETE STUB
-    public int[][] getForwardsIncidenceMatrix(final Collection<Arc> arcs, final Collection<Transition> transitions, final Collection<Place> places) {
+    public int[][] getForwardsIncidenceMatrix(final Collection<Arc<?, ?>> arcs, final Collection<Transition> transitions, final Collection<Place> places) {
         return new int[0][];  //To change body of created methods use File | Settings | File Templates.
     }
 
@@ -281,7 +281,7 @@ public class TokenView extends Observable implements Serializable, IObserver {
     }
 
     //TODO: DELETE STUB
-    public int[][] getIncidenceMatrix(final Collection<Arc> arcs, final Collection<Transition> transitions, final Collection<Place> places) {
+    public int[][] getIncidenceMatrix(final Collection<Arc<?, ?>> arcs, final Collection<Transition> transitions, final Collection<Place> places) {
         return new int[0][];  //To change body of created methods use File | Settings | File Templates.
     }
 }

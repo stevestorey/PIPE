@@ -20,7 +20,7 @@ public class PetriNet extends Observable implements IObserver {
     private Set<Transition> transitions = new HashSet<Transition>();
     private Set<Place> places = new HashSet<Place>();
     private Set<Token> tokens = new HashSet<Token>();
-    private Set<Arc> arcs = new HashSet<Arc>();
+    private Set<Arc<?, ?>> arcs = new HashSet<Arc<?, ?>>();
     private Set<Annotation> annotations = new HashSet<Annotation>();
     private Set<RateParameter> rates = new HashSet<RateParameter>();
     private Set<StateGroup> stateGroups = new HashSet<StateGroup>();
@@ -109,7 +109,7 @@ public class PetriNet extends Observable implements IObserver {
         return transitions;
     }
 
-    public Collection<Arc> getArcs() {
+    public Collection<Arc<?, ?>> getArcs() {
         return arcs;
     }
 
@@ -127,7 +127,7 @@ public class PetriNet extends Observable implements IObserver {
         notifyObservers();
     }
 
-    public void removeArc(Arc arc) {
+    public <S extends Connectable<S>, T extends Connectable<T>> void removeArc(Arc<S, T> arc) {
         this.arcs.remove(arc);
         removeArcFromSourceAndTarget(arc);
         notifyObservers();
@@ -136,9 +136,9 @@ public class PetriNet extends Observable implements IObserver {
     /**
      * Removes the arc from the source and target inbound/outbound Collections
      */
-    private void removeArcFromSourceAndTarget(Arc arc) {
-        Connectable source = arc.getSource();
-        Connectable target = arc.getTarget();
+    private <S extends Connectable<S>, T extends Connectable<T>> void removeArcFromSourceAndTarget(Arc<S, T> arc) {
+        S source = arc.getSource();
+        T target = arc.getTarget();
         source.removeOutboundArc(arc);
         target.removeInboundArc(arc);
     }
